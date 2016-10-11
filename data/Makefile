@@ -1,7 +1,10 @@
-all: run less
+all: market q-table
 
-run:
-	perl fix-yahoo.pl out.csv data-in/gdp.csv data-in/manufacture-orders.csv data-in/manufacture-durable.csv break data-in/spy.csv data-in/gld.csv data-in/slv.csv
+market:
+	perl build-market-input.pl market.csv data-in/gdp.csv data-in/manufacture-orders.csv data-in/manufacture-durable.csv break data-in/spy.csv data-in/gld.csv data-in/slv.csv
+
+q-table:
+	perl build-q-table.pl q-out.csv market.csv
 
 less:
-	less out.csv
+	less market.csv

@@ -79,7 +79,7 @@ for my $file (@ARGV) {
                 $data{$dt->epoch} = $data{$dt->epoch} . ",$6,$5,$7";
             }
         } else {
-            $header = $header . "$file LOW, $file HIGH, $file ClOSE,";
+            $header = $header . "$file LOW, $file HIGH, $file CLOSE,";
         }
     }
 }
