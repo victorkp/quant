@@ -31,8 +31,9 @@ for(my $i = 0; $i < scalar(@header); $i++) {
 
 my $profit_until_end = 0;
 
-my @dates;     # All date times stored for later use
-my @q_profits; # Possible reward from a time until end of samples
+my @dates;       # All date times stored for later use
+my @q_profits;   # Possible reward from a time until end of samples
+my @transaction; # Transaction that made profit possible
 
 my @last_prices;
 
@@ -50,14 +51,19 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
         # Find best investment for time period until @last_prices
         my $biggest_profit = 0; # Worst case is we have no market stake at all
         my $best_security = "";
+        my $best_transaction = "";
         for(my $j = 0; $j < scalar(@prices); $j++) {
-            if($last_prices[$j] - $prices[$j] > $biggest_profit) {
-                $biggest_profit = $last_prices[$j] - $prices[$j];
+            # Profit in terms of percent gain/loss
+            my $profit = ($last_prices[$j] - $prices[$j]) / (1.0 * $prices[$j]);
+            if($profit > $biggest_profit) {
+                $biggest_profit = $profit;
                 $best_security = $header[$close_columns[$j]];
+                $best_transaction = "$best_security  $profit";
             }
         }
         $profit_until_end += $biggest_profit;
         push(@q_profits, $profit_until_end);
+        push(@transaction, $best_transaction);
         # printf("Time: $date, Profit: %.2f, Security: $best_security, Cumulative: %.2f\n", $biggest_profit, $profit_until_end);
     }
 
@@ -66,7 +72,7 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
 
 # Write out Q Table
 for(my $i = scalar(@dates) - 2; $i >= 0; $i--) {
-    print OUT "$dates[$i],$q_profits[$i]\n";
+    print OUT "$dates[$i],$q_profits[$i],$transaction[$i]\n";
 }
 
 close OUT;
