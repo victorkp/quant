@@ -5,6 +5,7 @@ use warnings;
 use Data::Dumper;
 use DateTime;
 use File::Slurp;
+use POSIX qw( strftime );
 
 ## Goal: at any point in time, give maximum possible future reward
 # Input: <output Q table file> <output from build-market-input.pl> 
@@ -30,10 +31,12 @@ for(my $i = 0; $i < scalar(@header); $i++) {
 }
 
 my $profit_until_end = 0;
+my $sub_profit_until_end = 0;
 
-my @dates;       # All date times stored for later use
-my @q_profits;   # Possible reward from a time until end of samples
-my @transaction; # Transaction that made profit possible
+my @dates;           # All date times stored for later use
+my @q_profits;       # Possible reward from a time until end of samples
+my @q_sub_profits;   # Sub-reward from a time until end of samples
+my @transaction;     # Transaction that made profit possible
 
 my @last_prices;
 
@@ -60,9 +63,14 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
                 $best_security = $header[$close_columns[$j]];
                 $best_transaction = "$best_security  $profit";
             }
+            $sub_profit_until_end += 0.7 * $profit / scalar(@prices);
         }
         $profit_until_end += $biggest_profit;
+
+        $sub_profit_until_end += 0.3 * $biggest_profit;
+
         push(@q_profits, $profit_until_end);
+        push(@q_sub_profits, $sub_profit_until_end);
         push(@transaction, $best_transaction);
         # printf("Time: $date, Profit: %.2f, Security: $best_security, Cumulative: %.2f\n", $biggest_profit, $profit_until_end);
     }
@@ -72,7 +80,8 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
 
 # Write out Q Table
 for(my $i = scalar(@dates) - 2; $i >= 0; $i--) {
-    print OUT "$dates[$i],$q_profits[$i],$transaction[$i]\n";
+    my $formatted_date = strftime("%Y-%m-%d", localtime($dates[$i]));
+    print OUT "$dates[$i],$formatted_date,$q_profits[$i],$q_sub_profits[$i],$transaction[$i]\n";
 }
 
 close OUT;
