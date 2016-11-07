@@ -47,7 +47,6 @@ while($ARGV[0] ne "break") {
 
             if($highest < $price) {
                 $highest = $price;
-                print "Highest is now $highest\n";
             }
 
             my $percent_of_highest = $price / $highest;
@@ -123,6 +122,11 @@ for my $file (@ARGV) {
             my $rsi_3_day  = ($average_loss_3_day == 0) ? (100) : (100 - 100.0/(1 + $average_gain_3_day/$average_loss_3_day));
             my $rsi_10_day  = ($average_loss_10_day == 0) ? (100) : (100 - 100.0/(1 + $average_gain_10_day/$average_loss_10_day));
             my $rsi_14_day  = ($average_loss_14_day == 0) ? (100) : (100 - 100.0/(1 + $average_gain_14_day/$average_loss_14_day));
+
+            # Using RSI in range -1.0 to 1.0, instead of range 0 to 100, just for some normalization of the data
+            $rsi_3_day  = ($rsi_3_day  - 50) / 100;
+            $rsi_10_day = ($rsi_10_day - 50) / 100;
+            $rsi_14_day = ($rsi_14_day - 50) / 100;
 
             if($sample_count == 0) {
                 # Init averages to first price

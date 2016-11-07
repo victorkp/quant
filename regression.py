@@ -127,7 +127,10 @@ def input_fn(start, end):
     return columns, tf.constant(labels)
 
 
-for train_steps in range(1000, 100000, 10000):
+meta_results = []
+
+multiplier = 10000
+for train_steps in range(multiplier, 100 * multiplier, multiplier):
     print
     print
     print "Training Steps: %d" % (train_steps)
@@ -137,9 +140,20 @@ for train_steps in range(1000, 100000, 10000):
 
     results = m.evaluate(input_fn=lambda: input_fn(2, 1600), steps=1)
     print "Train Loss: %s, averaged to %s" % (results["loss"], results["loss"] / 1598.0)
+    train_loss = results["loss"]
 
     results = m.evaluate(input_fn=lambda: input_fn(1600, 2206), steps=1)
     print "Test Loss: %s, averaged to %s" % (results["loss"], results["loss"] / 606.0)
+    test_loss = results["loss"]
+
+    meta_results.append((train_steps, train_loss, test_loss))
+
+print
+print
+
+meta_results.sort(key = lambda x: x[2])
+for result in meta_results:
+    print "%d\t%s\t%s" % (result[0], result[1], result[2])
 
 #for key in sorted(results):
 #    print("%s: %s" % (key, results[key]))
