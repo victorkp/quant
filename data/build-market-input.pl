@@ -25,6 +25,7 @@ while($ARGV[0] ne "break") {
     $header = $header . "$ARGV[0] % of high, $ARGV[0] chg pct,";
 
     my @stats;
+    my $last = -1;
     my $highest = -1;
     while(<IN>) {
         chomp();
@@ -46,16 +47,19 @@ while($ARGV[0] ne "break") {
 
             if($highest < $price) {
                 $highest = $price;
+                print "Highest is now $highest\n";
             }
 
-            push @datapoint, ($price / $highest); # push relative price/data to high
+            my $percent_of_highest = $price / $highest;
+            push @datapoint, $percent_of_highest; # push relative price/data to high
 
-            if(scalar(@stats)) {
-                my $last = $stats[-1][1];
-                push @datapoint, ((1.0 * $price - $last) / $last);
-            } else {
+            if($last == -1) {
                 push @datapoint, 0;
+            } else {
+                push @datapoint, ((1.0 * $price - $last) / $last);
             }
+
+            $last = $price;
 
             push @stats, \@datapoint;
         }
@@ -136,8 +140,6 @@ for my $file (@ARGV) {
 
             # Add data if there's enough samples to have all averages initialized
             if($sample_count > 80) {
-                print "$price \t $average_10_day \t $average_20_day \t $average_40_day \t $average_80_day\n";
-
                 my $change_10_day = (($price - $average_10_day) / $average_10_day);
                 my $change_20_day = (($price - $average_20_day) / $average_20_day);
                 my $change_40_day = (($price - $average_40_day) / $average_40_day);
