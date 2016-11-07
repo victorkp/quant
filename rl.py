@@ -19,7 +19,7 @@ H = 20 # number of hidden layer neurons
 batch_size = 5 # every how many episodes to do a param update?
 # batch_size = 50 # every how many episodes to do a param update?
 learning_rate = 1e-2 # feel free to play with this to train faster or more stably.
-gamma = 0.99 # discount factor for reward
+gamma = 1 # discount factor for reward
 
 D = 15 # input dimensionality
 
@@ -68,7 +68,7 @@ def discount_rewards(r):
     discounted_r = np.zeros_like(r)
     running_add = 0
     for t in reversed(xrange(0, r.size)):
-        # running_add = running_add * gamma + r[t]
+        running_add = running_add * gamma + r[t]
         discounted_r[t] = running_add
         discounted_r[t] = r[t]
     return discounted_r
