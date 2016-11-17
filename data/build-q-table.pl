@@ -24,8 +24,9 @@ my @close_columns;
 # First line is header, find what columns are CLOSED prices
 my @header = split(/,/, $data_points[0]);
 for(my $i = 0; $i < scalar(@header); $i++) {
-    if($header[$i] =~ /CLOSE/) {
-        # print "Closing Price Header Column: \"$header[$i]\"\n";
+    print $header[$i], "\n";
+    if($header[$i] =~ /change/ && $header[$i] =~ /spy|slv|gld|uso/) {
+        print "Closing Price Header Column: \"$header[$i]\"\n";
         push(@close_columns, $i);
     }
 }
@@ -38,8 +39,6 @@ my @q_profits;       # Possible reward from a time until end of samples
 my @q_sub_profits;   # Sub-reward from a time until end of samples
 my @transaction;     # Transaction that made profit possible
 
-my @last_prices;
-
 # Start at last datapoint and work backwards
 for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
     my @data_point = split(/,/, $data_points[$i]);
@@ -50,32 +49,27 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
         push(@prices, $data_point[$column]);
     }
 
-    if(scalar(@last_prices) != 0) {
-        # Find best investment for time period until @last_prices
-        my $biggest_profit = 0; # Worst case is we have no market stake at all
-        my $best_security = "";
-        my $best_transaction = "";
-        for(my $j = 0; $j < scalar(@prices); $j++) {
-            # Profit in terms of percent gain/loss
-            my $profit = ($last_prices[$j] - $prices[$j]) / (1.0 * $prices[$j]);
-            if($profit > $biggest_profit) {
-                $biggest_profit = $profit;
-                $best_security = $header[$close_columns[$j]];
-                $best_transaction = "$best_security  $profit";
-            }
-            $sub_profit_until_end += 0.7 * $profit / scalar(@prices);
+    my $biggest_profit = 0; # Worst case is we have no market stake at all
+    my $best_security = "";
+    my $best_transaction = "";
+    for(my $j = 0; $j < scalar(@prices); $j++) {
+        # Profit in terms of percent gain/loss
+        my $profit = $prices[$j];
+        if($profit > $biggest_profit) {
+            $biggest_profit = $profit;
+            $best_security = $header[$close_columns[$j]];
+            $best_transaction = "$best_security  $profit";
         }
-        $profit_until_end += $biggest_profit;
-
-        $sub_profit_until_end += 0.3 * $biggest_profit;
-
-        push(@q_profits, $profit_until_end);
-        push(@q_sub_profits, $sub_profit_until_end);
-        push(@transaction, $best_transaction);
-        # printf("Time: $date, Profit: %.2f, Security: $best_security, Cumulative: %.2f\n", $biggest_profit, $profit_until_end);
+        $sub_profit_until_end += 0.7 * $profit / scalar(@prices);
     }
+    $profit_until_end += $biggest_profit;
 
-    @last_prices = @prices;
+    $sub_profit_until_end += 0.3 * $biggest_profit;
+
+    push(@q_profits, $profit_until_end);
+    push(@q_sub_profits, $sub_profit_until_end);
+    push(@transaction, $best_transaction);
+    # printf("Time: $date, Profit: %.2f, Security: $best_security, Cumulative: %.2f\n", $biggest_profit, $profit_until_end);
 }
 
 # Write out Q Table
