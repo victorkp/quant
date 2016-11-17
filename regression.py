@@ -23,14 +23,22 @@ def build_estimator():
     spy_average_40 = tf.contrib.layers.real_valued_column("spy_average_40")
     spy_average_80 = tf.contrib.layers.real_valued_column("spy_average_80")
 
+    slv_change = tf.contrib.layers.real_valued_column("slv_change")
+    slv_rsi_3  = tf.contrib.layers.real_valued_column("slv_rsi_3")
+    slv_rsi_10 = tf.contrib.layers.real_valued_column("slv_rsi_10")
+    slv_rsi_14 = tf.contrib.layers.real_valued_column("slv_rsi_14")
+    slv_average_10 = tf.contrib.layers.real_valued_column("slv_average_10")
+    slv_average_20 = tf.contrib.layers.real_valued_column("slv_average_20")
+    slv_average_40 = tf.contrib.layers.real_valued_column("slv_average_40")
+    slv_average_80 = tf.contrib.layers.real_valued_column("slv_average_80")
+
     columns = [gdp_high, gdp_change,
                manufacturer_high, manufacturer_change,
                manufacturer_durable_high, manufacturer_durable_change,
-               spy_change,
-               spy_rsi_3, spy_rsi_10, spy_rsi_14,
-               spy_average_10, spy_average_20, spy_average_40, spy_average_80];
+               spy_change, spy_rsi_3, spy_rsi_10, spy_rsi_14, spy_average_10, spy_average_20, spy_average_40, spy_average_80,
+               slv_change, slv_rsi_3, slv_rsi_10, slv_rsi_14, slv_average_10, slv_average_20, slv_average_40, slv_average_80];
 
-    m = tf.contrib.learn.LinearRegressor(model_dir="model",
+    m = tf.contrib.learn.LinearRegressor(#model_dir="model",
                                          feature_columns=columns,
                                          enable_centered_bias=True,
                                          optimizer=tf.train.FtrlOptimizer(
@@ -55,7 +63,6 @@ def input_fn(start, end):
     manufacturer_durable_change = []
 
     spy_change = []
-
     spy_rsi_3  = []
     spy_rsi_10 = []
     spy_rsi_14 = []
@@ -63,6 +70,15 @@ def input_fn(start, end):
     spy_average_20 = []
     spy_average_40 = []
     spy_average_80 = []
+
+    slv_change = []
+    slv_rsi_3  = []
+    slv_rsi_10 = []
+    slv_rsi_14 = []
+    slv_average_10 = []
+    slv_average_20 = []
+    slv_average_40 = []
+    slv_average_80 = []
 
     labels = []
 
@@ -77,26 +93,26 @@ def input_fn(start, end):
         manufacturer_durable_change.append(float(input_data[index][6]))
 
         spy_change.append(float(input_data[index][7]))
-        #spy_change.append(0)
-
         spy_rsi_3.append(float(input_data[index][8]))
         spy_rsi_10.append(float(input_data[index][9]))
-        spy_rsi_14.append(float(input_data[index][9]))
-        #spy_rsi_3.append(0)
-        #spy_rsi_10.append(0)
-        #spy_rsi_14.append(0)
+        spy_rsi_14.append(float(input_data[index][10]))
+        spy_average_10.append(float(input_data[index][11])) 
+        spy_average_20.append(float(input_data[index][12])) 
+        spy_average_40.append(float(input_data[index][13])) 
+        spy_average_80.append(float(input_data[index][14])) 
 
-        spy_average_10.append(float(input_data[index][10])) 
-        spy_average_20.append(float(input_data[index][11])) 
-        spy_average_40.append(float(input_data[index][12])) 
-        spy_average_80.append(float(input_data[index][13])) 
-        #spy_average_10.append(0) 
-        #spy_average_20.append(0) 
-        #spy_average_40.append(0) 
-        #spy_average_80.append(0) 
+        slv_change.append(float(input_data[index][14]))
+        slv_rsi_3.append(float(input_data[index][15]))
+        slv_rsi_10.append(float(input_data[index][16]))
+        slv_rsi_14.append(float(input_data[index][17]))
+        slv_average_10.append(float(input_data[index][18])) 
+        slv_average_20.append(float(input_data[index][19])) 
+        slv_average_40.append(float(input_data[index][20])) 
+        slv_average_80.append(float(input_data[index][21])) 
 
         labels.append(float(input_data[index+1][7]))
 
+        ### For Classification instead of regression
         # if(float(input_data[index+1][7]) >= 0):
         #     labels.append(1)
         # else:
@@ -113,15 +129,22 @@ def input_fn(start, end):
                 "manufacture_durable_orders_change" : tf.constant(manufacturer_durable_change),
 
                 "spy_change" : tf.constant(spy_change),
-
                 "spy_rsi_3" : tf.constant(spy_rsi_3),
                 "spy_rsi_10" : tf.constant(spy_rsi_10),
                 "spy_rsi_14" : tf.constant(spy_rsi_14),
-
                 "spy_average_10" : tf.constant(spy_average_10),
                 "spy_average_20" : tf.constant(spy_average_20),
                 "spy_average_40" : tf.constant(spy_average_40),
-                "spy_average_80" : tf.constant(spy_average_80)
+                "spy_average_80" : tf.constant(spy_average_80),
+
+                "slv_change" : tf.constant(slv_change),
+                "slv_rsi_3" : tf.constant(slv_rsi_3),
+                "slv_rsi_10" : tf.constant(slv_rsi_10),
+                "slv_rsi_14" : tf.constant(slv_rsi_14),
+                "slv_average_10" : tf.constant(slv_average_10),
+                "slv_average_20" : tf.constant(slv_average_20),
+                "slv_average_40" : tf.constant(slv_average_40),
+                "slv_average_80" : tf.constant(slv_average_80)
               }
     
     return columns, tf.constant(labels)
@@ -129,8 +152,8 @@ def input_fn(start, end):
 
 meta_results = []
 
-multiplier = 10000
-for train_steps in range(multiplier, 100 * multiplier, multiplier):
+multiplier = 1000
+for train_steps in range(multiplier, 250 * multiplier, multiplier):
     print
     print
     print "Training Steps: %d" % (train_steps)

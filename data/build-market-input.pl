@@ -6,6 +6,7 @@ use Data::Dumper;
 use DateTime;
 use File::Slurp;
 use File::Basename;
+use Statistics::Basic qw(variance stddev);
 
 # Input: <quarterly statistics with (date,value)> break <files from yahoo>
 
@@ -87,6 +88,12 @@ for my $file (@ARGV) {
     my $average_40_day = 0;
     my $average_80_day = 0;
 
+    my @last_prices = [];
+
+    my $deviation_3_day = 0;
+    my $deviation_5_day = 0;
+    my $deviation_10_day = 0;
+
     while(<IN>) {
         chomp();
         my $line = $_;
@@ -142,6 +149,17 @@ for my $file (@ARGV) {
                 $average_80_day = ($price + ($average_80_day * 79)) / 80.0;
             }
 
+
+            # Standard deviation, for historical volatility
+            push @last_prices, 100 * $price_change;
+            if(scalar(@last_prices) > 10) {
+                shift @last_prices;
+                $deviation_3_day =  stddev($last_prices[7], $last_prices[8], $last_prices[9]);
+                $deviation_5_day =  stddev($last_prices[5], $last_prices[8], $last_prices[7], $last_prices[8], $last_prices[9]);
+                $deviation_10_day = stddev(@last_prices);
+            }
+
+
             # Add data if there's enough samples to have all averages initialized
             if($sample_count > 80) {
                 my $change_10_day = (($price - $average_10_day) / $average_10_day);
@@ -149,18 +167,14 @@ for my $file (@ARGV) {
                 my $change_40_day = (($price - $average_40_day) / $average_40_day);
                 my $change_80_day = (($price - $average_80_day) / $average_80_day);
 
-                if(!exists($data{$dt->epoch})) {
-                    $data{$dt->epoch} = "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day ";
-                } else {
-                    $data{$dt->epoch} = $data{$dt->epoch} . ",$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day ";
-                }
+                $data{$dt->epoch} = (exists($data{$dt->epoch}) ? $data{$dt->epoch} : "") . "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day, $deviation_3_day, $deviation_5_day, $deviation_10_day,";
             }
 
             $sample_count++;
             $last_price = $price;
 
         } else {
-            $header = $header . "$file change, $file RSI 3 day, $file RSI 10 day, $file RSI 14 day, $file average_10_day, $file average_20_day, $file average_40_day, $file average_80_day,";
+            $header = $header . "$file change, $file RSI 3 day, $file RSI 10 day, $file RSI 14 day, $file average_10_day, $file average_20_day, $file average_40_day, $file average_80_day, $file deviation 3 day, $file deviation 5 day, $file deviation 10 day, ";
         }
     }
 }
