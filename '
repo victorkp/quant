@@ -15,8 +15,8 @@ import csv
 import sys
 
 # hyperparameters
-H = 20 # number of hidden layer neurons
-batch_size = 5 # every how many episodes to do a param update?
+H = 80 # number of hidden layer neurons
+batch_size = 1 # every how many episodes to do a param update?
 # batch_size = 50 # every how many episodes to do a param update?
 learning_rate = 1e-2 # feel free to play with this to train faster or more stably.
 gamma = 1 # discount factor for reward
@@ -70,7 +70,7 @@ def discount_rewards(r):
     for t in reversed(xrange(0, r.size)):
         running_add = running_add * gamma + r[t]
         discounted_r[t] = running_add
-        discounted_r[t] = r[t]
+        #discounted_r[t] = r[t]
     return discounted_r
 
 
@@ -99,8 +99,7 @@ with tf.Session() as sess:
     # TODO no env
     input_index = 1 # Ignore csv header
     equity = 1.0  # 1 unit of money, to start
-    observation = input_data[input_index][1:] # Ignore timestamp, don't want that in weights
-    print observation
+    observation = input_data[input_index][1:D+1] # Ignore timestamp, don't want that in weights
     observation = np.array(map(float, observation))
 
     # Reset the gradient placeholder. We will collect gradients in 
@@ -113,50 +112,62 @@ with tf.Session() as sess:
         # Make sure the observation is in a shape the network can handle.
         x = np.reshape(observation,[1,D])
         
-        # Run the policy network and get an action to take. 
-        tfprob = sess.run(probability,feed_dict={observations: x})
-        print tfprob
-        exit
+        # Run the policy network and get an action to take. Normalize output from Neural Net to sum to 1
+        portfolio = np.reshape(sess.run(probability,feed_dict={observations: x}), [4])
+        port_norm = sum(portfolio)
+        portfolio = [p/port_norm for p in portfolio]
+        print portfolio 
 
-        action = 1 if np.random.uniform() < tfprob else 0
-        # y = 1 if action == 0 else 0
-        y = 1 if tfprob < 0.5 else 0
-        ys.append(y)
-        
+        ys.append(portfolio) # portfolio output
         xs.append(x) # observation
 
-        # step the environment and get new measurements
-        # observation, reward, done, info = env.step(action)
-        input_index += 1 
-        old_spy_price = observation[8]
-        old_gld_price = observation[11]
-        # print "SPY Closed at %s" % (old_spy_price)
-        # print "GLD Closed at %s" % (old_gld_price)
-        observation = input_data[input_index][1:] # Ignore timestamp, don't want that in weights
+        print
+        print "======================="
+        print "Time Step: %d" % input_index
+
+        # Reward is this day's gains or losses compared to tomorrow, with some penalty for changes in portfolio
+        input_index += 1
+        observation = input_data[input_index][1:D+1] # Ignore timestamp, don't want that in weights
         observation = np.array(map(float, observation))
+        next_spy_change = observation[7]
+        next_slv_change = observation[7+11]
+        next_gld_change = observation[7+22]
+        next_uso_change = observation[7+33]
+        #print "SPY: %s" % next_spy_change
+        #print "SLV: %s" % next_slv_change
+        #print "GLD: %s" % next_gld_change
+        #print "USO: %s" % next_uso_change
+        #print
 
-        spy_profit = (observation[8] - old_spy_price)/(old_spy_price)
-        gld_profit = (observation[11] - old_gld_price)/(old_gld_price)
+        spy_reward = next_spy_change * portfolio[0]
+        slv_reward = next_slv_change * portfolio[1]
+        gld_reward = next_gld_change * portfolio[2]
+        uso_reward = next_uso_change * portfolio[3]
+        #print "SPY Reward: %s" % spy_reward
+        #print "SLV Reward: %s" % slv_reward
+        #print "GLD Reward: %s" % gld_reward
+        #print "USO Reward: %s" % uso_reward
+        #print
 
-        # reward = spy_profit if action == 1 else gld_profit
-        profit = (1-tfprob) * (spy_profit) + (tfprob) * gld_profit
-        profit = profit[0][0]
-        reward = equity * profit;
-        equity = equity + equity * profit;
-        # print "Profit: %s , Equity: %s" % (profit, equity)
+        profit = spy_reward + slv_reward + gld_reward + uso_reward
+        reward = profit * equity
+        equity = equity * (1 + profit)
+        print "Reward: %s" % reward
+        print "Equity : %s" % equity 
+        print
 
-        # Causing NaN issues
-        # y = 1 if spy_profit > gld_profit else 0 # a "fake label"
-        # ys.append(y)
+        done = input_index == 2207 or equity <= 0.1
 
-        # reward = 1.0 if reward > 0 else 0.0
+        if episode_number > 1 and input_index > 3:
+            exit()
 
-        # print "%d : %s : %s : %s" % (input_index, tfprob, action, reward)
-
-        done = input_index == 460
+        # Final reward is portfolio's liquid value
+        if done:
+            reward = equity
+            print "Done Reward: %s" % reward
+            print "Reward Sum: %s" % (reward + reward_sum)
 
         reward_sum += reward
-
         drs.append(reward) # record reward (has to be done after we call step() to get reward for previous action)
 
         if done: 
@@ -176,11 +187,8 @@ with tf.Session() as sess:
             discounted_epr -= np.mean(discounted_epr)
             # print "MEAN EPR: %s" % discounted_epr
             discounted_epr /= np.std(discounted_epr)
-            # print "STD EPR: %s" % discounted_epr
+            print "STD EPR: %s" % discounted_epr
 
-            # print
-            # print discounted_epr
-            # print
             
             # Get the gradient for this episode, and save it in the gradBuffer
             tGrad = sess.run(newGrads,feed_dict={observations: epx, input_y: epy, advantages: discounted_epr})
@@ -202,8 +210,9 @@ with tf.Session() as sess:
             # TODO no env
             input_index = 1 # Ignore csv header
             equity = 1.0  # 1 unit of money, to start
-            observation = input_data[input_index][1:] # Ignore timestamp, don't want that in weights
+            observation = input_data[input_index][1:D+1] # Ignore timestamp, don't want that in weights
             observation = np.array(map(float, observation))
+            
         
 print episode_number,'Episodes completed.'
 
