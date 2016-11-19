@@ -15,12 +15,11 @@ import csv
 import sys
 
 # hyperparameters
-H = 80 # number of hidden layer neurons
-batch_size = 10 # every how many episodes to do a param update?
-# batch_size = 50 # every how many episodes to do a param update?
-learning_rate = 1e-2 # feel free to play with this to train faster or more stably.
-gamma = 1 # discount factor for reward
-D = (3 * 2) + (4 * 11) # input dimensionality: 3 economic factor (2 dimens), 4 securities with 11 dimens
+H = 50 # number of hidden layer neurons
+batch_size = 5 # every how many episodes to do a param update?
+learning_rate = 5e-3 # feel free to play with this to train faster or more stably.
+gamma = 0.99 # discount factor for reward
+D = (3 * 2) + (4 * 11) + 4 # input dimensionality: 3 economic factor (2 dimens), 4 securities with 11 dimens, 4 dimen prior output
 exploration_rate = 0.2
 
 # In[5]:
@@ -99,7 +98,11 @@ with tf.Session() as sess:
     # TODO no env
     input_index = 1 # Ignore csv header
     equity = 1.0  # 1 unit of money, to start
-    observation = input_data[input_index][1:D+1] # Ignore timestamp, don't want that in weights
+    observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
+    observation.append(1.0) # Equally balanced portfolio to start
+    observation.append(1.0)
+    observation.append(1.0)
+    observation.append(1.0)
     observation = np.array(map(float, observation))
 
     # Reset the gradient placeholder. We will collect gradients in 
@@ -113,10 +116,10 @@ with tf.Session() as sess:
         x = np.reshape(observation,[1,D])
         
         # Run the policy network and get an action to take. Normalize output from Neural Net to sum to 1
-        portfolio = np.reshape(sess.run(probability,feed_dict={observations: x}), [4])
+        portfolio_raw = np.reshape(sess.run(probability,feed_dict={observations: x}), [4])
 
         # Add random noise to portfolio for exploration
-        portfolio = [p + (0.5 * exploration_rate * np.random.uniform() - exploration_rate) for p in portfolio]
+        portfolio = [p + (0.5 * exploration_rate * np.random.uniform() - exploration_rate) for p in portfolio_raw]
 
         # Normalize portfolio
         port_norm = sum(portfolio)
@@ -132,12 +135,15 @@ with tf.Session() as sess:
 
         # Reward is this day's gains or losses compared to tomorrow, with some penalty for changes in portfolio
         input_index += 1
-        observation = input_data[input_index][1:D+1] # Ignore timestamp, don't want that in weights
+        observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
+        for p in portfolio_raw:
+            observation.append(p)
         observation = np.array(map(float, observation))
-        next_spy_change = observation[7]
-        next_slv_change = observation[7+11]
-        next_gld_change = observation[7+22]
-        next_uso_change = observation[7+33]
+        next_spy_change = observation[6]
+        next_slv_change = observation[6+11]
+        next_gld_change = observation[6+22]
+        next_uso_change = observation[6+33]
+
         #print "SPY: %s" % next_spy_change
         #print "SLV: %s" % next_slv_change
         #print "GLD: %s" % next_gld_change
@@ -148,31 +154,42 @@ with tf.Session() as sess:
         slv_reward = next_slv_change * portfolio[1]
         gld_reward = next_gld_change * portfolio[2]
         uso_reward = next_uso_change * portfolio[3]
-        #print "SPY Reward: %s" % spy_reward
-        #print "SLV Reward: %s" % slv_reward
-        #print "GLD Reward: %s" % gld_reward
-        #print "USO Reward: %s" % uso_reward
-        #print
+        # print "SPY Reward: %s" % spy_reward
+        # print "SLV Reward: %s" % slv_reward
+        # print "GLD Reward: %s" % gld_reward
+        # print "USO Reward: %s" % uso_reward
 
         profit = spy_reward + slv_reward + gld_reward + uso_reward
-        reward = profit * equity
-        equity = equity * (1 + profit)
+        reward = profit
+        equity += equity * profit
         # print "Reward: %s" % reward
         # print "Equity : %s" % equity 
         # print
 
-        done = input_index == 2207 or equity <= 0.1
+        done = input_index == 2207 or equity <= 0.01
 
-        # if episode_number > 1 and input_index > 3:
-        #     exit()
-
-        # Final reward is portfolio's liquid value
+        # Final reward is portfolio's liquid value, plus 1.0 bonus for finishing
+        # If didn't make it to end, final reward is % complete to end
         if done:
-            reward = equity
+            if equity <= 0.1:
+                #reward = -5 * ((2207 - input_index) / 2207)
+                reward = -2 * (2207 - input_index)/2207.0
+            else:
+                reward = 5.0 * equity
+
             print "Done Reward: %s" % reward
             print "Equity: %s at time step %d" % (equity, input_index)
             print "Reward Sum: %s" % (reward + reward_sum)
             print
+
+            # Reset to start
+            equity = 1
+            input_index = 1
+            observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
+            observation.append(1.0) # Equally balanced portfolio to start
+            observation.append(1.0)
+            observation.append(1.0)
+            observation.append(1.0)
 
         reward_sum += reward
         drs.append(reward) # record reward (has to be done after we call step() to get reward for previous action)
@@ -211,14 +228,22 @@ with tf.Session() as sess:
                 # Give a summary of how well our network is doing for each batch of episodes.
                 running_reward = reward_sum if running_reward is None else running_reward * 0.99 + reward_sum * 0.01
                 print 'Average reward for episode %f.  Total average reward %f.' % (reward_sum/batch_size, running_reward/batch_size)
-                
                 reward_sum = 0
             
             # TODO no env
             input_index = 1 # Ignore csv header
             equity = 1.0  # 1 unit of money, to start
-            observation = input_data[input_index][1:D+1] # Ignore timestamp, don't want that in weights
+            observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
+            observation.append(1.0) # Equally balanced portfolio to start
+            observation.append(1.0)
+            observation.append(1.0)
+            observation.append(1.0)
             observation = np.array(map(float, observation))
+
+            #exploration_rate *= 0.999
+            if episode_number % 100 == 0:
+                print "Run %d episodes" % episode_number
+            #    print "Explore rate : %s" % exploration_rate
             
         
 print episode_number,'Episodes completed.'
