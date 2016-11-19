@@ -15,12 +15,12 @@ import csv
 import sys
 
 # hyperparameters
-H = 50 # number of hidden layer neurons
-batch_size = 5 # every how many episodes to do a param update?
-learning_rate = 5e-3 # feel free to play with this to train faster or more stably.
+H = 80 # number of hidden layer neurons
+batch_size = 50 # every how many episodes to do a param update?
+learning_rate = 1e-2 # feel free to play with this to train faster or more stably.
 gamma = 0.99 # discount factor for reward
 D = (3 * 2) + (4 * 11) + 4 # input dimensionality: 3 economic factor (2 dimens), 4 securities with 11 dimens, 4 dimen prior output
-exploration_rate = 0.2
+exploration_rate = 0.1
 
 # In[5]:
 
@@ -83,7 +83,7 @@ xs,hs,dlogps,drs,ys,tfps = [],[],[],[],[],[]
 running_reward = None
 reward_sum = 0
 episode_number = 1
-total_episodes = 10000
+total_episodes = 100000
 init = tf.initialize_all_variables()
 
 input_data = list(csv.reader(open("data/market.csv")))
@@ -92,17 +92,16 @@ equity = 1.0  # 1 unit of money, to start
 
 # Launch the graph
 with tf.Session() as sess:
-    rendering = False
     sess.run(init)
 
     # TODO no env
     input_index = 1 # Ignore csv header
     equity = 1.0  # 1 unit of money, to start
     observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
-    observation.append(1.0) # Equally balanced portfolio to start
-    observation.append(1.0)
-    observation.append(1.0)
-    observation.append(1.0)
+    observation.append(0.25) # Equally balanced portfolio to start
+    observation.append(0.25)
+    observation.append(0.25)
+    observation.append(0.25)
     observation = np.array(map(float, observation))
 
     # Reset the gradient placeholder. We will collect gradients in 
@@ -110,24 +109,46 @@ with tf.Session() as sess:
     gradBuffer = sess.run(tvars)
     for ix,grad in enumerate(gradBuffer):
         gradBuffer[ix] = grad * 0
+
+    last_portfolio = [0.25, 0.25, 0.25, 0.25]
+    last_portfolio_raw = [0, 0, 0, 0]
     
+    commission_fees = 0
+
     while episode_number <= total_episodes:
+        if input_index == 1:
+            equity = 1.0
+
         # Make sure the observation is in a shape the network can handle.
         x = np.reshape(observation,[1,D])
         
         # Run the policy network and get an action to take. Normalize output from Neural Net to sum to 1
         portfolio_raw = np.reshape(sess.run(probability,feed_dict={observations: x}), [4])
+        port_norm = sum(portfolio)
+        portfolio = [p/port_norm for p in portfolio]
 
         # Add random noise to portfolio for exploration
         portfolio = [p + (0.5 * exploration_rate * np.random.uniform() - exploration_rate) for p in portfolio_raw]
 
-        # Normalize portfolio
+        # Normalize portfolio again after random noise
         port_norm = sum(portfolio)
         portfolio = [p/port_norm for p in portfolio]
-        # print portfolio 
 
         ys.append(portfolio) # portfolio output
         xs.append(x) # observation
+
+        portfolio_diff = 0.0
+        for i in range(0, len(portfolio)):
+            portfolio_diff += abs(portfolio[i] - last_portfolio[i])
+
+        # print "Port Diff %s" % portfolio_diff
+        if portfolio_diff > 0.1:
+            # Portfolio changed somewhat significantly
+            # So a trade fee is incurred, and the portfolio is updated
+            equity -= 0.001
+            commission_fees += 1
+            last_portfolio = portfolio
+            last_portfolio_raw = portfolio_raw
 
         # print
         # print "======================="
@@ -136,7 +157,7 @@ with tf.Session() as sess:
         # Reward is this day's gains or losses compared to tomorrow, with some penalty for changes in portfolio
         input_index += 1
         observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
-        for p in portfolio_raw:
+        for p in last_portfolio_raw:
             observation.append(p)
         observation = np.array(map(float, observation))
         next_spy_change = observation[6]
@@ -150,10 +171,10 @@ with tf.Session() as sess:
         #print "USO: %s" % next_uso_change
         #print
 
-        spy_reward = next_spy_change * portfolio[0]
-        slv_reward = next_slv_change * portfolio[1]
-        gld_reward = next_gld_change * portfolio[2]
-        uso_reward = next_uso_change * portfolio[3]
+        spy_reward = next_spy_change * last_portfolio[0]
+        slv_reward = next_slv_change * last_portfolio[1]
+        gld_reward = next_gld_change * last_portfolio[2]
+        uso_reward = next_uso_change * last_portfolio[3]
         # print "SPY Reward: %s" % spy_reward
         # print "SLV Reward: %s" % slv_reward
         # print "GLD Reward: %s" % gld_reward
@@ -162,28 +183,46 @@ with tf.Session() as sess:
         profit = spy_reward + slv_reward + gld_reward + uso_reward
         reward = profit
         equity += equity * profit
+
+        if portfolio_diff > 0.1:
+            reward -= 0.03
+
+        if profit < -0.20:
+            print "Bad Day: %s" % profit
+            print "Last Portfolio: %s" % last_portfolio
+            print "SPY Change: %s" % next_spy_change
+            print "SLV Change: %s" % next_slv_change
+            print "GLD Change: %s" % next_gld_change
+            print "USO Change: %s" % next_uso_change
+            print "SPY Reward: %s" % spy_reward
+            print "SLV Reward: %s" % slv_reward
+            print "GLD Reward: %s" % gld_reward
+            print "USO Reward: %s" % uso_reward
+
         # print "Reward: %s" % reward
         # print "Equity : %s" % equity 
         # print
 
-        done = input_index == 2207 or equity <= 0.01
+        done = (input_index == 2207) or (equity <= 0.01)
 
         # Final reward is portfolio's liquid value, plus 1.0 bonus for finishing
         # If didn't make it to end, final reward is % complete to end
         if done:
-            if equity <= 0.1:
-                #reward = -5 * ((2207 - input_index) / 2207)
-                reward = -2 * (2207 - input_index)/2207.0
+            if equity <= 0.01:
+                reward = -1 + -3 * (2207 - input_index)/2207.0
             else:
                 reward = 5.0 * equity
 
             print "Done Reward: %s" % reward
             print "Equity: %s at time step %d" % (equity, input_index)
+            print "Commission fees: %d" % commission_fees
             print "Reward Sum: %s" % (reward + reward_sum)
+            print "Learning Rate: %s, Exploration Rate: %s" % (learning_rate, exploration_rate)
             print
 
             # Reset to start
-            equity = 1
+            commission_fees = 0
+            equity = 1.0
             input_index = 1
             observation = input_data[input_index][1:D-3] # Ignore timestamp, don't want that in weights
             observation.append(1.0) # Equally balanced portfolio to start
@@ -240,11 +279,13 @@ with tf.Session() as sess:
             observation.append(1.0)
             observation = np.array(map(float, observation))
 
-            #exploration_rate *= 0.999
             if episode_number % 100 == 0:
+                exploration_rate *= 0.999
+                learning_rate *= 0.999
+                learning_rate = max(5e-3, learning_rate)
+                exploration_rate = max(0.03, exploration_rate)
                 print "Run %d episodes" % episode_number
-            #    print "Explore rate : %s" % exploration_rate
-            
+                print "Explore rate : %s" % exploration_rate
         
 print episode_number,'Episodes completed.'
 

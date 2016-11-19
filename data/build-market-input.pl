@@ -110,6 +110,13 @@ for my $file (@ARGV) {
             my $price = ($6 + $5 + $7) / 3.0;
             my $price_change = ($sample_count > 0) ? (($price - $last_price) / $price) : 0.0;
 
+            # SLV split shares in 2009
+            if ($last_price > 5 * $price) {
+                print "Fixed pricing gap from $price_change to ";
+                $price_change /= 300;
+                print "$price_change\n";
+            }
+
             if($price_change >= 0) {
                 $average_gain_3_day =  ((2 *  $average_gain_3_day)  + $price_change) / 3.0;
                 $average_gain_10_day = ((9 *  $average_gain_10_day) + $price_change) / 10.0;
@@ -188,6 +195,7 @@ foreach my $date (@dates) {
     print OUT "$date,";
 
     # Find latest available economy stats before this date
+    # for(my $s = 0; $s < scalar(@quarter_stats); $s++) {
     for(my $s = 0; $s < scalar(@quarter_stats); $s++) {
         my @stat = @{$quarter_stats[$s]};
 
