@@ -60,11 +60,11 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
             $best_security = $header[$close_columns[$j]];
             $best_transaction = "$best_security  $profit";
         }
-        $sub_profit_until_end += 0.7 * $profit / scalar(@prices);
+        $sub_profit_until_end += 0.9 * $profit / scalar(@prices);
     }
     $profit_until_end += $biggest_profit;
 
-    $sub_profit_until_end += 0.3 * $biggest_profit;
+    $sub_profit_until_end += 0.1 * $biggest_profit;
 
     push(@q_profits, $profit_until_end);
     push(@q_sub_profits, $sub_profit_until_end);

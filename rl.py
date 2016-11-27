@@ -14,61 +14,91 @@ import math
 import csv
 import sys
 
-# hyperparameters
-H = 40 # number of hidden layer neurons
-H2 = 40 # number of hidden layer neurons
-batch_size = 50 # every how many episodes to do a param update?
-learning_rate = 5e-3 # feel free to play with this to train faster or more stably.
-gamma = 0.8 # discount factor for reward
+NUM_STOCKS = 4
 OUT_DIMENS = 5 # SPY, SLV, GLD, USO, Cash
-IN_DIMENS = (3 * 2) + (4 * 11) + OUT_DIMENS + 1 # input dimensionality: 3 economic factor (2 dimens), 4 securities with 11 dimens, 5 dimen prior output, equity
-exploration_rate = 0.1
+IN_DIMENS = (3 * 2) + (NUM_STOCKS * 11) + OUT_DIMENS + 1 + NUM_STOCKS # input dimensionality: 3 economic factor (2 dimens), 4 securities with 11 dimens, 5 dimen prior output, equity, loss/gain on stocks
+
+# hyperparameters
+LAYER_1_NEURONS = 40 # number of hidden layer neurons
+LAYER_2_NEURONS = 40 # number of hidden layer neurons
+BATCH_SIZE = 30 # number of episodes before gradient descent 
+BATCH_INCREMENT = 5 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
+LEARNING_RATE = 1e-2 # feel free to play with this to train faster or more stably.
+GAMMA = 0.96 # discount factor for reward
+EXPLORATION_RATE = 0.05
 
 TRADE_THRESHOLD = 0.2 # 0.2
 TRADE_FEE = 0.000
-TRADE_REWARD_PENALTY = 0.001
+TRADE_REWARD_PENALTY = 0.005
 
 NO_DISCOUNT = 0
+EQUITY_BONUS_MULT = 0.0
 AVG_REWARD_INCREMENT = 1
-LOW_TRADING_PENALTY = -0.1
-LOW_TRADING_THRESH = 150
+LOW_TRADING_PENALTY = -0.3
+LOW_TRADING_THRESH = 500
 
-DROPOUT_KEEP_PROB = 0.8
+DROPOUT_KEEP_PROB = 0.85
 
 USE_DONE_REWARD = 0
 
-TOTAL_STEPS = 2207
+INDEX_START = 427
+INDEX_END = 2207
+TOTAL_STEPS = INDEX_END - INDEX_START
 
-print "H: %d" % H
-print "H2: %d" % H2
-print "batch_size: %d" % batch_size
-print "learning_rate: %f" % learning_rate
-print "gamma: %f" % gamma
+DECAY_ITERATIONS = 50
+DECAY_RATE = 0.99
+
+print "LAYER_1_NEURONS: %d" % LAYER_1_NEURONS
+print "LAYER_2_NEURONS: %d" % LAYER_2_NEURONS
+print "BATCH_SIZE: %d" % BATCH_SIZE
+print "LEARNING_RATE: %f" % LEARNING_RATE
+print "GAMMA: %f" % GAMMA
 print "IN_DIMENS: %d" % IN_DIMENS
 print "OUT_DIMENS: %d" % OUT_DIMENS
-print "exploration_rate: %f" % exploration_rate
+print "EXPLORATION_RATE: %f" % EXPLORATION_RATE
 print "TRADE_THRESHOLD: %f" % TRADE_THRESHOLD
 print "TRADE_FEE: %f" % TRADE_FEE
 print "TRADE_REWARD_PENALTY: %f" % TRADE_REWARD_PENALTY
 print "DROPOUT_KEEP_PROB: %f" % DROPOUT_KEEP_PROB
 print "NO_DISCOUNT: %d" % NO_DISCOUNT
 print "AVG_REWARD_INCREMENT: %d" % AVG_REWARD_INCREMENT
+print "EQUITY_BONUS_MULT: %f" % EQUITY_BONUS_MULT
 print "USE_DONE_REWARD: %d" % USE_DONE_REWARD
 print "LOW_TRADING_PENALTY: %f" % LOW_TRADING_PENALTY
 print "LOW_TRADING_THRESH: %d" % LOW_TRADING_THRESH
+print
+print
 
 # Use min-max normalization to avoid issues with negative numbers
 def normalize(portfolio):
     p_min = min(portfolio)
     p_max = max(portfolio)
     p_diff = p_max - p_min
-    min_max_normal = [ (p - p_min) / p_diff for p in portfolio ]
+
+    if p_diff == 0:
+        min_max_normal = [ 1 for p in portfolio ]
+    else:
+        min_max_normal = [ (p - p_min) / p_diff for p in portfolio ]
     
     mm_sum = sum(min_max_normal)
     normalized = [ p / mm_sum for p in min_max_normal ]
 
     # print "%s -> %s" % (portfolio, normalized)
     return normalized
+
+def start_observation_state():
+    state = []
+    state.append(0.2) # Equally balanced portfolio to start
+    state.append(0.2)
+    state.append(0.2)
+    state.append(0.2)
+    state.append(0.2)
+    state.append(1.0) # 1.0 equity to start
+    state.append(1) # No gain or loss on stocks yet
+    state.append(1) # No gain or loss on stocks yet
+    state.append(1) # No gain or loss on stocks yet
+    state.append(1) # No gain or loss on stocks yet
+    return state
 
 def discount_rewards(r, equity, trades):
     """ take 1D float array of rewards and compute discounted reward """
@@ -80,64 +110,65 @@ def discount_rewards(r, equity, trades):
             discounted_r[t] = r[t]
     else:
         for t in reversed(xrange(0, r.size)):
-            running_add = running_add * gamma + r[t]
+            running_add = running_add * GAMMA + r[t]
             discounted_r[t] = running_add
 
     if AVG_REWARD_INCREMENT != 0:
         for t in xrange(0, r.size):
-            discounted_r[t] += (equity / TOTAL_STEPS)
+            discounted_r[t] += (EQUITY_BONUS_MULT * equity / TOTAL_STEPS)
 
     if trades < LOW_TRADING_THRESH:
         for t in xrange(0, r.size):
-            discounted_r[t] += LOW_TRADING_PENALTY
+            discounted_r[t] += (LOW_TRADING_THRESH - trades / LOW_TRADING_THRESH) * LOW_TRADING_PENALTY
 
     return discounted_r
 
-# In[5]:
-
 tf.reset_default_graph()
 
-#This defines the network as it goes from taking an observation of the environment to 
-#giving a probability of chosing to the action of moving left or right.
 observations = tf.placeholder(tf.float32, [None,IN_DIMENS] , name="input_x")
-W1 = tf.get_variable("W1", shape=[IN_DIMENS, H],
+W1 = tf.get_variable("W1", shape=[IN_DIMENS, LAYER_1_NEURONS],
            initializer=tf.contrib.layers.xavier_initializer())
-B1 = tf.Variable(tf.zeros([H]), name="B1")
-layer1 = tf.nn.dropout(tf.add(tf.matmul(observations, W1), B1), DROPOUT_KEEP_PROB)
-#layer1 = tf.nn.relu(tf.add(tf.matmul(observations, W1), B1))
+B1 = tf.Variable(tf.zeros([LAYER_1_NEURONS]), name="B1")
+layer1 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(observations, W1), B1), DROPOUT_KEEP_PROB)
+layer1_eval = tf.nn.bias_add(tf.matmul(observations, W1), B1)
 
-# layer1 = tf.nn.relu(tf.matmul(observations, W1))
-
-W2 = tf.get_variable("W2", shape=[H, H2],
+W2 = tf.get_variable("W2", shape=[LAYER_1_NEURONS, LAYER_2_NEURONS],
            initializer=tf.contrib.layers.xavier_initializer())
-B2 = tf.Variable(tf.zeros([H2]), name="B2")
+B2 = tf.Variable(tf.zeros([LAYER_2_NEURONS]), name="B2")
 layer2 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer1,W2), B2), DROPOUT_KEEP_PROB)
-#layer2 = tf.nn.relu(tf.nn.bias_add(tf.matmul(layer1,W2), B2))
+layer2_eval = tf.nn.bias_add(tf.matmul(layer1, W2), B2)
 
-#layer2 = tf.nn.relu(tf.matmul(layer1, W2))
-
-W3 = tf.get_variable("W3", shape=[H2, OUT_DIMENS], # 4 dimen output for each security
+W3 = tf.get_variable("W3", shape=[LAYER_2_NEURONS, OUT_DIMENS], # 4 dimen output for each security
            initializer=tf.contrib.layers.xavier_initializer())
 B3 = tf.Variable(tf.zeros([5]), name="B3")
 score = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
+score_eval = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
 
-#score = tf.matmul(layer2,W3)
-probability = tf.nn.sigmoid(score)
+train_network = tf.nn.sigmoid(score) # Has DROPOUT_KEEP_PROB for neurons
+eval_network  = tf.nn.sigmoid(score)  # Disables neuron dropout
+
+# train_network = tf.nn.log_softmax(score) # Has DROPOUT_KEEP_PROB for neurons
+# eval_network  = tf.nn.log_softmax(score)  # Disables neuron dropout
+
+# Seems to get stuck at lower equity values than sigmoid
+train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
+eval_network  = tf.nn.relu(score)  # Disables neuron dropout
 
 #From here we define the parts of the network needed for learning a good policy.
 tvars = tf.trainable_variables()
-print tvars
 input_y = tf.placeholder(tf.float32,[None,5], name="input_y") # Prior output
 advantages = tf.placeholder(tf.float32,name="reward_signal")
 
-# The loss function. This sends the weights in the direction of making actions 
-# that gave good advantage (reward over time) more likely, and actions that didn't less likely.
-loss = -tf.reduce_mean((tf.log(input_y - probability)) * advantages)
+# loss = -tf.reduce_mean((tf.log(input_y - train_network)) * advantages) # add constant to avoid NaN
+# loss = -tf.reduce_sum((tf.log(input_y - train_network) + 1e-7) * advantages) # add constant to avoid NaN
+# loss = -tf.reduce_sum(tf.log((input_y - tf.clip_by_value(train_network,1e-5,1.0)) * advantages)) # add constant to avoid NaN
+loss = -tf.reduce_sum(tf.log(tf.clip_by_value(train_network,1e-5,1.0)) * advantages) # add constant to avoid NaN
+
 newGrads = tf.gradients(loss,tvars)
 
 # Once we have collected a series of gradients from multiple episodes, we apply them.
 # We don't just apply gradeients after every episode in order to account for noise in the reward signal.
-adam = tf.train.AdamOptimizer(learning_rate=learning_rate) # Our optimizer
+adam = tf.train.AdamOptimizer(learning_rate=LEARNING_RATE) # Our optimizer
 W1Grad = tf.placeholder(tf.float32,name="w_grad1") # Placeholders to send the final gradients through when we update.
 W2Grad = tf.placeholder(tf.float32,name="w_grad2")
 W3Grad = tf.placeholder(tf.float32,name="w_grad3")
@@ -148,16 +179,6 @@ batchGrad = [W1Grad,W2Grad,W3Grad,B1Grad,B2Grad,B3Grad]
 updateGrads = adam.apply_gradients(zip(batchGrad,tvars))
 
 
-# ### Advantage function
-# This function allows us to weigh the rewards our agent recieves. In the context of the Cart-Pole task, we want actions that kept the pole in the air a long time to have a large reward, and actions that contributed to the pole falling to have a decreased or negative reward. We do this by weighing the rewards from the end of the episode, with actions at the end being seen as negative, since they likely contributed to the pole falling, and the episode ending. Likewise, early actions are seen as more positive, since they weren't responsible for the pole falling.
-
-
-# ### Running the Agent and Environment
-
-# Here we run the neural network agent, and have it act in the CartPole environment.
-
-# In[8]:
-
 xs,hs,dlogps,drs,ys,tfps = [],[],[],[],[],[]
 running_reward = None
 reward_sum = 0
@@ -166,7 +187,7 @@ total_episodes = 100000
 init = tf.initialize_all_variables()
 
 input_data = list(csv.reader(open("data/market.csv")))
-input_index = 1
+input_index = INDEX_START
 equity = 1.0  # 1 unit of money, to start
 
 # Launch the graph
@@ -174,15 +195,10 @@ with tf.Session() as sess:
     sess.run(init)
 
     # TODO no env
-    input_index = 1 # Ignore csv header
+    input_index = INDEX_START # Ignore csv header
     equity = 1.0  # 1 unit of money, to start
-    observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS] # Ignore timestamp, don't want that in weights
-    observation.append(0.2) # Equally balanced portfolio to start
-    observation.append(0.2)
-    observation.append(0.2)
-    observation.append(0.2)
-    observation.append(0.2)
-    observation.append(1.0) # 1.0 equity to start
+    observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS-NUM_STOCKS] # Ignore timestamp, don't want that in weights
+    observation += start_observation_state()
     observation = np.array(map(float, observation))
 
     # Reset the gradient placeholder. We will collect gradients in 
@@ -195,25 +211,49 @@ with tf.Session() as sess:
     max_portfolio = [0, 0, 0, 0, 0]
     average_portfolio = [0, 0, 0, 0, 0]
     last_portfolio = [0.2, 0.2, 0.2, 0.2, 0.2]
+
+    gain_loss_averages = [1.0, 1.0, 1.0, 1.0]
+    min_gain_loss = [10, 10, 10, 10]
+    max_gain_loss = [0, 0, 0, 0]
     
     commission_fees = 0
+
+    prev_equity = 0
+    same_equity = 0
+    SAME_EQUITY_EXIT = float("inf")
+
+    current_batch = 0
 
     while episode_number <= total_episodes:
         if input_index == 1:
             equity = 1.0
 
+        # print gain_loss_averages
+
         # Make sure the observation is in a shape the network can handle.
         x = np.reshape(observation,[1,IN_DIMENS])
         
-        # Run the policy network and get an action to take. Normalize output from Neural Net to sum to 1
-        portfolio_raw = np.reshape(sess.run(probability,feed_dict={observations: x}), [5])
+        # Run neural network to get a portfolio, which then normalizes to 100%
+        # neural_network = (eval_network) if (episode_number % BATCH_SIZE == 0) else (train_network)
+        neural_network = train_network
+        portfolio_raw = np.reshape(sess.run(neural_network, feed_dict={observations: x}), [NUM_STOCKS + 1])
         portfolio = normalize(portfolio_raw)
 
         # Add random noise to portfolio for exploration
-        portfolio = [p + (0.5 * exploration_rate * np.random.uniform() - exploration_rate) for p in portfolio_raw]
+        # print
+        # print "Before Explore: %s" % portfolio
+        portfolio = [p + (EXPLORATION_RATE * np.random.uniform()) for p in portfolio_raw]
 
         # Normalize portfolio again after random noise
         portfolio = normalize(portfolio)
+        # print "After  Explore: %s" % portfolio
+        # print
+
+        if math.isnan(portfolio[0]):
+            print
+            print "PORTFOLIO IS NaN"
+            print
+            exit()
 
         ys.append(portfolio) # portfolio output
         xs.append(x) # observation
@@ -222,12 +262,35 @@ with tf.Session() as sess:
         for i in range(0, len(portfolio)):
             portfolio_diff += abs(portfolio[i] - last_portfolio[i])
 
+        # print "Last Portfolio: %s" % last_portfolio
+        # print "Diff:           %f" % portfolio_diff
+
         # print "Port Diff %s" % portfolio_diff
         if portfolio_diff > TRADE_THRESHOLD:
             # Portfolio changed somewhat significantly
             # So a trade fee is incurred, and the portfolio is updated
             equity -= TRADE_FEE
             commission_fees += 1
+
+            # print
+            # print "Last Portfolio: %s" % last_portfolio
+            # print "    %s" % gain_loss_averages
+            # print "New  Portfolio: %s" % portfolio
+
+            # If we are increasing our position, the average purchase price drifts towards 1,
+            # otherwise the average price remains unchanged
+            for i in range (0, NUM_STOCKS):
+                if portfolio[i] == 0 or last_portfolio[i] == 0:
+                    gain_loss_averages[i] = 1.0
+                else:
+                    if portfolio[i] > last_portfolio[i]:
+                        gain_loss_averages[i] = ((portfolio[i] - last_portfolio[i]) + last_portfolio[i] * gain_loss_averages[i]) / portfolio[i]
+                    else:
+                        gain_loss_averages[i] = ((last_portfolio[i] - portfolio[i]) + portfolio[i] * gain_loss_averages[i]) / last_portfolio[i]
+
+            # print "    %s" % gain_loss_averages
+            # print
+
             last_portfolio = portfolio
 
         # Update statistics
@@ -236,16 +299,14 @@ with tf.Session() as sess:
         average_portfolio[2] += last_portfolio[2]
         average_portfolio[3] += last_portfolio[3]
         average_portfolio[4] += last_portfolio[4]
-        min_portfolio[0] = min(last_portfolio[0], min_portfolio[0])
-        min_portfolio[1] = min(last_portfolio[1], min_portfolio[1])
-        min_portfolio[2] = min(last_portfolio[2], min_portfolio[2])
-        min_portfolio[3] = min(last_portfolio[3], min_portfolio[3])
-        min_portfolio[4] = min(last_portfolio[3], min_portfolio[4])
-        max_portfolio[0] = max(last_portfolio[0], max_portfolio[0])
-        max_portfolio[1] = max(last_portfolio[1], max_portfolio[1])
-        max_portfolio[2] = max(last_portfolio[2], max_portfolio[2])
-        max_portfolio[3] = max(last_portfolio[3], max_portfolio[3])
-        max_portfolio[4] = max(last_portfolio[3], max_portfolio[4])
+
+        for i in range(0, NUM_STOCKS + 1):
+            min_portfolio[i] = min(last_portfolio[i], min_portfolio[i])
+            max_portfolio[i] = max(last_portfolio[i], max_portfolio[i])
+
+        for i in range(0, NUM_STOCKS):
+            min_gain_loss[i] = min(gain_loss_averages[i], min_gain_loss[i])
+            max_gain_loss[i] = max(gain_loss_averages[i], max_gain_loss[i])
 
         # print
         # print "======================="
@@ -253,11 +314,17 @@ with tf.Session() as sess:
 
         # Reward is this day's gains or losses compared to tomorrow, with some penalty for changes in portfolio
         input_index += 1
-        observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS] # Ignore timestamp, don't want that in weights
+        observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS-NUM_STOCKS] # Ignore timestamp, don't want that in weights
         next_spy_change = float(observation[6])
         next_slv_change = float(observation[6+11])
         next_gld_change = float(observation[6+22])
         next_uso_change = float(observation[6+33])
+
+        # Update averaged gain/loss
+        gain_loss_averages[0] *= 1 + next_spy_change
+        gain_loss_averages[1] *= 1 + next_slv_change
+        gain_loss_averages[2] *= 1 + next_gld_change
+        gain_loss_averages[3] *= 1 + next_uso_change
 
         #print "SPY: %s" % next_spy_change
         #print "SLV: %s" % next_slv_change
@@ -290,6 +357,8 @@ with tf.Session() as sess:
         for p in last_portfolio:
             observation.append(p)
         observation.append(equity)
+        for g in gain_loss_averages:
+            observation.append(g)
         observation = np.array(map(float, observation))
 
         if portfolio_diff > TRADE_THRESHOLD:
@@ -311,35 +380,51 @@ with tf.Session() as sess:
         # print "Equity : %s" % equity 
         # print
 
-        done = (input_index == TOTAL_STEPS) or (equity <= 0.01)
+        done = (input_index == INDEX_END) or (equity <= 0.01)
 
         # Final reward is portfolio's liquid value, plus 1.0 bonus for finishing
         # If didn't make it to end, final reward is % complete to end
         if done:
             if USE_DONE_REWARD != 0:
                 if equity <= 0.01:
-                    reward = -1 + -3 * (TOTAL_STEPS - input_index)/TOTAL_STEPS
+                    reward = -1 + -3 * (TOTAL_STEPS - (input_index - INDEX_START))/TOTAL_STEPS
                 else:
                     reward = 5.0 * equity
 
             average_portfolio = [p / input_index for p in average_portfolio]
 
-            print "Equity: %s at time step %d" % (equity, input_index)
+            # if episode_number % BATCH_SIZE == 0:
+            #     print "===== EVAL ====="
+            print "Equity: %s at time step %d" % (equity, input_index - INDEX_START)
             print "Commission fees: %d" % commission_fees
-            print "Done Reward: %s" % reward
-            print "Learning Rate: %s, Exploration Rate: %s" % (learning_rate, exploration_rate)
+            # print "Done Reward: %s" % reward
+            print "Learning Rate: %s, Exploration Rate: %s" % (LEARNING_RATE, EXPLORATION_RATE)
             print "Avg Portfolio: %s" % average_portfolio
             print "Min Portfolio: %s" % min_portfolio
             print "Max Portfolio: %s" % max_portfolio
+            print "Min Gain or Loss: %s" % min_gain_loss
+            print "Max Gain or Loss: %s" % max_gain_loss
             print "Iteration: %d" % episode_number
             print
+
+            # Converged to an overfit
+            if commission_fees == 0:
+                same_equity += 1
+                if same_equity == SAME_EQUITY_EXIT:
+                    exit()
+            else:
+                prev_equity = equity
+                same_equity == 0
 
             
         reward_sum += reward
         drs.append(reward) # record reward (has to be done after we call step() to get reward for previous action)
 
-        if done: 
+        if done:
             episode_number += 1
+
+            # Don't record anything from evaluation runs
+            # if episode_number % BATCH_SIZE != 1:
             # stack together all inputs, hidden states, action gradients, and rewards for this episode
             epx = np.vstack(xs)
             epy = np.vstack(ys)
@@ -347,39 +432,29 @@ with tf.Session() as sess:
             tfp = tfps
             xs,hs,dlogps,drs,ys,tfps = [],[],[],[],[],[] # reset array memory
 
-            # compute the discounted reward backwards through time
-            # print "EPR: %s" % epr
-            discounted_epr = discount_rewards(epr, equity, commission_fees) # TODO perhaps figure this out better discount_rewards(epr)
-            # print "DISCOUNTED EPR: %s" % discounted_epr
-            # size the rewards to be unit normal (helps control the gradient estimator variance)
-            discounted_epr -= np.mean(discounted_epr)
-            # print "MEAN EPR: %s" % discounted_epr
-            discounted_epr /= np.std(discounted_epr)
-            #print "STD EPR: %s" % discounted_epr
+            discounted_epr = discount_rewards(epr, equity, commission_fees)
 
             # Reset to start
             commission_fees = 0
             equity = 1.0
-            input_index = 1
-            observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS] # Ignore timestamp, don't want that in weights
-            observation.append(1.0) # Equally balanced portfolio to start
-            observation.append(1.0)
-            observation.append(1.0)
-            observation.append(1.0)
+            input_index = INDEX_START
+            observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS-NUM_STOCKS] # Ignore timestamp, don't want that in weights
+            observation += start_observation_state()
 
             average_portfolio = [0, 0, 0, 0, 0]
             min_portfolio = [1, 1, 1, 1, 1]
             max_portfolio = [0, 0, 0, 0, 0]
 
 
-            
+            # Don't record anything from evaluation runs
+            # if episode_number % BATCH_SIZE != 1:
             # Get the gradient for this episode, and save it in the gradBuffer
             tGrad = sess.run(newGrads,feed_dict={observations: epx, input_y: epy, advantages: discounted_epr})
             for ix,grad in enumerate(tGrad):
                 gradBuffer[ix] += grad
                 
             # If we have completed enough episodes, then update the policy network with our gradients.
-            if episode_number % batch_size == 0: 
+            if episode_number % BATCH_SIZE == 0 and episode_number / BATCH_SIZE != current_batch:
                 sess.run(updateGrads,feed_dict={W1Grad:gradBuffer[0], W2Grad:gradBuffer[1], W3Grad:gradBuffer[2], B1Grad:gradBuffer[3], B2Grad:gradBuffer[4], B3Grad:gradBuffer[5]})
                 for ix,grad in enumerate(gradBuffer):
                     gradBuffer[ix] = grad * 0
@@ -387,31 +462,26 @@ with tf.Session() as sess:
                 # Give a summary of how well our network is doing for each batch of episodes.
                 running_reward = reward_sum if running_reward is None else running_reward * 0.99 + reward_sum * 0.01
                 print
-                print 'Average reward for episode %f.  Total average reward %f.' % (reward_sum/batch_size, running_reward/batch_size)
-                print
+                print 'Average reward for episode %f.  Total average reward %f.' % (reward_sum/BATCH_SIZE, running_reward/BATCH_SIZE)
                 reward_sum = 0
+
+                BATCH_SIZE += BATCH_INCREMENT
+                current_batch += 1
+                print "Increasing batch size to %d" % BATCH_SIZE
+                print "Have run %d batch updates" % current_batch
+                print
             
-            # TODO no env
-            input_index = 1 # Ignore csv header
+            input_index = INDEX_START # Ignore csv header
             equity = 1.0  # 1 unit of money, to start
-            observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS] # Ignore timestamp, don't want that in weights
-            observation.append(0.2) # Equally balanced portfolio to start
-            observation.append(0.2)
-            observation.append(0.2)
-            observation.append(0.2)
-            observation.append(0.2)
-            observation.append(1.0) # 1.0 equity to start
+            observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS-NUM_STOCKS] # Ignore timestamp, don't want that in weights
+            observation += start_observation_state()
             observation = np.array(map(float, observation))
 
-            if episode_number % 100 == 0:
-                exploration_rate *= 0.95
-                learning_rate *= 0.95
-                learning_rate = max(5e-4, learning_rate)
-                exploration_rate = max(0.03, exploration_rate)
-                print
-                print "Run %d episodes" % episode_number
-                print "Explore rate : %s" % exploration_rate
-                print
+            if episode_number % DECAY_ITERATIONS == 0:
+                EXPLORATION_RATE *= 0.97
+                LEARNING_RATE *= 0.97
+                LEARNING_RATE = max(5e-4, LEARNING_RATE)
+                EXPLORATION_RATE = max(0.03, EXPLORATION_RATE)
         
 print episode_number,'Episodes completed.'
 
