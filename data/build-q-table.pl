@@ -34,6 +34,9 @@ for(my $i = 0; $i < scalar(@header); $i++) {
 my $profit_until_end = 0;
 my $sub_profit_until_end = 0;
 
+my $sub_ratio = 0.12;
+my $prev_sub_profit = 0.00;
+
 my @dates;           # All date times stored for later use
 my @q_profits;       # Possible reward from a time until end of samples
 my @q_sub_profits;   # Sub-reward from a time until end of samples
@@ -60,11 +63,17 @@ for(my $i = scalar(@data_points) - 1; $i > 0; $i--) {
             $best_security = $header[$close_columns[$j]];
             $best_transaction = "$best_security  $profit";
         }
-        $sub_profit_until_end += 0.9 * $profit / scalar(@prices);
+        $sub_profit_until_end += (1 - $sub_ratio) * $profit / scalar(@prices);
     }
     $profit_until_end += $biggest_profit;
 
-    $sub_profit_until_end += 0.1 * $biggest_profit;
+    $sub_profit_until_end += $sub_ratio * $biggest_profit;
+
+    # if($sub_profit_until_end < $prev_sub_profit) {
+    #     $sub_profit_until_end = $prev_sub_profit;
+    # } else {
+    $prev_sub_profit = $sub_profit_until_end;
+    # }
 
     push(@q_profits, $profit_until_end);
     push(@q_sub_profits, $sub_profit_until_end);

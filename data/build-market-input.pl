@@ -83,6 +83,13 @@ for my $file (@ARGV) {
     my $average_loss_10_day = 0;
     my $average_gain_14_day = 0;
     my $average_loss_14_day = 0;
+    my $average_3_day = 0;
+    my $average_4_day = 0;
+    my $average_5_day = 0;
+    my $average_6_day = 0;
+    my $average_7_day = 0;
+    my $average_8_day = 0;
+    my $average_9_day = 0;
     my $average_10_day = 0;
     my $average_20_day = 0;
     my $average_40_day = 0;
@@ -144,12 +151,26 @@ for my $file (@ARGV) {
 
             if($sample_count == 0) {
                 # Init averages to first price
+                $average_3_day  = $price * 1.0;
+                $average_4_day  = $price * 1.0;
+                $average_5_day  = $price * 1.0;
+                $average_6_day  = $price * 1.0;
+                $average_7_day  = $price * 1.0;
+                $average_8_day  = $price * 1.0;
+                $average_9_day  = $price * 1.0;
                 $average_10_day = $price * 1.0;
                 $average_20_day = $price * 1.0;
                 $average_40_day = $price * 1.0;
                 $average_80_day = $price * 1.0;
             } else {
                 # Keep moving averages updated
+                $average_3_day  = ($price + ($average_10_day *  2)) /  3.0;
+                $average_4_day  = ($price + ($average_10_day *  3)) /  4.0;
+                $average_5_day  = ($price + ($average_10_day *  4)) /  5.0;
+                $average_6_day  = ($price + ($average_10_day *  5)) /  6.0;
+                $average_7_day  = ($price + ($average_10_day *  6)) /  7.0;
+                $average_8_day  = ($price + ($average_10_day *  7)) /  8.0;
+                $average_9_day  = ($price + ($average_10_day *  8)) /  9.0;
                 $average_10_day = ($price + ($average_10_day *  9)) / 10.0;
                 $average_20_day = ($price + ($average_20_day * 19)) / 20.0;
                 $average_40_day = ($price + ($average_40_day * 39)) / 40.0;
@@ -169,19 +190,26 @@ for my $file (@ARGV) {
 
             # Add data if there's enough samples to have all averages initialized
             if($sample_count > 80) {
+                my $change_3_day  = (($price -  $average_3_day) /  $average_3_day);
+                my $change_4_day  = (($price -  $average_4_day) /  $average_4_day);
+                my $change_5_day  = (($price -  $average_5_day) /  $average_5_day);
+                my $change_6_day  = (($price -  $average_6_day) /  $average_6_day);
+                my $change_7_day  = (($price -  $average_7_day) /  $average_7_day);
+                my $change_8_day  = (($price -  $average_8_day) /  $average_8_day);
+                my $change_9_day  = (($price -  $average_9_day) /  $average_9_day);
                 my $change_10_day = (($price - $average_10_day) / $average_10_day);
                 my $change_20_day = (($price - $average_20_day) / $average_20_day);
                 my $change_40_day = (($price - $average_40_day) / $average_40_day);
                 my $change_80_day = (($price - $average_80_day) / $average_80_day);
 
-                $data{$dt->epoch} = (exists($data{$dt->epoch}) ? $data{$dt->epoch} : "") . "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day, $deviation_3_day, $deviation_5_day, $deviation_10_day,";
+                $data{$dt->epoch} = (exists($data{$dt->epoch}) ? $data{$dt->epoch} : "") . "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_3_day, $change_4_day, $change_5_day, $change_6_day, $change_7_day, $change_8_day, $change_9_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day, $deviation_3_day, $deviation_5_day, $deviation_10_day,";
             }
 
             $sample_count++;
             $last_price = $price;
 
         } else {
-            $header = $header . "$file change, $file RSI 3 day, $file RSI 10 day, $file RSI 14 day, $file average_10_day, $file average_20_day, $file average_40_day, $file average_80_day, $file deviation 3 day, $file deviation 5 day, $file deviation 10 day, ";
+            $header = $header . "$file change, $file RSI 3 day, $file RSI 10 day, $file RSI 14 day, $file average_3_day, $file average_4_day, $file average_5_day, $file average_6_day, $file average_7_day, $file average_8_day, $file average_9_day, $file average_10_day, $file average_20_day, $file average_40_day, $file average_80_day, $file deviation 3 day, $file deviation 5 day, $file deviation 10 day, ";
         }
     }
 }
