@@ -123,6 +123,8 @@ tf.reset_default_graph()
 x = tf.placeholder("float", [SEQUENCE_LENGTH, IN_DIMENS])
 y = tf.placeholder("float", [OUT_DIMENS])
 
+learning_rate = tf.placeholder(tf.float32, shape=[])
+
 # Define weights
 weights = {
            'out': tf.Variable(tf.random_normal([RNN_NEURONS, OUT_DIMENS]))
@@ -143,7 +145,7 @@ def RNN(x, weights, biases):
 rnn_outputs, rnn_states, rnn_pred = RNN(x, weights, biases)
 
 cost = tf.reduce_sum(tf.square(rnn_pred - y))
-optimizer = tf.train.AdamOptimizer(learning_rate=LEARNING_RATE).minimize(cost)
+optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate).minimize(cost)
 
 init = tf.initialize_all_variables()
 
@@ -163,7 +165,7 @@ for index in range(INDEX_START, INDEX_END - FUTURE_FORECAST):
 with tf.Session() as sess:
     sess.run(init)
 
-    RNN_TRAINING_ITERATIONS = 1000
+    RNN_TRAINING_ITERATIONS = 100
     iteration = 0
 
     while iteration < RNN_TRAINING_ITERATIONS:
@@ -176,7 +178,7 @@ with tf.Session() as sess:
             index -= INDEX_START
 
             sequence_x = sequences[index]
-            sess.run(optimizer, feed_dict = {x: sequence_x, y: forecast_move[index]})
+            sess.run(optimizer, feed_dict = {x: sequence_x, y: forecast_move[index], learning_rate: LEARNING_RATE})
 
             train_loss += sess.run(cost, feed_dict = {x: sequence_x, y: forecast_move[index]})
 
@@ -204,4 +206,4 @@ with tf.Session() as sess:
         LEARNING_RATE *= 0.99
         print "Learning Rate: %f" % LEARNING_RATE
 
-       
+
