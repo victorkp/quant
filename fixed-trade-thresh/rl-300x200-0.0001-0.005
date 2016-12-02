@@ -1,0 +1,4483 @@
+LAYER_1_NEURONS: 300
+LAYER_2_NEURONS: 200
+BATCH_SIZE: 20
+LEARNING_RATE: 0.010000
+GAMMA: 0.975000
+IN_DIMENS: 89
+OUT_DIMENS: 5
+EXPLORATION_RATE: 0.050000
+TRADE_THRESHOLD: 0.250000
+TRADE_FEE: 0.005000
+TRADE_REWARD_PENALTY: 0.000100
+DROPOUT_KEEP_PROB: 0.900000
+NO_DISCOUNT: 0
+AVG_REWARD_INCREMENT: 0
+USE_Q_TABLE: 1
+Q_TABLE_MULT: 0
+EQUITY_BONUS_MULT: 0.000000
+USE_DONE_REWARD: 0
+LOW_TRADING_PENALTY: -0.300000
+LOW_TRADING_THRESH: 500
+
+
+Equity: 0.00946455711722 at time step 326
+Commission fees: 205 = 1.025000 in fees
+Iteration: 1
+
+Equity: 0.00700772384132 at time step 299
+Commission fees: 196 = 0.980000 in fees
+Iteration: 2
+
+Equity: 0.00875585043461 at time step 298
+Commission fees: 198 = 0.990000 in fees
+Iteration: 3
+
+Equity: 0.00605399241754 at time step 285
+Commission fees: 192 = 0.960000 in fees
+Iteration: 4
+
+Equity: 0.00642606595067 at time step 308
+Commission fees: 200 = 1.000000 in fees
+Iteration: 5
+
+Equity: 0.00993298755594 at time step 318
+Commission fees: 202 = 1.010000 in fees
+Iteration: 6
+
+Equity: 0.00705809769901 at time step 316
+Commission fees: 201 = 1.005000 in fees
+Iteration: 7
+
+Equity: 0.00919816779606 at time step 323
+Commission fees: 198 = 0.990000 in fees
+Iteration: 8
+
+Equity: 0.00726021891834 at time step 322
+Commission fees: 202 = 1.010000 in fees
+Iteration: 9
+
+Equity: 0.00583792827291 at time step 321
+Commission fees: 202 = 1.010000 in fees
+Iteration: 10
+
+Equity: 0.00715657768331 at time step 308
+Commission fees: 195 = 0.975000 in fees
+Iteration: 11
+
+Equity: 0.00844728589137 at time step 334
+Commission fees: 206 = 1.030000 in fees
+Iteration: 12
+
+Equity: 0.00717086945634 at time step 337
+Commission fees: 206 = 1.030000 in fees
+Iteration: 13
+
+Equity: 0.00905756113073 at time step 322
+Commission fees: 199 = 0.995000 in fees
+Iteration: 14
+
+Equity: 0.00654451429117 at time step 328
+Commission fees: 202 = 1.010000 in fees
+Iteration: 15
+
+Equity: 0.00995726000041 at time step 291
+Commission fees: 196 = 0.980000 in fees
+Iteration: 16
+
+Equity: 0.0090553655256 at time step 326
+Commission fees: 199 = 0.995000 in fees
+Iteration: 17
+
+Equity: 0.00858001258796 at time step 336
+Commission fees: 201 = 1.005000 in fees
+Iteration: 18
+
+Equity: 0.00937730971122 at time step 332
+Commission fees: 200 = 1.000000 in fees
+Iteration: 19
+
+
+Average reward for episode 0.131140.  Total average reward 0.131140.
+Increasing batch size to 22
+Have run 1 batch updates
+Next update at 42
+
+Equity: 0.00994346256279 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 20
+
+Equity: 0.00879667035908 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 21
+
+======== EVALUATION RUN =========
+Equity: 0.00564695820305 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Learning Rate: 0.01, Exploration Rate: 0.05
+Avg Portfolio: [0.041364424122358925, 0.055332496306110167, 0.045794481585820744, 0.13194573802932902, 0.040169601529414817]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.47368775664498147, 0.61000037099128046, 0.73311210461872289, 0.88293165718009248, 0.51551068637543518]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 22
+
+Equity: 0.00733862104964 at time step 208
+Commission fees: 203 = 1.015000 in fees
+Iteration: 23
+
+Equity: 0.00729492140453 at time step 210
+Commission fees: 202 = 1.010000 in fees
+Iteration: 24
+
+Equity: 0.00668274093199 at time step 208
+Commission fees: 203 = 1.015000 in fees
+Iteration: 25
+
+Equity: 0.00584369703303 at time step 202
+Commission fees: 193 = 0.965000 in fees
+Iteration: 26
+
+Equity: 0.00608315142904 at time step 200
+Commission fees: 192 = 0.960000 in fees
+Iteration: 27
+
+Equity: 0.005992489202 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 28
+
+Equity: 0.00545296071695 at time step 215
+Commission fees: 209 = 1.045000 in fees
+Iteration: 29
+
+Equity: 0.00649697608954 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 30
+
+Equity: 0.00694462415818 at time step 208
+Commission fees: 203 = 1.015000 in fees
+Iteration: 31
+
+Equity: 0.00562751315671 at time step 194
+Commission fees: 187 = 0.935000 in fees
+Iteration: 32
+
+Equity: 0.00943038190849 at time step 200
+Commission fees: 195 = 0.975000 in fees
+Iteration: 33
+
+Equity: 0.0049876732086 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 34
+
+Equity: 0.0094689054251 at time step 207
+Commission fees: 198 = 0.990000 in fees
+Iteration: 35
+
+Equity: 0.00768550458049 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 36
+
+Equity: 0.0082215140504 at time step 200
+Commission fees: 193 = 0.965000 in fees
+Iteration: 37
+
+Equity: 0.0078526589709 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 38
+
+Equity: 0.00991554204468 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 39
+
+Equity: 0.00821247150529 at time step 206
+Commission fees: 199 = 0.995000 in fees
+Iteration: 40
+
+Equity: 0.00572676718438 at time step 206
+Commission fees: 199 = 0.995000 in fees
+Iteration: 41
+
+
+Average reward for episode -0.035815.  Total average reward 0.117668.
+Increasing batch size to 24
+Have run 2 batch updates
+Next update at 66
+
+Equity: 0.00945776784684 at time step 213
+Commission fees: 212 = 1.060000 in fees
+Iteration: 42
+
+Equity: 0.00643424472565 at time step 219
+Commission fees: 214 = 1.070000 in fees
+Iteration: 43
+
+Equity: 0.00940388120018 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 44
+
+Equity: 0.00997761206071 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 45
+
+Equity: 0.00845942732307 at time step 200
+Commission fees: 195 = 0.975000 in fees
+Iteration: 46
+
+Equity: 0.00817824670044 at time step 192
+Commission fees: 192 = 0.960000 in fees
+Iteration: 47
+
+======== EVALUATION RUN =========
+Equity: 0.00790153995143 at time step 205
+Commission fees: 199 = 0.995000 in fees
+Learning Rate: 0.01, Exploration Rate: 0.05
+Avg Portfolio: [0.063786740496148756, 0.061591974608809677, 0.067049524446986225, 0.058515523431484529, 0.073423325624165661]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.76908199296612212, 0.65524623559060768, 0.72358743594266861, 0.65017852481100158, 0.66193798964209982]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 48
+
+Equity: 0.00546581946234 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 49
+
+Equity: 0.00937618848665 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 50
+
+Equity: 0.00611895511435 at time step 199
+Commission fees: 198 = 0.990000 in fees
+Iteration: 51
+
+Equity: 0.00984625385829 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 52
+
+Equity: 0.00565621867524 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 53
+
+Equity: 0.00993058465987 at time step 217
+Commission fees: 210 = 1.050000 in fees
+Iteration: 54
+
+Equity: 0.00901008197037 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 55
+
+Equity: 0.00919176889608 at time step 193
+Commission fees: 189 = 0.945000 in fees
+Iteration: 56
+
+Equity: 0.00725341085844 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 57
+
+Equity: 0.00507108944508 at time step 215
+Commission fees: 210 = 1.050000 in fees
+Iteration: 58
+
+Equity: 0.00796718968707 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 59
+
+Equity: 0.00982329263276 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 60
+
+Equity: 0.007018802667 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 61
+
+Equity: 0.00688781607406 at time step 199
+Commission fees: 195 = 0.975000 in fees
+Iteration: 62
+
+Equity: 0.00821571228516 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 63
+
+Equity: 0.00832297071749 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 64
+
+Equity: 0.00824180418537 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 65
+
+
+Average reward for episode -0.026610.  Total average reward 0.106518.
+Increasing batch size to 26
+Have run 3 batch updates
+Next update at 92
+
+Equity: 0.00692834322257 at time step 195
+Commission fees: 195 = 0.975000 in fees
+Iteration: 66
+
+Equity: 0.00928241598059 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 67
+
+Equity: 0.00797739846839 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 68
+
+Equity: 0.00953682112523 at time step 194
+Commission fees: 191 = 0.955000 in fees
+Iteration: 69
+
+Equity: 0.00983968286889 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 70
+
+Equity: 0.00695754601561 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 71
+
+Equity: 0.00838192999681 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 72
+
+Equity: 0.00985719494578 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 73
+
+Equity: 0.00697261522894 at time step 201
+Commission fees: 197 = 0.985000 in fees
+Iteration: 74
+
+Equity: 0.00717763918547 at time step 197
+Commission fees: 192 = 0.960000 in fees
+Iteration: 75
+
+Equity: 0.00956537628305 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 76
+
+Equity: 0.00777971649836 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 77
+
+======== EVALUATION RUN =========
+Equity: 0.00874797522589 at time step 199
+Commission fees: 191 = 0.955000 in fees
+Learning Rate: 0.01, Exploration Rate: 0.05
+Avg Portfolio: [0.057456413213271086, 0.063838411052406591, 0.068780823877820488, 0.063630599095331614, 0.064185126563087225]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.89317642025056965, 0.68266294562992402, 0.67911617614141129, 0.6514372105516355, 0.70612848614546886]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 78
+
+Equity: 0.00699581292133 at time step 189
+Commission fees: 188 = 0.940000 in fees
+Iteration: 79
+
+Equity: 0.00687146691094 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 80
+
+Equity: 0.0084890868625 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 81
+
+Equity: 0.00962870823595 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 82
+
+Equity: 0.00698727074862 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 83
+
+Equity: 0.00654216450335 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 84
+
+Equity: 0.00947274750544 at time step 211
+Commission fees: 206 = 1.030000 in fees
+Iteration: 85
+
+Equity: 0.00565298451572 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 86
+
+Equity: 0.00808300979778 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 87
+
+Equity: 0.00686719286587 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 88
+
+Equity: 0.00816792244826 at time step 211
+Commission fees: 207 = 1.035000 in fees
+Iteration: 89
+
+Equity: 0.00836122491262 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 90
+
+Equity: 0.00618268184263 at time step 207
+Commission fees: 207 = 1.035000 in fees
+Iteration: 91
+
+
+Average reward for episode -0.017167.  Total average reward 0.097169.
+Increasing batch size to 28
+Have run 4 batch updates
+Next update at 120
+
+Equity: 0.00935803160249 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 92
+
+Equity: 0.00682393408779 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 93
+
+Equity: 0.00538165089054 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 94
+
+Equity: 0.00636073848044 at time step 195
+Commission fees: 194 = 0.970000 in fees
+Iteration: 95
+
+Equity: 0.00868481034001 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 96
+
+Equity: 0.0053066431018 at time step 217
+Commission fees: 213 = 1.065000 in fees
+Iteration: 97
+
+Equity: 0.00754364838931 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 98
+
+Equity: 0.00752121089503 at time step 204
+Commission fees: 197 = 0.985000 in fees
+Iteration: 99
+
+Equity: 0.0099687435339 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 100
+
+Equity: 0.00740645508867 at time step 192
+Commission fees: 189 = 0.945000 in fees
+Iteration: 101
+
+Equity: 0.00953043577592 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 102
+
+Equity: 0.00894492426827 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 103
+
+Equity: 0.00584676738936 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 104
+
+Equity: 0.00705846707576 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 105
+
+Equity: 0.00532137156736 at time step 198
+Commission fees: 193 = 0.965000 in fees
+Iteration: 106
+
+Equity: 0.0080820751249 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 107
+
+Equity: 0.00524997257156 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 108
+
+Equity: 0.00747454546883 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 109
+
+Equity: 0.00890533999098 at time step 192
+Commission fees: 192 = 0.960000 in fees
+Iteration: 110
+
+Equity: 0.00504263264886 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 111
+
+======== EVALUATION RUN =========
+Equity: 0.00998495501067 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Learning Rate: 0.009, Exploration Rate: 0.045
+Avg Portfolio: [0.065214142289647101, 0.065517822984867385, 0.070550315337347208, 0.063017649343599574, 0.053591443846455596]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.6391971093166483, 0.68948823440518914, 0.75531357945338173, 0.74239191319028253, 0.84099631782822415]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 112
+
+Equity: 0.0061989695293 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 113
+
+Equity: 0.00563350502493 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 114
+
+Equity: 0.00844174777113 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 115
+
+Equity: 0.00705657803807 at time step 206
+Commission fees: 199 = 0.995000 in fees
+Iteration: 116
+
+Equity: 0.0061509088936 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 117
+
+Equity: 0.00833151468116 at time step 214
+Commission fees: 211 = 1.055000 in fees
+Iteration: 118
+
+Equity: 0.00933817962061 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 119
+
+
+Average reward for episode -0.019223.  Total average reward 0.089134.
+Increasing batch size to 30
+Have run 5 batch updates
+Next update at 150
+
+======== EVALUATION RUN =========
+Equity: 0.00628688945906 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Learning Rate: 0.009, Exploration Rate: 0.045
+Avg Portfolio: [0.063532582590934583, 0.060864271493219102, 0.064195544865053078, 0.064717090369182426, 0.062395638886739012]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.54694747098426955, 0.57914971068484011, 0.65770245013693207, 0.8096233122405101, 0.79427192742117569]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 120
+
+Equity: 0.00813364387504 at time step 201
+Commission fees: 196 = 0.980000 in fees
+Iteration: 121
+
+Equity: 0.00683962862196 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 122
+
+Equity: 0.00511774953253 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 123
+
+Equity: 0.00817224259301 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 124
+
+Equity: 0.00995672510641 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 125
+
+Equity: 0.00623541286088 at time step 198
+Commission fees: 198 = 0.990000 in fees
+Iteration: 126
+
+Equity: 0.00909457168235 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 127
+
+Equity: 0.00770316950789 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 128
+
+Equity: 0.0077221846271 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 129
+
+Equity: 0.00608520567374 at time step 200
+Commission fees: 200 = 1.000000 in fees
+Iteration: 130
+
+Equity: 0.00532261559233 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 131
+
+Equity: 0.00531715071505 at time step 218
+Commission fees: 212 = 1.060000 in fees
+Iteration: 132
+
+Equity: 0.00549808954613 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 133
+
+Equity: 0.00502860538975 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 134
+
+Equity: 0.00765655096384 at time step 195
+Commission fees: 193 = 0.965000 in fees
+Iteration: 135
+
+Equity: 0.00645952106886 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 136
+
+Equity: 0.00661665058236 at time step 193
+Commission fees: 190 = 0.950000 in fees
+Iteration: 137
+
+Equity: 0.00973649511637 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 138
+
+Equity: 0.00693125229752 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 139
+
+Equity: 0.00663805941146 at time step 214
+Commission fees: 210 = 1.050000 in fees
+Iteration: 140
+
+Equity: 0.00588040893887 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 141
+
+Equity: 0.00993914655724 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 142
+
+Equity: 0.00960112094774 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 143
+
+Equity: 0.00640214659802 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 144
+
+Equity: 0.00966405271866 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 145
+
+Equity: 0.00527658307791 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 146
+
+Equity: 0.00621960428057 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 147
+
+Equity: 0.00886789068661 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 148
+
+Equity: 0.00525743420917 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 149
+
+
+Average reward for episode -0.018505.  Total average reward 0.082175.
+Increasing batch size to 32
+Have run 6 batch updates
+Next update at 182
+
+Equity: 0.0083813787041 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 150
+
+Equity: 0.00922135075881 at time step 199
+Commission fees: 198 = 0.990000 in fees
+Iteration: 151
+
+Equity: 0.00750114700557 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 152
+
+Equity: 0.0070034247105 at time step 208
+Commission fees: 203 = 1.015000 in fees
+Iteration: 153
+
+Equity: 0.00959627658875 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 154
+
+Equity: 0.00774336867596 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 155
+
+Equity: 0.00677917098966 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 156
+
+Equity: 0.00640489498135 at time step 214
+Commission fees: 210 = 1.050000 in fees
+Iteration: 157
+
+Equity: 0.00656627103807 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 158
+
+Equity: 0.0060987291857 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 159
+
+======== EVALUATION RUN =========
+Equity: 0.00604016050202 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Learning Rate: 0.009, Exploration Rate: 0.045
+Avg Portfolio: [0.057451287368796997, 0.066104671293494316, 0.062180502004397911, 0.065400941623381822, 0.064567725915057189]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.59157922810609154, 0.60312749991399184, 0.61539548069510985, 0.73630136176163352, 0.67136663969961941]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 160
+
+Equity: 0.00657551836219 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 161
+
+Equity: 0.00948919271737 at time step 195
+Commission fees: 194 = 0.970000 in fees
+Iteration: 162
+
+Equity: 0.00807578672296 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 163
+
+Equity: 0.00961762611551 at time step 208
+Commission fees: 203 = 1.015000 in fees
+Iteration: 164
+
+Equity: 0.00519786553712 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 165
+
+Equity: 0.00546529816801 at time step 215
+Commission fees: 213 = 1.065000 in fees
+Iteration: 166
+
+Equity: 0.00773023998361 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 167
+
+Equity: 0.00893931948181 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 168
+
+Equity: 0.00515358248011 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 169
+
+Equity: 0.00688677642709 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 170
+
+Equity: 0.00865364358672 at time step 199
+Commission fees: 194 = 0.970000 in fees
+Iteration: 171
+
+Equity: 0.00606917041037 at time step 203
+Commission fees: 198 = 0.990000 in fees
+Iteration: 172
+
+Equity: 0.00909281586931 at time step 196
+Commission fees: 192 = 0.960000 in fees
+Iteration: 173
+
+Equity: 0.00625189562394 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 174
+
+Equity: 0.00659314291731 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 175
+
+Equity: 0.00648564799103 at time step 208
+Commission fees: 207 = 1.035000 in fees
+Iteration: 176
+
+Equity: 0.00616862029942 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 177
+
+Equity: 0.00777530030414 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 178
+
+Equity: 0.0053174409011 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 179
+
+Equity: 0.0057280507994 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 180
+
+Equity: 0.0070125343103 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 181
+
+
+Average reward for episode -0.016147.  Total average reward 0.076107.
+Increasing batch size to 34
+Have run 7 batch updates
+Next update at 216
+
+Equity: 0.00613641517625 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 182
+
+Equity: 0.00735246117445 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 183
+
+Equity: 0.00911076611011 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 184
+
+Equity: 0.00752596510566 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 185
+
+Equity: 0.0057602665702 at time step 204
+Commission fees: 196 = 0.980000 in fees
+Iteration: 186
+
+Equity: 0.00696919461203 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 187
+
+Equity: 0.00724296770821 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 188
+
+Equity: 0.00841894087577 at time step 222
+Commission fees: 217 = 1.085000 in fees
+Iteration: 189
+
+Equity: 0.00982191674169 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 190
+
+Equity: 0.00612143094192 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 191
+
+Equity: 0.00942511433833 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 192
+
+Equity: 0.00605704419138 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Iteration: 193
+
+Equity: 0.00997480578125 at time step 195
+Commission fees: 191 = 0.955000 in fees
+Iteration: 194
+
+Equity: 0.00518399782222 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 195
+
+Equity: 0.00712433994939 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 196
+
+Equity: 0.00850262413457 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 197
+
+Equity: 0.00593963871251 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 198
+
+Equity: 0.00764483976996 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 199
+
+Equity: 0.0086091756469 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 200
+
+Equity: 0.00850433029362 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 201
+
+Equity: 0.00616228422349 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 202
+
+Equity: 0.00738786858751 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 203
+
+======== EVALUATION RUN =========
+Equity: 0.00806249610627 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Learning Rate: 0.0081, Exploration Rate: 0.0405
+Avg Portfolio: [0.065633170660417836, 0.067951269117108457, 0.061379042472423255, 0.067314801501064878, 0.059943938471207749]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.7105684365944559, 0.60228329345691034, 0.79871641612915523, 0.67593606545271612, 0.69601849524946047]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 204
+
+Equity: 0.00645532274667 at time step 194
+Commission fees: 188 = 0.940000 in fees
+Iteration: 205
+
+Equity: 0.00504455974678 at time step 210
+Commission fees: 207 = 1.035000 in fees
+Iteration: 206
+
+Equity: 0.00921350353862 at time step 210
+Commission fees: 203 = 1.015000 in fees
+Iteration: 207
+
+Equity: 0.00968090631627 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 208
+
+Equity: 0.00577233907625 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 209
+
+Equity: 0.00803926264355 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 210
+
+Equity: 0.00688706754506 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 211
+
+Equity: 0.00809462859487 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 212
+
+Equity: 0.00824986362472 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 213
+
+Equity: 0.00704207494046 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 214
+
+Equity: 0.00831750830522 at time step 200
+Commission fees: 200 = 1.000000 in fees
+Iteration: 215
+
+
+Average reward for episode -0.012986.  Total average reward 0.070784.
+Increasing batch size to 36
+Have run 8 batch updates
+Next update at 252
+
+======== EVALUATION RUN =========
+Equity: 0.00721266904104 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Learning Rate: 0.0081, Exploration Rate: 0.0405
+Avg Portfolio: [0.068962803942099221, 0.055233905803417492, 0.06731172793066427, 0.063146531415310792, 0.064324297256195734]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.69418188210792875, 0.69646657852585236, 0.62708655887400533, 0.59187746735563707, 0.84747786201225139]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 216
+
+Equity: 0.00561474732703 at time step 215
+Commission fees: 207 = 1.035000 in fees
+Iteration: 217
+
+Equity: 0.00917801845996 at time step 194
+Commission fees: 190 = 0.950000 in fees
+Iteration: 218
+
+Equity: 0.006067025363 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 219
+
+Equity: 0.00566282535121 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 220
+
+Equity: 0.00617805931594 at time step 200
+Commission fees: 195 = 0.975000 in fees
+Iteration: 221
+
+Equity: 0.00683989643222 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 222
+
+Equity: 0.00586196166579 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 223
+
+Equity: 0.0061841128296 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 224
+
+Equity: 0.00629501963231 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 225
+
+Equity: 0.00756879360838 at time step 199
+Commission fees: 195 = 0.975000 in fees
+Iteration: 226
+
+Equity: 0.00934644075043 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 227
+
+Equity: 0.00558753822588 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 228
+
+Equity: 0.00726489542325 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 229
+
+Equity: 0.00626331783963 at time step 192
+Commission fees: 192 = 0.960000 in fees
+Iteration: 230
+
+Equity: 0.00699954751133 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 231
+
+Equity: 0.00798647428231 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 232
+
+Equity: 0.00745241746789 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 233
+
+Equity: 0.00501977933485 at time step 199
+Commission fees: 192 = 0.960000 in fees
+Iteration: 234
+
+Equity: 0.00775057380501 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 235
+
+Equity: 0.00869853658501 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 236
+
+Equity: 0.00529811463918 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 237
+
+Equity: 0.00626401128246 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 238
+
+Equity: 0.00947151343225 at time step 196
+Commission fees: 191 = 0.955000 in fees
+Iteration: 239
+
+Equity: 0.00995511631017 at time step 210
+Commission fees: 208 = 1.040000 in fees
+Iteration: 240
+
+Equity: 0.00933423852559 at time step 187
+Commission fees: 183 = 0.915000 in fees
+Iteration: 241
+
+Equity: 0.00681591349169 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 242
+
+Equity: 0.0055604515633 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 243
+
+Equity: 0.00799409770601 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 244
+
+Equity: 0.00505386004376 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 245
+
+Equity: 0.00966752824088 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 246
+
+Equity: 0.00650104867317 at time step 201
+Commission fees: 195 = 0.975000 in fees
+Iteration: 247
+
+Equity: 0.00726088231787 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 248
+
+Equity: 0.00732623312723 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 249
+
+Equity: 0.0072075424818 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 250
+
+Equity: 0.00541938234531 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 251
+
+
+Average reward for episode -0.032430.  Total average reward 0.065859.
+Increasing batch size to 38
+Have run 9 batch updates
+Next update at 290
+
+Equity: 0.00588090999694 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 252
+
+Equity: 0.00565238528825 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 253
+
+Equity: 0.00913549520081 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 254
+
+Equity: 0.00919246441357 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 255
+
+Equity: 0.00574818259773 at time step 210
+Commission fees: 209 = 1.045000 in fees
+Iteration: 256
+
+Equity: 0.0096374967091 at time step 203
+Commission fees: 197 = 0.985000 in fees
+Iteration: 257
+
+Equity: 0.00587559451602 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 258
+
+Equity: 0.00653759222514 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 259
+
+Equity: 0.00553724272202 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 260
+
+Equity: 0.00629724688418 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 261
+
+Equity: 0.0073704756481 at time step 215
+Commission fees: 211 = 1.055000 in fees
+Iteration: 262
+
+Equity: 0.0073120024997 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 263
+
+Equity: 0.00720480363939 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 264
+
+Equity: 0.00994916461077 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 265
+
+======== EVALUATION RUN =========
+Equity: 0.00986849917686 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Learning Rate: 0.0081, Exploration Rate: 0.0405
+Avg Portfolio: [0.064417189040873665, 0.061795516190108216, 0.054148431277778963, 0.063967443758854534, 0.070278161305418294]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.67757462294826443, 0.63020254118770824, 0.77502817407750491, 0.73632785940229362, 0.70060787370729183]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 266
+
+Equity: 0.00856780741106 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 267
+
+Equity: 0.00963370208644 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 268
+
+Equity: 0.00793561274117 at time step 205
+Commission fees: 199 = 0.995000 in fees
+Iteration: 269
+
+Equity: 0.00626693702263 at time step 206
+Commission fees: 200 = 1.000000 in fees
+Iteration: 270
+
+Equity: 0.00588956123339 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 271
+
+Equity: 0.00696948154029 at time step 216
+Commission fees: 212 = 1.060000 in fees
+Iteration: 272
+
+Equity: 0.00828517971821 at time step 183
+Commission fees: 182 = 0.910000 in fees
+Iteration: 273
+
+Equity: 0.00670102310568 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 274
+
+Equity: 0.00601769600218 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 275
+
+Equity: 0.00870390780337 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 276
+
+Equity: 0.00824269789793 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 277
+
+Equity: 0.00723995539946 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 278
+
+Equity: 0.00731100051906 at time step 209
+Commission fees: 202 = 1.010000 in fees
+Iteration: 279
+
+Equity: 0.00973353838846 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 280
+
+Equity: 0.00882778220729 at time step 201
+Commission fees: 197 = 0.985000 in fees
+Iteration: 281
+
+Equity: 0.00576604720136 at time step 196
+Commission fees: 192 = 0.960000 in fees
+Iteration: 282
+
+Equity: 0.00796177032502 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 283
+
+Equity: 0.0068164364467 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 284
+
+Equity: 0.00659371550309 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 285
+
+Equity: 0.00840211554053 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 286
+
+Equity: 0.00634648828438 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 287
+
+Equity: 0.00713847783907 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 288
+
+Equity: 0.00817997420431 at time step 195
+Commission fees: 191 = 0.955000 in fees
+Iteration: 289
+
+
+Average reward for episode -0.018466.  Total average reward 0.061584.
+Increasing batch size to 40
+Have run 10 batch updates
+Next update at 330
+
+Equity: 0.00720236531005 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 290
+
+Equity: 0.00740704295906 at time step 203
+Commission fees: 198 = 0.990000 in fees
+Iteration: 291
+
+Equity: 0.00565148111402 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 292
+
+Equity: 0.00913575888819 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 293
+
+Equity: 0.00581535322626 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 294
+
+Equity: 0.00544006920386 at time step 207
+Commission fees: 207 = 1.035000 in fees
+Iteration: 295
+
+Equity: 0.0067130195955 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 296
+
+Equity: 0.00941388920536 at time step 199
+Commission fees: 193 = 0.965000 in fees
+Iteration: 297
+
+Equity: 0.00903681871412 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 298
+
+Equity: 0.00671904740192 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 299
+
+Equity: 0.00870020136984 at time step 207
+Commission fees: 201 = 1.005000 in fees
+Iteration: 300
+
+Equity: 0.0073913833845 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 301
+
+Equity: 0.00889183527194 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 302
+
+Equity: 0.00780180687948 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 303
+
+Equity: 0.00774836476882 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 304
+
+Equity: 0.00781376166166 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 305
+
+Equity: 0.00787019447248 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 306
+
+Equity: 0.0091884278311 at time step 193
+Commission fees: 190 = 0.950000 in fees
+Iteration: 307
+
+Equity: 0.00761356525515 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 308
+
+Equity: 0.00650431644682 at time step 206
+Commission fees: 200 = 1.000000 in fees
+Iteration: 309
+
+Equity: 0.0090729580665 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 310
+
+Equity: 0.00520214656515 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 311
+
+Equity: 0.00564692298875 at time step 203
+Commission fees: 198 = 0.990000 in fees
+Iteration: 312
+
+Equity: 0.00876048436263 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 313
+
+Equity: 0.00744429768503 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 314
+
+Equity: 0.00541652622262 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 315
+
+Equity: 0.00735201209369 at time step 212
+Commission fees: 212 = 1.060000 in fees
+Iteration: 316
+
+Equity: 0.00928450844057 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 317
+
+Equity: 0.00657051389872 at time step 200
+Commission fees: 200 = 1.000000 in fees
+Iteration: 318
+
+Equity: 0.00811492506127 at time step 213
+Commission fees: 209 = 1.045000 in fees
+Iteration: 319
+
+======== EVALUATION RUN =========
+Equity: 0.00684537133586 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Learning Rate: 0.00729, Exploration Rate: 0.03645
+Avg Portfolio: [0.067806210079664003, 0.066178332423826786, 0.063901671114183919, 0.065793097340624745, 0.061755128220215554]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.69187384984146105, 0.60136765846652707, 0.79184833064846416, 0.69001585245158781, 0.77847397734804791]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 320
+
+Equity: 0.00689610311248 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 321
+
+Equity: 0.00975837886192 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 322
+
+Equity: 0.00928950671589 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 323
+
+Equity: 0.00843791939707 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 324
+
+Equity: 0.00846679574286 at time step 210
+Commission fees: 207 = 1.035000 in fees
+Iteration: 325
+
+Equity: 0.00889823757997 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 326
+
+Equity: 0.00981708023287 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 327
+
+Equity: 0.00670752718793 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 328
+
+Equity: 0.00974192570358 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 329
+
+
+Average reward for episode -0.010014.  Total average reward 0.057819.
+Increasing batch size to 42
+Have run 11 batch updates
+Next update at 372
+
+Equity: 0.00605950732506 at time step 209
+Commission fees: 202 = 1.010000 in fees
+Iteration: 330
+
+Equity: 0.00769647187357 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 331
+
+Equity: 0.00544470193233 at time step 212
+Commission fees: 207 = 1.035000 in fees
+Iteration: 332
+
+Equity: 0.00846557495912 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 333
+
+Equity: 0.00563138189907 at time step 217
+Commission fees: 216 = 1.080000 in fees
+Iteration: 334
+
+Equity: 0.00587636460064 at time step 196
+Commission fees: 192 = 0.960000 in fees
+Iteration: 335
+
+======== EVALUATION RUN =========
+Equity: 0.00673376298698 at time step 223
+Commission fees: 217 = 1.085000 in fees
+Learning Rate: 0.00729, Exploration Rate: 0.03645
+Avg Portfolio: [0.071369510495035177, 0.067829195290773345, 0.068689199319412045, 0.066533752790980366, 0.068655265180722083]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.59827798632027451, 0.76659862500803022, 0.74707641686112303, 0.61395337910414538, 0.65935163194900603]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 336
+
+Equity: 0.00744629415851 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 337
+
+Equity: 0.00778200963444 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 338
+
+Equity: 0.00958155519187 at time step 198
+Commission fees: 198 = 0.990000 in fees
+Iteration: 339
+
+Equity: 0.00971620905591 at time step 195
+Commission fees: 192 = 0.960000 in fees
+Iteration: 340
+
+Equity: 0.00659572560839 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 341
+
+Equity: 0.00660050589652 at time step 194
+Commission fees: 191 = 0.955000 in fees
+Iteration: 342
+
+Equity: 0.00655281065599 at time step 207
+Commission fees: 207 = 1.035000 in fees
+Iteration: 343
+
+Equity: 0.00949463764458 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 344
+
+Equity: 0.00770520776859 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 345
+
+Equity: 0.00973776897649 at time step 204
+Commission fees: 197 = 0.985000 in fees
+Iteration: 346
+
+Equity: 0.00580433815719 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 347
+
+Equity: 0.00938552720794 at time step 193
+Commission fees: 193 = 0.965000 in fees
+Iteration: 348
+
+Equity: 0.00664870076117 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 349
+
+Equity: 0.00831558922709 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 350
+
+Equity: 0.00721510714842 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 351
+
+Equity: 0.00752218699671 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 352
+
+Equity: 0.00872546414622 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 353
+
+Equity: 0.00835027670095 at time step 211
+Commission fees: 205 = 1.025000 in fees
+Iteration: 354
+
+Equity: 0.00747064211382 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 355
+
+Equity: 0.00615980589743 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 356
+
+Equity: 0.0062813332018 at time step 205
+Commission fees: 205 = 1.025000 in fees
+Iteration: 357
+
+Equity: 0.00999599531228 at time step 201
+Commission fees: 195 = 0.975000 in fees
+Iteration: 358
+
+Equity: 0.00632863452523 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 359
+
+Equity: 0.00987858884932 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 360
+
+Equity: 0.00598116294385 at time step 188
+Commission fees: 184 = 0.920000 in fees
+Iteration: 361
+
+Equity: 0.00944514882713 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 362
+
+Equity: 0.0067246132038 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 363
+
+Equity: 0.00520595569346 at time step 206
+Commission fees: 206 = 1.030000 in fees
+Iteration: 364
+
+Equity: 0.00858629238445 at time step 195
+Commission fees: 192 = 0.960000 in fees
+Iteration: 365
+
+Equity: 0.00929430620419 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 366
+
+Equity: 0.00530404344548 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 367
+
+Equity: 0.00752892934003 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 368
+
+Equity: 0.00812356459836 at time step 211
+Commission fees: 205 = 1.025000 in fees
+Iteration: 369
+
+Equity: 0.00974329123989 at time step 195
+Commission fees: 194 = 0.970000 in fees
+Iteration: 370
+
+Equity: 0.00723071272007 at time step 203
+Commission fees: 197 = 0.985000 in fees
+Iteration: 371
+
+
+Average reward for episode -0.024722.  Total average reward 0.054268.
+Increasing batch size to 44
+Have run 12 batch updates
+Next update at 416
+
+Equity: 0.00565920692033 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 372
+
+Equity: 0.00655235833157 at time step 202
+Commission fees: 202 = 1.010000 in fees
+Iteration: 373
+
+Equity: 0.00931252564249 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 374
+
+Equity: 0.00760219499531 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 375
+
+Equity: 0.00649080236479 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 376
+
+Equity: 0.0072052218981 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 377
+
+Equity: 0.00989130638027 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 378
+
+Equity: 0.00549720806515 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 379
+
+Equity: 0.00544422943087 at time step 208
+Commission fees: 207 = 1.035000 in fees
+Iteration: 380
+
+Equity: 0.00510451013541 at time step 196
+Commission fees: 191 = 0.955000 in fees
+Iteration: 381
+
+Equity: 0.00741108517238 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 382
+
+Equity: 0.00908036274646 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 383
+
+Equity: 0.00707219995707 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 384
+
+Equity: 0.0057934357052 at time step 213
+Commission fees: 207 = 1.035000 in fees
+Iteration: 385
+
+Equity: 0.00585486494203 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 386
+
+Equity: 0.00550990945356 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 387
+
+Equity: 0.00962369475513 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 388
+
+Equity: 0.00826439605916 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 389
+
+Equity: 0.00855234250362 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 390
+
+Equity: 0.00535012815907 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 391
+
+Equity: 0.00903911665046 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 392
+
+Equity: 0.00940732631497 at time step 190
+Commission fees: 186 = 0.930000 in fees
+Iteration: 393
+
+Equity: 0.00744637967754 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 394
+
+Equity: 0.00715787360501 at time step 210
+Commission fees: 208 = 1.040000 in fees
+Iteration: 395
+
+======== EVALUATION RUN =========
+Equity: 0.00496693465446 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Learning Rate: 0.00729, Exploration Rate: 0.03645
+Avg Portfolio: [0.068064533657574006, 0.062063844127226472, 0.068169415446273543, 0.063650498299053559, 0.066668060671130167]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.74544315701254094, 0.58621809076691844, 0.61657585650125535, 0.73435404442542496, 0.77941238941337188]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 396
+
+Equity: 0.00994437720306 at time step 212
+Commission fees: 209 = 1.045000 in fees
+Iteration: 397
+
+Equity: 0.00897080542942 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 398
+
+Equity: 0.00628503661995 at time step 197
+Commission fees: 197 = 0.985000 in fees
+Iteration: 399
+
+Equity: 0.00920536368707 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 400
+
+Equity: 0.00636706518236 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 401
+
+Equity: 0.00539737694908 at time step 212
+Commission fees: 207 = 1.035000 in fees
+Iteration: 402
+
+Equity: 0.00686428574712 at time step 215
+Commission fees: 213 = 1.065000 in fees
+Iteration: 403
+
+Equity: 0.00961600661345 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Iteration: 404
+
+Equity: 0.0074144513671 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 405
+
+Equity: 0.0093383939369 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 406
+
+Equity: 0.00541144510054 at time step 196
+Commission fees: 190 = 0.950000 in fees
+Iteration: 407
+
+Equity: 0.00915700811809 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 408
+
+Equity: 0.00700420475165 at time step 200
+Commission fees: 200 = 1.000000 in fees
+Iteration: 409
+
+Equity: 0.00769621070461 at time step 201
+Commission fees: 201 = 1.005000 in fees
+Iteration: 410
+
+Equity: 0.00548700571032 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 411
+
+Equity: 0.00599989024115 at time step 195
+Commission fees: 192 = 0.960000 in fees
+Iteration: 412
+
+Equity: 0.00704572172576 at time step 201
+Commission fees: 197 = 0.985000 in fees
+Iteration: 413
+
+Equity: 0.00857876199009 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 414
+
+Equity: 0.0069320994864 at time step 209
+Commission fees: 209 = 1.045000 in fees
+Iteration: 415
+
+
+Average reward for episode -0.010082.  Total average reward 0.051183.
+Increasing batch size to 46
+Have run 13 batch updates
+Next update at 462
+
+Equity: 0.00541288949918 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 416
+
+Equity: 0.00811854793562 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 417
+
+Equity: 0.00880826722543 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 418
+
+Equity: 0.0063379504281 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 419
+
+Equity: 0.00762002851295 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 420
+
+Equity: 0.00760468684805 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 421
+
+Equity: 0.00584963477568 at time step 208
+Commission fees: 207 = 1.035000 in fees
+Iteration: 422
+
+Equity: 0.00579725429035 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 423
+
+Equity: 0.00826638855015 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 424
+
+Equity: 0.00668168196373 at time step 212
+Commission fees: 209 = 1.045000 in fees
+Iteration: 425
+
+Equity: 0.0071622524064 at time step 192
+Commission fees: 190 = 0.950000 in fees
+Iteration: 426
+
+Equity: 0.00701690816018 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 427
+
+Equity: 0.00684112310936 at time step 207
+Commission fees: 200 = 1.000000 in fees
+Iteration: 428
+
+Equity: 0.00732170562657 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 429
+
+Equity: 0.00901583407338 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 430
+
+Equity: 0.00784078234916 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 431
+
+Equity: 0.00884217830657 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 432
+
+Equity: 0.00589042044953 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 433
+
+Equity: 0.00723679412152 at time step 213
+Commission fees: 207 = 1.035000 in fees
+Iteration: 434
+
+Equity: 0.00966276727664 at time step 188
+Commission fees: 186 = 0.930000 in fees
+Iteration: 435
+
+Equity: 0.00810123929585 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 436
+
+Equity: 0.00876794403883 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 437
+
+Equity: 0.00875259797736 at time step 189
+Commission fees: 188 = 0.940000 in fees
+Iteration: 438
+
+Equity: 0.009283052671 at time step 215
+Commission fees: 213 = 1.065000 in fees
+Iteration: 439
+
+Equity: 0.00920402515473 at time step 221
+Commission fees: 216 = 1.080000 in fees
+Iteration: 440
+
+Equity: 0.00912465336191 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 441
+
+Equity: 0.00912896487291 at time step 215
+Commission fees: 212 = 1.060000 in fees
+Iteration: 442
+
+Equity: 0.00748939462482 at time step 215
+Commission fees: 210 = 1.050000 in fees
+Iteration: 443
+
+Equity: 0.00817934854944 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 444
+
+Equity: 0.0081619617536 at time step 200
+Commission fees: 200 = 1.000000 in fees
+Iteration: 445
+
+Equity: 0.00802094858226 at time step 194
+Commission fees: 194 = 0.970000 in fees
+Iteration: 446
+
+Equity: 0.00973622045718 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 447
+
+Equity: 0.00952711391566 at time step 206
+Commission fees: 200 = 1.000000 in fees
+Iteration: 448
+
+Equity: 0.00856334380588 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 449
+
+Equity: 0.00773020006139 at time step 209
+Commission fees: 203 = 1.015000 in fees
+Iteration: 450
+
+Equity: 0.00733270685298 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 451
+
+Equity: 0.00855733789799 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 452
+
+Equity: 0.00852404098697 at time step 213
+Commission fees: 205 = 1.025000 in fees
+Iteration: 453
+
+Equity: 0.00634709511038 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 454
+
+Equity: 0.0063184316551 at time step 192
+Commission fees: 191 = 0.955000 in fees
+Iteration: 455
+
+Equity: 0.00927131993029 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 456
+
+Equity: 0.00653154564728 at time step 203
+Commission fees: 197 = 0.985000 in fees
+Iteration: 457
+
+Equity: 0.0052164850227 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 458
+
+Equity: 0.0058803777991 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 459
+
+======== EVALUATION RUN =========
+Equity: 0.00848071721491 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Learning Rate: 0.006561, Exploration Rate: 0.032805
+Avg Portfolio: [0.060121126154853134, 0.064476396688164656, 0.066817239806236495, 0.060160308689464558, 0.067404195008968618]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.67055453615682903, 0.77019428931026668, 0.5533375891332275, 0.77095796937848304, 0.69936356310680892]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 460
+
+Equity: 0.00532169832012 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 461
+
+
+Average reward for episode -0.017310.  Total average reward 0.048295.
+Increasing batch size to 48
+Have run 14 batch updates
+Next update at 510
+
+Equity: 0.00868355391422 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 462
+
+Equity: 0.00644742562355 at time step 210
+Commission fees: 208 = 1.040000 in fees
+Iteration: 463
+
+Equity: 0.00984723180876 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 464
+
+Equity: 0.00614542053186 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 465
+
+Equity: 0.00547351248429 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 466
+
+Equity: 0.00540800386643 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 467
+
+Equity: 0.00732232954219 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 468
+
+Equity: 0.00639670057736 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 469
+
+Equity: 0.00686472781066 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 470
+
+Equity: 0.00681050734445 at time step 195
+Commission fees: 194 = 0.970000 in fees
+Iteration: 471
+
+Equity: 0.00902209942245 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 472
+
+Equity: 0.00718703625336 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 473
+
+Equity: 0.00909229117923 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 474
+
+Equity: 0.00741042072682 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 475
+
+Equity: 0.00691304334179 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 476
+
+Equity: 0.00692120875882 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 477
+
+Equity: 0.00566972012869 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 478
+
+Equity: 0.00588970548307 at time step 205
+Commission fees: 198 = 0.990000 in fees
+Iteration: 479
+
+======== EVALUATION RUN =========
+Equity: 0.00655467207898 at time step 195
+Commission fees: 193 = 0.965000 in fees
+Learning Rate: 0.006561, Exploration Rate: 0.032805
+Avg Portfolio: [0.055936492909712622, 0.066280990668514145, 0.057616849172234461, 0.067034399630156991, 0.066636090770507195]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.65467915853750103, 0.70023434376338956, 0.54382214483178148, 0.7409464079654321, 0.6537572430242703]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 480
+
+Equity: 0.00875478197006 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 481
+
+Equity: 0.00880184146367 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 482
+
+Equity: 0.00762531912958 at time step 201
+Commission fees: 197 = 0.985000 in fees
+Iteration: 483
+
+Equity: 0.00685195692462 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 484
+
+Equity: 0.00912175453911 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 485
+
+Equity: 0.00744058639649 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 486
+
+Equity: 0.00872749706436 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 487
+
+Equity: 0.0054971673789 at time step 207
+Commission fees: 201 = 1.005000 in fees
+Iteration: 488
+
+Equity: 0.0093047387557 at time step 199
+Commission fees: 192 = 0.960000 in fees
+Iteration: 489
+
+Equity: 0.00894526479619 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 490
+
+Equity: 0.00913065628809 at time step 210
+Commission fees: 206 = 1.030000 in fees
+Iteration: 491
+
+Equity: 0.00564671134739 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 492
+
+Equity: 0.00976274967876 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 493
+
+Equity: 0.00677463020222 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 494
+
+Equity: 0.00603250706628 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 495
+
+Equity: 0.00555874712886 at time step 218
+Commission fees: 215 = 1.075000 in fees
+Iteration: 496
+
+Equity: 0.00798108529601 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 497
+
+Equity: 0.00906556573687 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 498
+
+Equity: 0.0070398103434 at time step 210
+Commission fees: 206 = 1.030000 in fees
+Iteration: 499
+
+Equity: 0.00909065891178 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 500
+
+Equity: 0.00621269190325 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 501
+
+Equity: 0.00834694852903 at time step 218
+Commission fees: 211 = 1.055000 in fees
+Iteration: 502
+
+Equity: 0.0075515132605 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 503
+
+Equity: 0.00689114428535 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 504
+
+Equity: 0.00560734199163 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 505
+
+Equity: 0.00762849434981 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 506
+
+Equity: 0.00867056073509 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 507
+
+Equity: 0.00607490986016 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 508
+
+Equity: 0.00830143331752 at time step 188
+Commission fees: 187 = 0.935000 in fees
+Iteration: 509
+
+
+Average reward for episode -0.027355.  Total average reward 0.045546.
+Increasing batch size to 50
+Have run 15 batch updates
+Next update at 560
+
+Equity: 0.00987088187098 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 510
+
+Equity: 0.00729983768453 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 511
+
+Equity: 0.00525743582118 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 512
+
+Equity: 0.0057589413276 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 513
+
+Equity: 0.00657528206266 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 514
+
+Equity: 0.00631635311347 at time step 208
+Commission fees: 207 = 1.035000 in fees
+Iteration: 515
+
+Equity: 0.00715947171587 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 516
+
+Equity: 0.00895354476503 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 517
+
+Equity: 0.00774232851714 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 518
+
+Equity: 0.00765730218947 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 519
+
+Equity: 0.0076287827007 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 520
+
+Equity: 0.00950501297702 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 521
+
+Equity: 0.00701122069806 at time step 212
+Commission fees: 207 = 1.035000 in fees
+Iteration: 522
+
+Equity: 0.00794946504028 at time step 191
+Commission fees: 190 = 0.950000 in fees
+Iteration: 523
+
+Equity: 0.00738191864724 at time step 204
+Commission fees: 204 = 1.020000 in fees
+Iteration: 524
+
+Equity: 0.00825807278535 at time step 199
+Commission fees: 199 = 0.995000 in fees
+Iteration: 525
+
+Equity: 0.00823267555816 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 526
+
+Equity: 0.00783505075802 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 527
+
+Equity: 0.00519990255218 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 528
+
+Equity: 0.00563805018741 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 529
+
+Equity: 0.00791455326909 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 530
+
+Equity: 0.00785249402432 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 531
+
+Equity: 0.00789712855908 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 532
+
+Equity: 0.00722175538673 at time step 213
+Commission fees: 210 = 1.050000 in fees
+Iteration: 533
+
+Equity: 0.00673340947386 at time step 214
+Commission fees: 212 = 1.060000 in fees
+Iteration: 534
+
+Equity: 0.0070826509881 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 535
+
+Equity: 0.0081650222875 at time step 193
+Commission fees: 192 = 0.960000 in fees
+Iteration: 536
+
+Equity: 0.00838373939889 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 537
+
+Equity: 0.00717686437816 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 538
+
+Equity: 0.00511824138798 at time step 210
+Commission fees: 209 = 1.045000 in fees
+Iteration: 539
+
+Equity: 0.00601935460336 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 540
+
+Equity: 0.0078935790169 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 541
+
+Equity: 0.00715109255142 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 542
+
+Equity: 0.00810060545616 at time step 211
+Commission fees: 204 = 1.020000 in fees
+Iteration: 543
+
+Equity: 0.00931475102806 at time step 194
+Commission fees: 194 = 0.970000 in fees
+Iteration: 544
+
+Equity: 0.0088607306406 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 545
+
+Equity: 0.00989422856586 at time step 191
+Commission fees: 190 = 0.950000 in fees
+Iteration: 546
+
+Equity: 0.00887456832828 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 547
+
+Equity: 0.00774134243068 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 548
+
+Equity: 0.00524545761008 at time step 193
+Commission fees: 193 = 0.965000 in fees
+Iteration: 549
+
+======== EVALUATION RUN =========
+Equity: 0.00707060461461 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Learning Rate: 0.0059049, Exploration Rate: 0.03
+Avg Portfolio: [0.061536741411891305, 0.068194823437659924, 0.057133234001991835, 0.065061053707243813, 0.062680889014246843]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.59763112274382213, 0.67357952005399901, 0.56589483501627658, 0.84353597744752717, 0.70864366408511381]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 550
+
+Equity: 0.00970764996379 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 551
+
+Equity: 0.00563708223731 at time step 194
+Commission fees: 191 = 0.955000 in fees
+Iteration: 552
+
+Equity: 0.00549050413283 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 553
+
+Equity: 0.00876308988329 at time step 202
+Commission fees: 196 = 0.980000 in fees
+Iteration: 554
+
+Equity: 0.0066942207787 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 555
+
+Equity: 0.00507565244534 at time step 195
+Commission fees: 188 = 0.940000 in fees
+Iteration: 556
+
+Equity: 0.00848370750407 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 557
+
+Equity: 0.0087693609496 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 558
+
+Equity: 0.00660555577887 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 559
+
+
+Average reward for episode -0.010106.  Total average reward 0.043186.
+Increasing batch size to 52
+Have run 16 batch updates
+Next update at 612
+
+Equity: 0.00792920116649 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 560
+
+Equity: 0.00505542396137 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 561
+
+Equity: 0.00763852520158 at time step 211
+Commission fees: 207 = 1.035000 in fees
+Iteration: 562
+
+Equity: 0.00638339953386 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 563
+
+Equity: 0.00841514477255 at time step 205
+Commission fees: 205 = 1.025000 in fees
+Iteration: 564
+
+Equity: 0.0070055798142 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 565
+
+Equity: 0.00672942873583 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 566
+
+Equity: 0.00663109228215 at time step 211
+Commission fees: 205 = 1.025000 in fees
+Iteration: 567
+
+Equity: 0.00668861580883 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 568
+
+Equity: 0.00564732930153 at time step 212
+Commission fees: 210 = 1.050000 in fees
+Iteration: 569
+
+Equity: 0.00976788973901 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 570
+
+Equity: 0.00727823758833 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 571
+
+======== EVALUATION RUN =========
+Equity: 0.00835136964368 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Learning Rate: 0.0059049, Exploration Rate: 0.03
+Avg Portfolio: [0.063989606444082497, 0.058217599107255949, 0.063115289232291372, 0.073828074583227737, 0.061994104718992957]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.70520222712279323, 0.82573326483634424, 0.67408364853166725, 0.68579722551892908, 0.67466566163435371]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 572
+
+Equity: 0.00683981633227 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 573
+
+Equity: 0.00822720435231 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 574
+
+Equity: 0.00744150546195 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 575
+
+Equity: 0.00655795104774 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 576
+
+Equity: 0.00614791905937 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 577
+
+Equity: 0.00510389770598 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 578
+
+Equity: 0.00946833252012 at time step 195
+Commission fees: 193 = 0.965000 in fees
+Iteration: 579
+
+Equity: 0.00558684832026 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 580
+
+Equity: 0.00912879118515 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 581
+
+Equity: 0.009123185174 at time step 207
+Commission fees: 199 = 0.995000 in fees
+Iteration: 582
+
+Equity: 0.00866144622165 at time step 203
+Commission fees: 203 = 1.015000 in fees
+Iteration: 583
+
+Equity: 0.00575969920242 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 584
+
+Equity: 0.0066822935045 at time step 202
+Commission fees: 202 = 1.010000 in fees
+Iteration: 585
+
+Equity: 0.00646436713033 at time step 191
+Commission fees: 189 = 0.945000 in fees
+Iteration: 586
+
+Equity: 0.00805048631874 at time step 185
+Commission fees: 183 = 0.915000 in fees
+Iteration: 587
+
+Equity: 0.00881996721 at time step 197
+Commission fees: 192 = 0.960000 in fees
+Iteration: 588
+
+Equity: 0.00636201152285 at time step 191
+Commission fees: 189 = 0.945000 in fees
+Iteration: 589
+
+Equity: 0.00884734752336 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 590
+
+Equity: 0.00859769209188 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 591
+
+Equity: 0.00827870726017 at time step 210
+Commission fees: 206 = 1.030000 in fees
+Iteration: 592
+
+Equity: 0.00788372940575 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 593
+
+Equity: 0.00760646202668 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 594
+
+Equity: 0.00835249258416 at time step 189
+Commission fees: 188 = 0.940000 in fees
+Iteration: 595
+
+Equity: 0.00860259259983 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 596
+
+Equity: 0.00632500559231 at time step 215
+Commission fees: 211 = 1.055000 in fees
+Iteration: 597
+
+Equity: 0.00690376890217 at time step 210
+Commission fees: 203 = 1.015000 in fees
+Iteration: 598
+
+Equity: 0.0097957014096 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 599
+
+Equity: 0.00867131074656 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 600
+
+Equity: 0.00515253440514 at time step 214
+Commission fees: 210 = 1.050000 in fees
+Iteration: 601
+
+Equity: 0.00544712778714 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 602
+
+Equity: 0.00519197479639 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 603
+
+Equity: 0.00783234758999 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 604
+
+Equity: 0.00700767596142 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 605
+
+Equity: 0.00626534256249 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 606
+
+Equity: 0.00645589970457 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 607
+
+Equity: 0.00528596741401 at time step 204
+Commission fees: 204 = 1.020000 in fees
+Iteration: 608
+
+Equity: 0.00515772953022 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 609
+
+Equity: 0.00931970592377 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 610
+
+Equity: 0.00870446911295 at time step 195
+Commission fees: 194 = 0.970000 in fees
+Iteration: 611
+
+
+Average reward for episode -0.017042.  Total average reward 0.040939.
+Increasing batch size to 54
+Have run 17 batch updates
+Next update at 666
+
+Equity: 0.00602692401423 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 612
+
+Equity: 0.00683444997673 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 613
+
+Equity: 0.00713665907031 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 614
+
+Equity: 0.00688197793249 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 615
+
+Equity: 0.00578231881828 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 616
+
+Equity: 0.00558468758686 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 617
+
+Equity: 0.00682253018618 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 618
+
+Equity: 0.00968335219645 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 619
+
+Equity: 0.00668011596903 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 620
+
+Equity: 0.00819614105496 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 621
+
+Equity: 0.00556587902301 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 622
+
+Equity: 0.00882279021831 at time step 212
+Commission fees: 208 = 1.040000 in fees
+Iteration: 623
+
+Equity: 0.00554944888643 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 624
+
+Equity: 0.00794282330215 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 625
+
+Equity: 0.00735399342354 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 626
+
+Equity: 0.00970981279909 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 627
+
+Equity: 0.00921895900739 at time step 201
+Commission fees: 195 = 0.975000 in fees
+Iteration: 628
+
+Equity: 0.00734314530038 at time step 206
+Commission fees: 199 = 0.995000 in fees
+Iteration: 629
+
+Equity: 0.0086858697841 at time step 195
+Commission fees: 192 = 0.960000 in fees
+Iteration: 630
+
+Equity: 0.0098076490112 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 631
+
+Equity: 0.00718713729521 at time step 216
+Commission fees: 212 = 1.060000 in fees
+Iteration: 632
+
+Equity: 0.00843476463317 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 633
+
+Equity: 0.0073848294518 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 634
+
+Equity: 0.00539905137797 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 635
+
+Equity: 0.00594429526903 at time step 194
+Commission fees: 191 = 0.955000 in fees
+Iteration: 636
+
+Equity: 0.00931228662294 at time step 214
+Commission fees: 210 = 1.050000 in fees
+Iteration: 637
+
+Equity: 0.00541307912636 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 638
+
+Equity: 0.00531133886819 at time step 217
+Commission fees: 211 = 1.055000 in fees
+Iteration: 639
+
+Equity: 0.008717944099 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 640
+
+Equity: 0.00876285667492 at time step 211
+Commission fees: 206 = 1.030000 in fees
+Iteration: 641
+
+Equity: 0.00633545330901 at time step 212
+Commission fees: 206 = 1.030000 in fees
+Iteration: 642
+
+Equity: 0.00798013536479 at time step 200
+Commission fees: 195 = 0.975000 in fees
+Iteration: 643
+
+Equity: 0.00827895987407 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 644
+
+Equity: 0.00659528394808 at time step 207
+Commission fees: 205 = 1.025000 in fees
+Iteration: 645
+
+Equity: 0.00507028087496 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 646
+
+Equity: 0.00921809165516 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 647
+
+======== EVALUATION RUN =========
+Equity: 0.0073554984004 at time step 201
+Commission fees: 197 = 0.985000 in fees
+Learning Rate: 0.00531441, Exploration Rate: 0.03
+Avg Portfolio: [0.06338571097293208, 0.063698748184584278, 0.066461362689158851, 0.058770333721434989, 0.067747538699405696]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.56025969118142127, 0.58608843456894955, 0.59126625785215992, 0.67830288122702675, 0.68741309200977307]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 648
+
+Equity: 0.0056540326883 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 649
+
+Equity: 0.00959720119761 at time step 216
+Commission fees: 212 = 1.060000 in fees
+Iteration: 650
+
+Equity: 0.00605731787556 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 651
+
+Equity: 0.0099186666125 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 652
+
+Equity: 0.00791965374439 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 653
+
+Equity: 0.00550035589248 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 654
+
+Equity: 0.00817323782076 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 655
+
+Equity: 0.00954600790583 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 656
+
+Equity: 0.00789468266962 at time step 209
+Commission fees: 202 = 1.010000 in fees
+Iteration: 657
+
+Equity: 0.00627508676836 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 658
+
+Equity: 0.00891977122017 at time step 194
+Commission fees: 190 = 0.950000 in fees
+Iteration: 659
+
+Equity: 0.00875454193622 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 660
+
+Equity: 0.0059392867406 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 661
+
+Equity: 0.00864749658093 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 662
+
+Equity: 0.00809048989934 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 663
+
+Equity: 0.00646072649928 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 664
+
+Equity: 0.00924596152365 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 665
+
+
+Average reward for episode -0.002225.  Total average reward 0.039006.
+Increasing batch size to 56
+Have run 18 batch updates
+Next update at 722
+
+Equity: 0.00992224756113 at time step 217
+Commission fees: 211 = 1.055000 in fees
+Iteration: 666
+
+Equity: 0.00874842625989 at time step 214
+Commission fees: 208 = 1.040000 in fees
+Iteration: 667
+
+Equity: 0.00650295518714 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 668
+
+Equity: 0.00578888313276 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 669
+
+Equity: 0.00756172475661 at time step 199
+Commission fees: 195 = 0.975000 in fees
+Iteration: 670
+
+Equity: 0.00610387607746 at time step 207
+Commission fees: 206 = 1.030000 in fees
+Iteration: 671
+
+======== EVALUATION RUN =========
+Equity: 0.00788061752609 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Learning Rate: 0.00531441, Exploration Rate: 0.03
+Avg Portfolio: [0.067312558953460833, 0.068654509813092041, 0.06178855079900665, 0.068650721085518535, 0.062210011550179745]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.78691722855332913, 0.71268542993439166, 0.82499968762203113, 0.67552803232628822, 0.56851276114512417]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 672
+
+Equity: 0.00583647703015 at time step 203
+Commission fees: 197 = 0.985000 in fees
+Iteration: 673
+
+Equity: 0.00626241370296 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 674
+
+Equity: 0.00988110315405 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 675
+
+Equity: 0.00939288156874 at time step 213
+Commission fees: 210 = 1.050000 in fees
+Iteration: 676
+
+Equity: 0.00500346740187 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 677
+
+Equity: 0.00837429494329 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 678
+
+Equity: 0.00686180893576 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 679
+
+Equity: 0.00610704309642 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 680
+
+Equity: 0.00587466398286 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 681
+
+Equity: 0.00711055310942 at time step 212
+Commission fees: 209 = 1.045000 in fees
+Iteration: 682
+
+Equity: 0.00606504094733 at time step 199
+Commission fees: 198 = 0.990000 in fees
+Iteration: 683
+
+Equity: 0.00822214899343 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 684
+
+Equity: 0.00789079988068 at time step 202
+Commission fees: 196 = 0.980000 in fees
+Iteration: 685
+
+Equity: 0.00888554860928 at time step 194
+Commission fees: 191 = 0.955000 in fees
+Iteration: 686
+
+Equity: 0.00558785849063 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 687
+
+Equity: 0.00781816118122 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 688
+
+Equity: 0.00908888058574 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 689
+
+Equity: 0.00847580635092 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 690
+
+Equity: 0.00890162820404 at time step 216
+Commission fees: 212 = 1.060000 in fees
+Iteration: 691
+
+Equity: 0.00518671420646 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 692
+
+Equity: 0.00836570266845 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 693
+
+Equity: 0.00562035591663 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 694
+
+Equity: 0.00597109880429 at time step 212
+Commission fees: 207 = 1.035000 in fees
+Iteration: 695
+
+Equity: 0.00680958166205 at time step 199
+Commission fees: 195 = 0.975000 in fees
+Iteration: 696
+
+Equity: 0.00740204577503 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 697
+
+Equity: 0.00911687534755 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 698
+
+Equity: 0.00800592603059 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 699
+
+Equity: 0.00764447325826 at time step 212
+Commission fees: 210 = 1.050000 in fees
+Iteration: 700
+
+Equity: 0.00643160104449 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 701
+
+Equity: 0.0058514766362 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 702
+
+Equity: 0.00515465520436 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 703
+
+Equity: 0.0080359062777 at time step 211
+Commission fees: 210 = 1.050000 in fees
+Iteration: 704
+
+Equity: 0.00940158669934 at time step 202
+Commission fees: 195 = 0.975000 in fees
+Iteration: 705
+
+Equity: 0.00618078037416 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 706
+
+Equity: 0.00518728353354 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 707
+
+Equity: 0.00836450102122 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 708
+
+Equity: 0.00809683773967 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 709
+
+Equity: 0.00536937854647 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 710
+
+Equity: 0.00738366063195 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 711
+
+Equity: 0.00733300302415 at time step 202
+Commission fees: 196 = 0.980000 in fees
+Iteration: 712
+
+Equity: 0.00954969383068 at time step 205
+Commission fees: 205 = 1.025000 in fees
+Iteration: 713
+
+Equity: 0.00612729845802 at time step 195
+Commission fees: 192 = 0.960000 in fees
+Iteration: 714
+
+Equity: 0.00515154903804 at time step 198
+Commission fees: 193 = 0.965000 in fees
+Iteration: 715
+
+Equity: 0.00695001192736 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 716
+
+Equity: 0.00807374530433 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 717
+
+Equity: 0.00980090300246 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 718
+
+Equity: 0.00690408773929 at time step 195
+Commission fees: 190 = 0.950000 in fees
+Iteration: 719
+
+Equity: 0.0092331710956 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 720
+
+Equity: 0.00982635478538 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 721
+
+
+Average reward for episode -0.006946.  Total average reward 0.037168.
+Increasing batch size to 58
+Have run 19 batch updates
+Next update at 780
+
+Equity: 0.00781964686994 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 722
+
+Equity: 0.00646921736164 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 723
+
+Equity: 0.00638704472155 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 724
+
+Equity: 0.00629460750841 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 725
+
+Equity: 0.00714762361834 at time step 199
+Commission fees: 194 = 0.970000 in fees
+Iteration: 726
+
+Equity: 0.00717653094428 at time step 196
+Commission fees: 192 = 0.960000 in fees
+Iteration: 727
+
+Equity: 0.00738920573049 at time step 200
+Commission fees: 194 = 0.970000 in fees
+Iteration: 728
+
+Equity: 0.00826502105511 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 729
+
+Equity: 0.00979578032365 at time step 198
+Commission fees: 193 = 0.965000 in fees
+Iteration: 730
+
+Equity: 0.00793457977816 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 731
+
+Equity: 0.0071078272994 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 732
+
+Equity: 0.00949958744113 at time step 210
+Commission fees: 206 = 1.030000 in fees
+Iteration: 733
+
+Equity: 0.00879435980479 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 734
+
+Equity: 0.00762689173362 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 735
+
+Equity: 0.00842911385496 at time step 192
+Commission fees: 188 = 0.940000 in fees
+Iteration: 736
+
+Equity: 0.005104145103 at time step 215
+Commission fees: 212 = 1.060000 in fees
+Iteration: 737
+
+Equity: 0.00687743217373 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 738
+
+Equity: 0.00710502243169 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 739
+
+Equity: 0.00543566497268 at time step 195
+Commission fees: 193 = 0.965000 in fees
+Iteration: 740
+
+Equity: 0.00549891473814 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 741
+
+Equity: 0.00949989259416 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 742
+
+Equity: 0.00997756331362 at time step 210
+Commission fees: 206 = 1.030000 in fees
+Iteration: 743
+
+Equity: 0.00920483346783 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 744
+
+Equity: 0.00603754483525 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 745
+
+Equity: 0.00836365940942 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 746
+
+Equity: 0.00670174026209 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 747
+
+Equity: 0.00521748644698 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 748
+
+Equity: 0.00861787069941 at time step 202
+Commission fees: 202 = 1.010000 in fees
+Iteration: 749
+
+Equity: 0.00760552929595 at time step 194
+Commission fees: 187 = 0.935000 in fees
+Iteration: 750
+
+Equity: 0.00665060892045 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 751
+
+Equity: 0.00729928690599 at time step 208
+Commission fees: 207 = 1.035000 in fees
+Iteration: 752
+
+Equity: 0.00553015272099 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 753
+
+======== EVALUATION RUN =========
+Equity: 0.00516531572198 at time step 194
+Commission fees: 189 = 0.945000 in fees
+Learning Rate: 0.004782969, Exploration Rate: 0.03
+Avg Portfolio: [0.059563179376203777, 0.06483693066061165, 0.065760984054984067, 0.063252707372381423, 0.058985554413435851]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.69420989748665185, 0.68912545688201943, 0.73883815294406796, 0.64221148604238798, 0.73126869422559648]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 754
+
+Equity: 0.0074378150672 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 755
+
+Equity: 0.00889200634433 at time step 196
+Commission fees: 196 = 0.980000 in fees
+Iteration: 756
+
+Equity: 0.0065156612878 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 757
+
+Equity: 0.0068296621887 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 758
+
+Equity: 0.00873396025049 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 759
+
+Equity: 0.00991278388009 at time step 213
+Commission fees: 209 = 1.045000 in fees
+Iteration: 760
+
+Equity: 0.00759575528754 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 761
+
+Equity: 0.00517597397194 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 762
+
+Equity: 0.00613978747867 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 763
+
+Equity: 0.00764181638007 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 764
+
+Equity: 0.00882612635621 at time step 208
+Commission fees: 202 = 1.010000 in fees
+Iteration: 765
+
+Equity: 0.00835682155488 at time step 207
+Commission fees: 202 = 1.010000 in fees
+Iteration: 766
+
+Equity: 0.00708197798902 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 767
+
+Equity: 0.00715024463211 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 768
+
+Equity: 0.00721518235125 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 769
+
+Equity: 0.00651289267866 at time step 206
+Commission fees: 201 = 1.005000 in fees
+Iteration: 770
+
+Equity: 0.00619948161037 at time step 209
+Commission fees: 203 = 1.015000 in fees
+Iteration: 771
+
+Equity: 0.0054439080988 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 772
+
+Equity: 0.00504674535638 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 773
+
+Equity: 0.0078201876616 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 774
+
+Equity: 0.0063895008397 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 775
+
+Equity: 0.00574041132916 at time step 212
+Commission fees: 208 = 1.040000 in fees
+Iteration: 776
+
+Equity: 0.00762984849953 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 777
+
+Equity: 0.00774195316356 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 778
+
+Equity: 0.00787771537799 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 779
+
+
+Average reward for episode -0.022407.  Total average reward 0.035303.
+Increasing batch size to 60
+Have run 20 batch updates
+Next update at 840
+
+======== EVALUATION RUN =========
+Equity: 0.00917384269811 at time step 219
+Commission fees: 212 = 1.060000 in fees
+Learning Rate: 0.004782969, Exploration Rate: 0.03
+Avg Portfolio: [0.071851166468673885, 0.070980617567963422, 0.070354222736614, 0.061525140023130809, 0.064298141129314451]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.8315801338427059, 0.63253576301862857, 0.72390450929906602, 0.6819582218025424, 0.76414460600170964]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 780
+
+Equity: 0.00812718889624 at time step 194
+Commission fees: 194 = 0.970000 in fees
+Iteration: 781
+
+Equity: 0.00556829828213 at time step 197
+Commission fees: 193 = 0.965000 in fees
+Iteration: 782
+
+Equity: 0.00977514804563 at time step 192
+Commission fees: 191 = 0.955000 in fees
+Iteration: 783
+
+Equity: 0.00723041355391 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 784
+
+Equity: 0.0085359686551 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 785
+
+Equity: 0.00656749702067 at time step 202
+Commission fees: 196 = 0.980000 in fees
+Iteration: 786
+
+Equity: 0.00795912471301 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 787
+
+Equity: 0.00831105913931 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 788
+
+Equity: 0.00892302789557 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 789
+
+Equity: 0.00863341912744 at time step 197
+Commission fees: 195 = 0.975000 in fees
+Iteration: 790
+
+Equity: 0.00997408096465 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 791
+
+Equity: 0.00944550550712 at time step 221
+Commission fees: 214 = 1.070000 in fees
+Iteration: 792
+
+Equity: 0.00915436372167 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 793
+
+Equity: 0.00844212388514 at time step 197
+Commission fees: 193 = 0.965000 in fees
+Iteration: 794
+
+Equity: 0.00914016438886 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 795
+
+Equity: 0.00600102398989 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 796
+
+Equity: 0.00556426539743 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 797
+
+Equity: 0.0093783073877 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 798
+
+Equity: 0.00869384127617 at time step 197
+Commission fees: 194 = 0.970000 in fees
+Iteration: 799
+
+Equity: 0.00658034957847 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 800
+
+Equity: 0.00867348330994 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 801
+
+Equity: 0.00797554584206 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 802
+
+Equity: 0.00977417684386 at time step 197
+Commission fees: 192 = 0.960000 in fees
+Iteration: 803
+
+Equity: 0.00624053678548 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 804
+
+Equity: 0.00625455681655 at time step 207
+Commission fees: 201 = 1.005000 in fees
+Iteration: 805
+
+Equity: 0.00825785831624 at time step 215
+Commission fees: 214 = 1.070000 in fees
+Iteration: 806
+
+Equity: 0.00765287365574 at time step 199
+Commission fees: 192 = 0.960000 in fees
+Iteration: 807
+
+Equity: 0.00923825212073 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 808
+
+Equity: 0.00509036481514 at time step 208
+Commission fees: 207 = 1.035000 in fees
+Iteration: 809
+
+Equity: 0.00856603357219 at time step 212
+Commission fees: 207 = 1.035000 in fees
+Iteration: 810
+
+Equity: 0.00878104879728 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 811
+
+Equity: 0.00789577513684 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 812
+
+Equity: 0.00644157969168 at time step 199
+Commission fees: 198 = 0.990000 in fees
+Iteration: 813
+
+Equity: 0.00764500331285 at time step 208
+Commission fees: 200 = 1.000000 in fees
+Iteration: 814
+
+Equity: 0.00885706793203 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 815
+
+Equity: 0.00792367052129 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 816
+
+Equity: 0.00837300551905 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Iteration: 817
+
+Equity: 0.00514624061147 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 818
+
+Equity: 0.00770415934582 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 819
+
+Equity: 0.00793461662978 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 820
+
+Equity: 0.0071985584165 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 821
+
+Equity: 0.00903930582264 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 822
+
+Equity: 0.0099465521856 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 823
+
+Equity: 0.00796341944535 at time step 214
+Commission fees: 208 = 1.040000 in fees
+Iteration: 824
+
+Equity: 0.00870218045284 at time step 202
+Commission fees: 202 = 1.010000 in fees
+Iteration: 825
+
+Equity: 0.009784411523 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 826
+
+Equity: 0.00600061114414 at time step 190
+Commission fees: 187 = 0.935000 in fees
+Iteration: 827
+
+Equity: 0.00577401025985 at time step 203
+Commission fees: 201 = 1.005000 in fees
+Iteration: 828
+
+Equity: 0.00629316827825 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 829
+
+Equity: 0.00581799146634 at time step 204
+Commission fees: 199 = 0.995000 in fees
+Iteration: 830
+
+Equity: 0.00564017561367 at time step 195
+Commission fees: 192 = 0.960000 in fees
+Iteration: 831
+
+Equity: 0.00862745141996 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 832
+
+Equity: 0.00557900089404 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 833
+
+Equity: 0.00899401341127 at time step 203
+Commission fees: 198 = 0.990000 in fees
+Iteration: 834
+
+Equity: 0.00551674066879 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 835
+
+Equity: 0.00965602597725 at time step 210
+Commission fees: 206 = 1.030000 in fees
+Iteration: 836
+
+Equity: 0.00535780714353 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 837
+
+Equity: 0.00643672471237 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 838
+
+Equity: 0.00909641255505 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 839
+
+
+Average reward for episode -0.022843.  Total average reward 0.033557.
+Increasing batch size to 62
+Have run 21 batch updates
+Next update at 902
+
+Equity: 0.00968763778093 at time step 197
+Commission fees: 193 = 0.965000 in fees
+Iteration: 840
+
+Equity: 0.005822878924 at time step 199
+Commission fees: 194 = 0.970000 in fees
+Iteration: 841
+
+Equity: 0.00808108060943 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 842
+
+Equity: 0.00991803887519 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 843
+
+Equity: 0.00502925790204 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 844
+
+Equity: 0.00595395255271 at time step 200
+Commission fees: 195 = 0.975000 in fees
+Iteration: 845
+
+Equity: 0.0052645906379 at time step 212
+Commission fees: 209 = 1.045000 in fees
+Iteration: 846
+
+Equity: 0.00526308449543 at time step 193
+Commission fees: 193 = 0.965000 in fees
+Iteration: 847
+
+Equity: 0.009593630062 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 848
+
+Equity: 0.00802347632635 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 849
+
+Equity: 0.00640174935438 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 850
+
+Equity: 0.0066526959082 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 851
+
+Equity: 0.00828576417195 at time step 199
+Commission fees: 195 = 0.975000 in fees
+Iteration: 852
+
+Equity: 0.0072264307557 at time step 207
+Commission fees: 203 = 1.015000 in fees
+Iteration: 853
+
+Equity: 0.00641426731096 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 854
+
+Equity: 0.0094877144462 at time step 212
+Commission fees: 208 = 1.040000 in fees
+Iteration: 855
+
+Equity: 0.00538661172406 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 856
+
+Equity: 0.00799306575614 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 857
+
+Equity: 0.00792229078145 at time step 198
+Commission fees: 198 = 0.990000 in fees
+Iteration: 858
+
+Equity: 0.00540415265384 at time step 211
+Commission fees: 204 = 1.020000 in fees
+Iteration: 859
+
+Equity: 0.00900948235598 at time step 203
+Commission fees: 198 = 0.990000 in fees
+Iteration: 860
+
+Equity: 0.00664924308535 at time step 197
+Commission fees: 193 = 0.965000 in fees
+Iteration: 861
+
+Equity: 0.0064822715117 at time step 208
+Commission fees: 206 = 1.030000 in fees
+Iteration: 862
+
+Equity: 0.00796095089152 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 863
+
+Equity: 0.0093357229897 at time step 218
+Commission fees: 214 = 1.070000 in fees
+Iteration: 864
+
+Equity: 0.00572457062012 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 865
+
+Equity: 0.00649774803445 at time step 187
+Commission fees: 185 = 0.925000 in fees
+Iteration: 866
+
+Equity: 0.00863164286102 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 867
+
+======== EVALUATION RUN =========
+Equity: 0.00609405712987 at time step 213
+Commission fees: 208 = 1.040000 in fees
+Learning Rate: 0.0043046721, Exploration Rate: 0.03
+Avg Portfolio: [0.067720279713730583, 0.066083141465460099, 0.067401922557080912, 0.068370786416253507, 0.063236369847474855]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.73104285062306718, 0.81179459653695707, 0.68950491158175264, 0.81213742526030308, 0.56154476082338356]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 868
+
+Equity: 0.00889926271618 at time step 193
+Commission fees: 188 = 0.940000 in fees
+Iteration: 869
+
+Equity: 0.00743661020338 at time step 210
+Commission fees: 208 = 1.040000 in fees
+Iteration: 870
+
+Equity: 0.00876734886899 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 871
+
+Equity: 0.00951383433532 at time step 193
+Commission fees: 192 = 0.960000 in fees
+Iteration: 872
+
+Equity: 0.00994619504143 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 873
+
+Equity: 0.00655006338506 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 874
+
+Equity: 0.00831977720391 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 875
+
+Equity: 0.00628703040404 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 876
+
+Equity: 0.00758090794405 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 877
+
+Equity: 0.00512403729685 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 878
+
+Equity: 0.00843241422545 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 879
+
+Equity: 0.00513959532133 at time step 203
+Commission fees: 202 = 1.010000 in fees
+Iteration: 880
+
+Equity: 0.00614830026411 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 881
+
+Equity: 0.00627248628193 at time step 214
+Commission fees: 209 = 1.045000 in fees
+Iteration: 882
+
+Equity: 0.00949377563355 at time step 209
+Commission fees: 209 = 1.045000 in fees
+Iteration: 883
+
+Equity: 0.00775383272825 at time step 195
+Commission fees: 190 = 0.950000 in fees
+Iteration: 884
+
+Equity: 0.00755964182477 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 885
+
+Equity: 0.00769813295925 at time step 191
+Commission fees: 189 = 0.945000 in fees
+Iteration: 886
+
+Equity: 0.00878860662609 at time step 197
+Commission fees: 197 = 0.985000 in fees
+Iteration: 887
+
+Equity: 0.00927717900799 at time step 210
+Commission fees: 201 = 1.005000 in fees
+Iteration: 888
+
+Equity: 0.00576656997536 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 889
+
+Equity: 0.00559948629437 at time step 212
+Commission fees: 208 = 1.040000 in fees
+Iteration: 890
+
+Equity: 0.00759022209398 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 891
+
+Equity: 0.00505489725266 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 892
+
+Equity: 0.00982153146345 at time step 206
+Commission fees: 203 = 1.015000 in fees
+Iteration: 893
+
+Equity: 0.00600947921108 at time step 195
+Commission fees: 195 = 0.975000 in fees
+Iteration: 894
+
+Equity: 0.00763720919537 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 895
+
+Equity: 0.0093194075939 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 896
+
+Equity: 0.00587255138958 at time step 207
+Commission fees: 200 = 1.000000 in fees
+Iteration: 897
+
+Equity: 0.0056547251171 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 898
+
+Equity: 0.00502146895445 at time step 215
+Commission fees: 210 = 1.050000 in fees
+Iteration: 899
+
+Equity: 0.00902812800903 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 900
+
+Equity: 0.00542977384751 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 901
+
+
+Average reward for episode -0.016865.  Total average reward 0.031981.
+Increasing batch size to 64
+Have run 22 batch updates
+Next update at 966
+
+Equity: 0.00579286936665 at time step 210
+Commission fees: 205 = 1.025000 in fees
+Iteration: 902
+
+Equity: 0.00661974810878 at time step 210
+Commission fees: 209 = 1.045000 in fees
+Iteration: 903
+
+Equity: 0.00857171190983 at time step 208
+Commission fees: 204 = 1.020000 in fees
+Iteration: 904
+
+Equity: 0.00525405740913 at time step 202
+Commission fees: 202 = 1.010000 in fees
+Iteration: 905
+
+Equity: 0.00640106335277 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 906
+
+Equity: 0.00811641269078 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 907
+
+Equity: 0.00731878433801 at time step 222
+Commission fees: 218 = 1.090000 in fees
+Iteration: 908
+
+Equity: 0.00654383082107 at time step 205
+Commission fees: 198 = 0.990000 in fees
+Iteration: 909
+
+Equity: 0.00738019038169 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 910
+
+Equity: 0.00787214623241 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 911
+
+Equity: 0.00998337400333 at time step 196
+Commission fees: 194 = 0.970000 in fees
+Iteration: 912
+
+Equity: 0.00605964813108 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 913
+
+Equity: 0.00622814258852 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 914
+
+Equity: 0.00653523537608 at time step 212
+Commission fees: 206 = 1.030000 in fees
+Iteration: 915
+
+Equity: 0.00949848928298 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 916
+
+Equity: 0.00500450903748 at time step 205
+Commission fees: 202 = 1.010000 in fees
+Iteration: 917
+
+Equity: 0.00504766086009 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Iteration: 918
+
+Equity: 0.00606597026703 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 919
+
+Equity: 0.00725088428661 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 920
+
+Equity: 0.00945714137971 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 921
+
+Equity: 0.00935720402683 at time step 214
+Commission fees: 210 = 1.050000 in fees
+Iteration: 922
+
+Equity: 0.00501621391463 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 923
+
+Equity: 0.00925057163386 at time step 205
+Commission fees: 200 = 1.000000 in fees
+Iteration: 924
+
+Equity: 0.00701441927514 at time step 187
+Commission fees: 186 = 0.930000 in fees
+Iteration: 925
+
+Equity: 0.00679964728703 at time step 202
+Commission fees: 198 = 0.990000 in fees
+Iteration: 926
+
+Equity: 0.00696471994422 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 927
+
+Equity: 0.00570562347657 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 928
+
+Equity: 0.00655953247133 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 929
+
+Equity: 0.00799727328097 at time step 215
+Commission fees: 206 = 1.030000 in fees
+Iteration: 930
+
+Equity: 0.00634652254449 at time step 209
+Commission fees: 205 = 1.025000 in fees
+Iteration: 931
+
+Equity: 0.00561580066062 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 932
+
+Equity: 0.00785030545143 at time step 214
+Commission fees: 211 = 1.055000 in fees
+Iteration: 933
+
+Equity: 0.00706118950948 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 934
+
+Equity: 0.00819877253667 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 935
+
+Equity: 0.00586845269808 at time step 214
+Commission fees: 212 = 1.060000 in fees
+Iteration: 936
+
+Equity: 0.00607117711847 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 937
+
+Equity: 0.00637450466698 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 938
+
+Equity: 0.00814862918867 at time step 214
+Commission fees: 210 = 1.050000 in fees
+Iteration: 939
+
+Equity: 0.00721858701494 at time step 202
+Commission fees: 201 = 1.005000 in fees
+Iteration: 940
+
+Equity: 0.00979548860504 at time step 196
+Commission fees: 191 = 0.955000 in fees
+Iteration: 941
+
+Equity: 0.00857185319873 at time step 211
+Commission fees: 209 = 1.045000 in fees
+Iteration: 942
+
+Equity: 0.00992024138736 at time step 195
+Commission fees: 193 = 0.965000 in fees
+Iteration: 943
+
+Equity: 0.00973503050922 at time step 195
+Commission fees: 193 = 0.965000 in fees
+Iteration: 944
+
+Equity: 0.00577302310828 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 945
+
+Equity: 0.0088426543911 at time step 210
+Commission fees: 203 = 1.015000 in fees
+Iteration: 946
+
+Equity: 0.00832466909777 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 947
+
+Equity: 0.00827603960572 at time step 197
+Commission fees: 196 = 0.980000 in fees
+Iteration: 948
+
+Equity: 0.0050759721346 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 949
+
+Equity: 0.00667930666363 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 950
+
+Equity: 0.00637478279653 at time step 200
+Commission fees: 199 = 0.995000 in fees
+Iteration: 951
+
+Equity: 0.00897834811705 at time step 194
+Commission fees: 191 = 0.955000 in fees
+Iteration: 952
+
+Equity: 0.00718524086649 at time step 214
+Commission fees: 205 = 1.025000 in fees
+Iteration: 953
+
+Equity: 0.00961248830153 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 954
+
+Equity: 0.00580493559968 at time step 198
+Commission fees: 196 = 0.980000 in fees
+Iteration: 955
+
+Equity: 0.00825424550691 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 956
+
+Equity: 0.00639014623243 at time step 209
+Commission fees: 207 = 1.035000 in fees
+Iteration: 957
+
+Equity: 0.00579462608441 at time step 219
+Commission fees: 214 = 1.070000 in fees
+Iteration: 958
+
+Equity: 0.00863382547479 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 959
+
+======== EVALUATION RUN =========
+Equity: 0.00787972187416 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Learning Rate: 0.00387420489, Exploration Rate: 0.03
+Avg Portfolio: [0.066115006994984932, 0.062946999145969837, 0.062076614967697868, 0.066083138269311018, 0.062841934889552378]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.71957659207075975, 0.65522904351781164, 0.66926800481473958, 0.60835164031326194, 0.59299903880352411]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 960
+
+Equity: 0.00878532643306 at time step 219
+Commission fees: 212 = 1.060000 in fees
+Iteration: 961
+
+Equity: 0.00800134926791 at time step 188
+Commission fees: 187 = 0.935000 in fees
+Iteration: 962
+
+Equity: 0.00959165282211 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 963
+
+Equity: 0.00710649079375 at time step 209
+Commission fees: 206 = 1.030000 in fees
+Iteration: 964
+
+Equity: 0.00943143017774 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 965
+
+
+Average reward for episode -0.009224.  Total average reward 0.030579.
+Increasing batch size to 66
+Have run 23 batch updates
+Next update at 1032
+
+Equity: 0.00616870789024 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 966
+
+Equity: 0.0053609816134 at time step 196
+Commission fees: 195 = 0.975000 in fees
+Iteration: 967
+
+Equity: 0.00763569043135 at time step 190
+Commission fees: 188 = 0.940000 in fees
+Iteration: 968
+
+Equity: 0.00829042562166 at time step 200
+Commission fees: 196 = 0.980000 in fees
+Iteration: 969
+
+Equity: 0.00835387109568 at time step 192
+Commission fees: 189 = 0.945000 in fees
+Iteration: 970
+
+Equity: 0.00957502939871 at time step 198
+Commission fees: 198 = 0.990000 in fees
+Iteration: 971
+
+Equity: 0.00726915740734 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 972
+
+Equity: 0.00769519531472 at time step 200
+Commission fees: 197 = 0.985000 in fees
+Iteration: 973
+
+Equity: 0.00860519951146 at time step 196
+Commission fees: 193 = 0.965000 in fees
+Iteration: 974
+
+Equity: 0.0065055470263 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 975
+
+Equity: 0.00885015808686 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 976
+
+Equity: 0.0095821976495 at time step 201
+Commission fees: 199 = 0.995000 in fees
+Iteration: 977
+
+Equity: 0.00651041896632 at time step 212
+Commission fees: 211 = 1.055000 in fees
+Iteration: 978
+
+Equity: 0.00556802156631 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Iteration: 979
+
+Equity: 0.00534126870363 at time step 205
+Commission fees: 204 = 1.020000 in fees
+Iteration: 980
+
+Equity: 0.00715715698532 at time step 212
+Commission fees: 208 = 1.040000 in fees
+Iteration: 981
+
+Equity: 0.00997475002086 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 982
+
+Equity: 0.00867657124802 at time step 198
+Commission fees: 198 = 0.990000 in fees
+Iteration: 983
+
+Equity: 0.00649692341227 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 984
+
+Equity: 0.00744219792222 at time step 198
+Commission fees: 197 = 0.985000 in fees
+Iteration: 985
+
+Equity: 0.00836675986841 at time step 208
+Commission fees: 205 = 1.025000 in fees
+Iteration: 986
+
+Equity: 0.00682116351537 at time step 187
+Commission fees: 182 = 0.910000 in fees
+Iteration: 987
+
+Equity: 0.00626117057506 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 988
+
+Equity: 0.00629968251334 at time step 202
+Commission fees: 200 = 1.000000 in fees
+Iteration: 989
+
+======== EVALUATION RUN =========
+Equity: 0.00964242848322 at time step 201
+Commission fees: 196 = 0.980000 in fees
+Learning Rate: 0.00387420489, Exploration Rate: 0.03
+Avg Portfolio: [0.065592081636915128, 0.061173420579789882, 0.063057008204048012, 0.066605061179852598, 0.06363612266691035]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.72924168921558019, 0.62659589113426584, 0.63355602909975084, 0.74646374096407486, 0.63851126488281762]
+Min Gain or Loss: [0.9212435451168554, 0.8538010826849054, 0.92046798548835718, 0.8458273100502306]
+Max Gain or Loss: [1.0518890478187584, 1.1626659270514013, 1.0509587289991564, 1.0869966490772125]
+Iteration: 990
+
+Equity: 0.00701423179183 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 991
+
+Equity: 0.00756332578797 at time step 209
+Commission fees: 204 = 1.020000 in fees
+Iteration: 992
+
+Equity: 0.00628672979 at time step 206
+Commission fees: 206 = 1.030000 in fees
+Iteration: 993
+
+Equity: 0.00704367593465 at time step 194
+Commission fees: 192 = 0.960000 in fees
+Iteration: 994
+
+Equity: 0.00770908659007 at time step 216
+Commission fees: 214 = 1.070000 in fees
+Iteration: 995
+
+Equity: 0.00803987942419 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 996
+
+Equity: 0.00711087327988 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 997
+
+Equity: 0.0091530203142 at time step 198
+Commission fees: 194 = 0.970000 in fees
+Iteration: 998
+
+Equity: 0.00989566016858 at time step 201
+Commission fees: 200 = 1.000000 in fees
+Iteration: 999
+
+Equity: 0.00831563871874 at time step 199
+Commission fees: 195 = 0.975000 in fees
+Iteration: 1000
+
+Equity: 0.00572587177976 at time step 192
+Commission fees: 190 = 0.950000 in fees
+Iteration: 1001
+
+Equity: 0.00777447397826 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 1002
+
+Equity: 0.00502375990278 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 1003
+
+Equity: 0.00882633139389 at time step 198
+Commission fees: 192 = 0.960000 in fees
+Iteration: 1004
+
+Equity: 0.00908942594343 at time step 204
+Commission fees: 200 = 1.000000 in fees
+Iteration: 1005
+
+Equity: 0.00838021548247 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 1006
+
+Equity: 0.00931579792591 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 1007
+
+Equity: 0.00668074080187 at time step 204
+Commission fees: 198 = 0.990000 in fees
+Iteration: 1008
+
+Equity: 0.00547574007877 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 1009
+
+Equity: 0.0095051017167 at time step 198
+Commission fees: 195 = 0.975000 in fees
+Iteration: 1010
+
+Equity: 0.00944923756004 at time step 203
+Commission fees: 199 = 0.995000 in fees
+Iteration: 1011
+
+Equity: 0.00821824469351 at time step 188
+Commission fees: 186 = 0.930000 in fees
+Iteration: 1012
+
+Equity: 0.00998754979059 at time step 202
+Commission fees: 199 = 0.995000 in fees
+Iteration: 1013
+
+Equity: 0.00771901958241 at time step 199
+Commission fees: 196 = 0.980000 in fees
+Iteration: 1014
+
+Equity: 0.00869706480208 at time step 193
+Commission fees: 191 = 0.955000 in fees
+Iteration: 1015
+
+Equity: 0.00655352145859 at time step 212
+Commission fees: 208 = 1.040000 in fees
+Iteration: 1016
+
+Equity: 0.00718718734508 at time step 206
+Commission fees: 205 = 1.025000 in fees
+Iteration: 1017
+
+Equity: 0.00636270727702 at time step 200
+Commission fees: 198 = 0.990000 in fees
+Iteration: 1018
+
+Equity: 0.00525876525517 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 1019
+
+Equity: 0.00652254847424 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 1020
+
+Equity: 0.00776174569134 at time step 207
+Commission fees: 204 = 1.020000 in fees
+Iteration: 1021
+
+Equity: 0.00522997206277 at time step 211
+Commission fees: 207 = 1.035000 in fees
+Iteration: 1022
+
+Equity: 0.00623701099226 at time step 203
+Commission fees: 200 = 1.000000 in fees
+Iteration: 1023
+
+Equity: 0.0064156532395 at time step 205
+Commission fees: 201 = 1.005000 in fees
+Iteration: 1024
+
+Equity: 0.00986126953671 at time step 194
+Commission fees: 193 = 0.965000 in fees
+Iteration: 1025
+
+Equity: 0.00750796127889 at time step 202
+Commission fees: 197 = 0.985000 in fees
+Iteration: 1026
+
+Equity: 0.00943862202665 at time step 204
+Commission fees: 202 = 1.010000 in fees
+Iteration: 1027
+
+Equity: 0.00833728605106 at time step 211
+Commission fees: 209 = 1.045000 in fees
+Iteration: 1028
+
+Equity: 0.00940464168446 at time step 209
+Commission fees: 203 = 1.015000 in fees
+Iteration: 1029
+
+Equity: 0.00979589304816 at time step 195
+Commission fees: 194 = 0.970000 in fees
+Iteration: 1030
+
+Equity: 0.00904757699159 at time step 204
+Commission fees: 203 = 1.015000 in fees
+Iteration: 1031
+
+
+Average reward for episode -0.022138.  Total average reward 0.029135.
+Increasing batch size to 68
+Have run 24 batch updates
+Next update at 1100
+
+Equity: 0.00595671301516 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 1032
+
+Equity: 0.00705402066661 at time step 199
+Commission fees: 197 = 0.985000 in fees
+Iteration: 1033
+
+Equity: 0.00827195327754 at time step 206
+Commission fees: 204 = 1.020000 in fees
+Iteration: 1034
+
+Equity: 0.00969577873604 at time step 201
+Commission fees: 198 = 0.990000 in fees
+Iteration: 1035
+
+Equity: 0.00730953426486 at time step 205
+Commission fees: 203 = 1.015000 in fees
+Iteration: 1036
+
+Equity: 0.00596365417915 at time step 206
+Commission fees: 202 = 1.010000 in fees
+Iteration: 1037
+
+Equity: 0.00671472699791 at time step 204
+Commission fees: 201 = 1.005000 in fees
+Iteration: 1038
+
+Equity: 0.00740798853159 at time step 205
+Commission fees: 205 = 1.025000 in fees
+Iteration: 1039
+
