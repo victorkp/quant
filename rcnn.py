@@ -1,0 +1,484 @@
+import numpy as np 
+import cPickle as pickle
+import tensorflow as tf
+from tensorflow.python.ops import rnn, rnn_cell
+import matplotlib.pyplot as plt
+from operator import add
+import math
+import csv
+import sys
+
+NUM_STOCKS = 4
+
+# Output relative portfolio values (SPY, SLV, GLD, USO, Cash) and trade threshhold
+RL_OUT_DIMENS = (NUM_STOCKS + 1) + 1
+
+# From market.csv
+### 3 economic factor (2 dimens)
+### 4 securities with 18 dimens
+OBSERVATION_DIMENS = (3 * 2) + (NUM_STOCKS * 18)
+
+# RNN Input dimensionality:
+### 3 economic factor (2 dimens)
+### 4 securities with 18 dimens
+### equity
+### current loss/gain on stocks
+### boolean if trade happened
+### RL_OUT_DIMENS dimen prior output (previous "action")
+RNN_IN_DIMENS = OBSERVATION_DIMENS + 1 + NUM_STOCKS + 1 + RL_OUT_DIMENS
+
+# RNN Output dimensionality:
+### 3 economic factor (2 dimens)
+### 4 securities with 18 dimens
+### equity
+### current loss/gain on stocks
+### boolean if trade happened
+RNN_OUT_DIMENS = OBSERVATION_DIMENS + 1 + NUM_STOCKS + 1
+
+# RL is taking in RNN's internal state for now
+# RL_IN_DIMENS = (3 * 2) + (NUM_STOCKS * 18) # input dimensionality: 3 economic factor (2 dimens), 4 securities with 18 dimens
+
+
+# hyperparameters
+SEQUENCE_LENGTH = 10
+RNN_NEURONS = 100 # number of hidden layer neurons in the RNN
+RNN_LAYERS = 2 # number of layers of neurons in the RNN
+RL_LAYER_1_NEURONS = RNN_NEURONS             # Neurons in the RL-NN's first layer
+RL_LAYER_2_NEURONS = RNN_NEURONS - 50        # Neurons in the RL-NN's second layer
+
+BATCH_SIZE = 20 # number of episodes before gradient descent 
+BATCH_INCREMENT = 2 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
+LEARNING_RATE = 0.01 # feel free to play with this to train faster or more stably.
+GAMMA = 0.96 # discount factor for reward
+EXPLORATION_RATE = 0.05
+TRADE_EXPLORATION_RATE = 0.05
+
+TRADE_THRESHOLD = 0.5 # 0.2
+TRADE_THRESHOLD_MULTIPLIER = 1.0 # NN outputs 0->1, but full range should be 0->2 because (sum(abs(port[i]-prev_port[i])))
+TRADE_FEE = 0.0002
+TRADE_REWARD_PENALTY = 0.00
+
+NO_DISCOUNT = 0
+
+AVG_REWARD_INCREMENT = 0
+EQUITY_BONUS_MULT = 10.0
+USE_Q_TABLE = 0
+Q_TABLE_MULT = 0.05
+LOW_TRADING_PENALTY = -0.3
+LOW_TRADING_THRESH = 0
+
+DROPOUT_KEEP_PROB = 0.90
+
+USE_DONE_REWARD = 0
+
+INDEX_START = 427 # October 8, 2009
+INDEX_END = 2207
+TOTAL_STEPS = INDEX_END - INDEX_START
+
+TRAIN_START = INDEX_START
+TRAIN_END = INDEX_END 
+
+DECAY_ITERATIONS = 100
+DECAY_RATE = 0.99
+
+print "SEQUENCE_LENGTH: %d" % SEQUENCE_LENGTH
+print "RNN_NEURONS: %d" % RNN_NEURONS
+print "RNN_LAYERS: %d" % RNN_LAYERS
+print "RL_LAYER_1_NEURONS: %d" % RL_LAYER_1_NEURONS
+print "RL_LAYER_2_NEURONS: %d" % RL_LAYER_2_NEURONS
+print "BATCH_SIZE: %d" % BATCH_SIZE
+print "LEARNING_RATE: %f" % LEARNING_RATE
+print "GAMMA: %f" % GAMMA
+print "IN_DIMENS: %d" % IN_DIMENS
+print "OUT_DIMENS: %d" % OUT_DIMENS
+print "EXPLORATION_RATE: %f" % EXPLORATION_RATE
+print "TRADE_EXPLORATION_RATE: %f" % TRADE_EXPLORATION_RATE
+print "TRADE_THRESHOLD: %f" % TRADE_THRESHOLD
+print "TRADE_FEE: %f" % TRADE_FEE
+print "TRADE_REWARD_PENALTY: %f" % TRADE_REWARD_PENALTY
+print "DROPOUT_KEEP_PROB: %f" % DROPOUT_KEEP_PROB
+print "NO_DISCOUNT: %d" % NO_DISCOUNT
+print "AVG_REWARD_INCREMENT: %d" % AVG_REWARD_INCREMENT
+print "USE_Q_TABLE: %d" % USE_Q_TABLE
+print "Q_TABLE_MULT: %d" % Q_TABLE_MULT
+print "EQUITY_BONUS_MULT: %f" % EQUITY_BONUS_MULT
+print "USE_DONE_REWARD: %d" % USE_DONE_REWARD
+print "LOW_TRADING_PENALTY: %f" % LOW_TRADING_PENALTY
+print "LOW_TRADING_THRESH: %d" % LOW_TRADING_THRESH
+print
+print
+print
+
+def initial_observation_state():
+    state = []
+    state.append(1.0) # 1.0 equity to start
+
+    state.append(1.0) # No gain or loss on stocks yet
+    state.append(1.0) # No gain or loss on stocks yet
+    state.append(1.0) # No gain or loss on stocks yet
+    state.append(1.0) # No gain or loss on stocks yet
+
+    state.append(0.0) # No prior trade
+
+    state.append(0.2) # Equally balanced portfolio to start
+    state.append(0.2)
+    state.append(0.2)
+    state.append(0.2)
+    state.append(0.2)
+
+    return state
+
+def get_initial_sequence(index):
+    sequence = []
+    for i in reversed(range(0, SEQUENCE_LENGTH)):
+        sequence.append(get_observation(index - i, initial_observation_state())
+    return sequence
+
+# Returns a [1 x RNN_IN_DIMENS] vector to input into the RNN
+def get_observation(index, other_state):
+    step = input_data[index][1:-1] # Don't use first column (timestamp), or last column (is "\0")
+    step += other_state
+    step = np.array(map(float, step))
+    return step
+
+def get_next_sequence(index):
+    sequence = []
+    for i in range(index - SEQUENCE_LENGTH, index):
+        sequence.append(get_observation(i))
+    return sequence 
+
+def get_next_profit(index):
+    observation = get_observation(index + 1)
+    next_spy_change = float(observation[6])
+    next_slv_change = float(observation[6+18])
+    next_gld_change = float(observation[6+36])
+    next_uso_change = float(observation[6+54])
+    profits = [next_spy_change, next_slv_change, next_gld_change, next_uso_change]
+    return np.array(map(float, profits))
+
+# Use min-max normalization to avoid issues with negative numbers
+def normalize(portfolio):
+    p_min = min(portfolio)
+    p_max = max(portfolio)
+    p_diff = p_max - p_min
+
+    if p_diff == 0:
+        min_max_normal = [ 1 for p in portfolio ]
+    else:
+        min_max_normal = [ (p - p_min) / p_diff for p in portfolio ]
+    
+    mm_sum = sum(min_max_normal)
+    normalized = [ p / mm_sum for p in min_max_normal ]
+
+    # print "%s -> %s" % (portfolio, normalized)
+    return normalized
+
+def discount_rewards(r, equity, equities, trades, q_table):
+    """ take 1D float array of rewards and compute discounted reward """
+    # (Number of time steps) X (6 Reward Signals)
+    discounted_r = np.zeros((r.shape[0], OUT_DIMENS), dtype=float)
+
+    if NO_DISCOUNT == 0:
+        running_add = [0, 0, 0, 0, 0, 0]
+        for t in reversed(xrange(0, r.shape[0])):
+            for i in range(0, OUT_DIMENS):
+                running_add[i] = running_add[i] * GAMMA + r[t][i]
+                discounted_r[t][i] += running_add[i]
+
+    if trades < LOW_TRADING_THRESH:
+        for t in xrange(0, r.shape[0]):
+            discounted_r[t][5] += ((LOW_TRADING_THRESH - trades) / LOW_TRADING_THRESH) * LOW_TRADING_PENALTY
+
+    return discounted_r
+
+
+tf.reset_default_graph()
+
+rnn_x = tf.placeholder("float", [SEQUENCE_LENGTH, IN_DIMENS])
+rnn_y = tf.placeholder("float", [OUT_DIMENS])
+
+rnn_learning_rate = tf.placeholder(tf.float32, shape=[])
+
+# Define weights
+weights = {
+           'out': tf.Variable(tf.random_normal([RNN_NEURONS, OUT_DIMENS]))
+          }
+biases =  {
+           'out': tf.Variable(tf.random_normal([OUT_DIMENS]))
+          }
+
+
+# Recurrent Neural Network accepts observation as input
+def RNN(x, weights, biases):
+    x = tf.reshape(x, [-1, IN_DIMENS])
+    x = tf.split(0, SEQUENCE_LENGTH, x)
+    lstm_cell = rnn_cell.BasicLSTMCell(RNN_NEURONS, forget_bias = 1.0)
+    stacked_lstm = rnn_cell.MultiRNNCell([lstm_cell] * RNN_LAYERS)
+    outputs, states = rnn.rnn(stacked_lstm, x, dtype=tf.float32)
+    return (outputs, states, tf.matmul(outputs[-1], weights['out']) + biases['out'])
+
+# Reinforcement Learning Neural Network that takes RNN's internal state as input,
+# and builds a portfolio composition from that
+def RL_NN():
+    rnn_state_input = tf.placeholder(tf.float32, [None, RNN_NEURONS * RNN_LAYERS], name="rnn_state")
+
+    W1 = tf.get_variable("W1", shape=[RNN_NEURONS * RNN_LAYERS, LAYER_1_NEURONS],
+               initializer=tf.contrib.layers.xavier_initializer())
+    B1 = tf.Variable(tf.zeros([LAYER_1_NEURONS]), name="B1")
+    layer1 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(rnn_state_input, W1), B1), DROPOUT_KEEP_PROB)
+    # layer1_eval = tf.nn.bias_add(tf.matmul(rnn_state_input, W1), B1)
+
+    W2 = tf.get_variable("W2", shape=[LAYER_1_NEURONS, LAYER_2_NEURONS],
+               initializer=tf.contrib.layers.xavier_initializer())
+    B2 = tf.Variable(tf.zeros([LAYER_2_NEURONS]), name="B2")
+    layer2 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer1,W2), B2), DROPOUT_KEEP_PROB)
+    # layer2_eval = tf.nn.bias_add(tf.matmul(layer1_eval, W2), B2)
+
+    W3 = tf.get_variable("W3", shape=[LAYER_2_NEURONS, OUT_DIMENS], # 4 dimen output for each security
+               initializer=tf.contrib.layers.xavier_initializer())
+    B3 = tf.Variable(tf.zeros([OUT_DIMENS]), name="B3")
+    score = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
+    # score_eval = tf.nn.bias_add(tf.matmul(layer2_eval, W3), B3)
+
+    train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
+    # eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
+
+    input_y = tf.placeholder(tf.float32, [None,OUT_DIMENS], name="input_y") # Prior output
+    reward_signal = tf.placeholder(tf.float32, [None, OUT_DIMENS], name="reward_signal")
+
+    # loss = -tf.reduce_sum(train_network * reward_signal) # add constant to avoid NaN
+    loss = -tf.reduce_sum((train_network - input_y) * reward_signal) # add constant to avoid NaN
+
+    learning_rate = tf.placeholder(tf.float32, shape=[])
+
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss) # Our optimizer
+
+    return (rnn_state_input, input_y, reward_signal, train_network, learning_rate, optimizer)
+
+
+
+# RL NN inputs, learning rate, optimizer
+rl_input, rl_y, rl_reward, rl_predictor, rl_learning_rate, rl_optimizer = RL_NN()
+
+# RNN Predictor, Loss, and Optimizer
+rnn_outputs, rnn_states, rnn_pred = RNN(x, weights, biases)
+rnn_cost = tf.reduce_sum(tf.square(rnn_pred - y))
+rnn_optimizer = tf.train.AdamOptimizer(learning_rate = rnn_learning_rate).minimize(cost)
+
+init = tf.initialize_all_variables()
+
+input_data = list(csv.reader(open("data/market.csv")))
+
+forecast_move = []
+sequences = []
+for index in range(INDEX_START, INDEX_END - FUTURE_FORECAST):
+    change = get_next_profit(index)
+    for i in range(1, FUTURE_FORECAST):
+        change = map(add, change, get_next_profit(index + i))
+    forecast_move.append(change)
+
+    sequences.append(get_next_sequence(index))
+
+# Launch the graph
+with tf.Session() as sess:
+    sess.run(init)
+
+    RNN_TRAINING_ITERATIONS = 10000
+    iteration = 0
+
+    # Batch data for batch update
+    batch_x      = []
+    batch_y      = []
+    batch_reward = []
+
+    # Data for one episode
+    episode_rl_x      = []
+    episode_rl_y      = []
+    episode_rl_reward = []
+    episode_rnn_x     = []
+    episode_rnn_y     = []
+
+    equity = 1.0  # 1 unit of money, to start
+    equities = [1.0]  # Array of equity at each time step
+
+    # Just statistics, don't play into RL NN or RNN 
+    min_portfolio = [1, 1, 1, 1, 1 ]
+    max_portfolio = [0, 0, 0, 0, 0]
+    average_portfolio = [0, 0, 0, 0, 0]
+    last_portfolio = [0.2, 0.2, 0.2, 0.2, 0.2]
+    trade_thresh_average = 0.5
+    trade_thresh_min = 10.0
+    trade_thresh_max = 0.0
+
+    # Keep track of average profit or loss for each equity, fed
+    # in as part of RNN's input
+    gain_loss_averages = [1.0, 1.0, 1.0, 1.0]
+    min_gain_loss = [10, 10, 10, 10]
+    max_gain_loss = [0, 0, 0, 0]
+    
+    # Bookkeeping for number of trades, last trade, profit since last trade
+    trade_count = 0
+    last_trade = INDEX_START
+    last_trade_equity = 1.0
+
+    next_update = BATCH_SIZE
+
+    while iteration < RNN_TRAINING_ITERATIONS:
+        iteration += 1
+
+        train_loss = 0
+        test_loss = 0
+
+        for index in range(TRAIN_START, TRAIN_END):
+            index -= INDEX_START
+
+            if input_index == 0:
+                equity = 1.0
+                commission_fees = 0
+                equities = [1.0]  # Array of equity at each time step
+                trade_thresh_average = 0.5
+                trade_thresh_min = 10.0
+                trade_thresh_max = 0.0
+                last_trade = INDEX_START
+                last_trade_equity = 1.0
+
+                sequence = get_initial_sequence()
+
+            # Run input sequence through RNN...
+            rnn_state, rnn_output = sess.run((rnn_states, rnn_outputs), feed_dict = {rnn_x: sequence})
+
+            # ... then use RNN's internal state as input to an RL NN which does the portfolio composition
+            rl_input_x = rnn_state.flatten()
+            portfolio_raw = list(np.reshape(sess.run(rl_predictor, feed_dict={rl_input: rl_input_x}), [RL_OUT_DIMENS]))
+
+            trade_threshold = portfolio_raw.pop() * TRADE_THRESHOLD_MULTIPLIER
+            trade_thresh_average = trade_thresh_average * (0.99) + 0.01 * trade_threshold
+            trade_thresh_min = min(trade_thresh_min, trade_threshold)
+            trade_thresh_max = max(trade_thresh_max, trade_threshold)
+
+            # Add random noise to portfolio for exploration and re-normalize
+            portfolio = normalize(portfolio_raw)
+            portfolio = [p + (EXPLORATION_RATE * np.random.uniform()) for p in portfolio_raw]
+            portfolio = normalize(portfolio)
+
+            if math.isnan(portfolio[0]):
+                print "PORTFOLIO IS NaN"
+                exit()
+
+            # Determine if a trade occurs
+            portfolio_diff = 0.0
+            for i in range(0, len(portfolio)):
+                portfolio_diff += abs(portfolio[i] - last_portfolio[i])
+
+            make_trade = 1.0 if portfolio_diff > trade_threshold else 0.0
+
+            if make_trade > 0:
+                # Portfolio changed somewhat significantly
+                # So a trade fee is incurred, and the portfolio is updated
+                equity -= TRADE_FEE
+                commission_fees += 1
+                last_trade = input_index
+                trade_profit = (equity - last_trade_equity) / last_trade_equity
+                last_trade_equity = equity
+
+                trade_stocks_profit = gain_loss_averages[:]
+                for i in range (0, NUM_STOCKS):
+                    if portfolio[i] == 0 or last_portfolio[i] == 0:
+                        gain_loss_averages[i] = 1.0
+                    else:
+                        if portfolio[i] > last_portfolio[i]:
+                            gain_loss_averages[i] = ((portfolio[i] - last_portfolio[i]) + last_portfolio[i] * gain_loss_averages[i]) / portfolio[i]
+                        else:
+                            gain_loss_averages[i] = ((last_portfolio[i] - portfolio[i]) + portfolio[i] * gain_loss_averages[i]) / last_portfolio[i]
+                
+                trade_stocks_profit = map(sub, trade_stocks_profit, gain_loss_averages)
+
+                last_portfolio = portfolio
+            else:
+                trade_profit = 0.0
+
+            # Keep track of RNN and RL inputs and RL's Y value
+            episode_rnn_x.append(sequence[:])
+            episode_rl_x.append(rl_input_x)
+            episode_rl_y.append([0, 0, 0, 0, 0, 0.0 if make_trade == 1 else 1.0]) # portfolio output
+
+            # Update statistics
+            average_portfolio[0] += last_portfolio[0]
+            average_portfolio[1] += last_portfolio[1]
+            average_portfolio[2] += last_portfolio[2]
+            average_portfolio[3] += last_portfolio[3]
+            average_portfolio[4] += last_portfolio[4]
+
+            for i in range(0, NUM_STOCKS + 1):
+                min_portfolio[i] = min(last_portfolio[i], min_portfolio[i])
+                max_portfolio[i] = max(last_portfolio[i], max_portfolio[i])
+
+            for i in range(0, NUM_STOCKS):
+                min_gain_loss[i] = min(gain_loss_averages[i], min_gain_loss[i])
+                max_gain_loss[i] = max(gain_loss_averages[i], max_gain_loss[i])
+
+
+            # Advance a timestep
+            index += 1
+            next_observation = input_data[index][1:-1] # Don't use first column (timestamp), or last column (is "\0")
+            
+            # Update from next time observation
+            next_spy_change = float(observation[6])
+            next_slv_change = float(observation[6+18])
+            next_gld_change = float(observation[6+36])
+            next_uso_change = float(observation[6+54])
+            gain_loss_averages[0] *= 1 + next_spy_change
+            gain_loss_averages[1] *= 1 + next_slv_change
+            gain_loss_averages[2] *= 1 + next_gld_change
+            gain_loss_averages[3] *= 1 + next_uso_change
+            spy_reward = next_spy_change * last_portfolio[0]
+            slv_reward = next_slv_change * last_portfolio[1]
+            gld_reward = next_gld_change * last_portfolio[2]
+            uso_reward = next_uso_change * last_portfolio[3]
+            profit = spy_reward + slv_reward + gld_reward + uso_reward
+            equity += equity * profit
+
+            equities.append(equity)
+
+            # The various positions in the portfolio are growing and shrinking due to growth
+            # Note that for dividends this assumes automatic-reinvestment into the underlying security
+            last_portfolio[0] *= (1 + next_spy_change)
+            last_portfolio[1] *= (1 + next_slv_change)
+            last_portfolio[2] *= (1 + next_gld_change)
+            last_portfolio[3] *= (1 + next_uso_change)
+            last_portfolio = normalize(last_portfolio)
+
+            # Generate a reward signal for the RL neural net
+            if make_trade:
+                reward = trade_stocks_profit + [TRADE_FEE] + [trade_profit - TRADE_REWARD_PENALTY]
+            else:
+                reward = [0, 0, 0, 0, 0, 0]
+
+            episode_rl_reward.append(reward)
+
+            # Add to RNN's expected output
+            next_observation = map(float, next_observation.append(equity).extend(gain_loss_averages).append(make_trade))
+            episode_rnn_y.append(np.array(next_observation))
+
+            # Set up sequence for next run of RNN
+            next_observation.extend(last_portfolio)
+            sequence.pop(0)
+            sequence.append(np.array(next_observation))
+
+
+
+        if iteration == next_update:
+            next_update += BATCH_SIZE
+            BATCH_SIZE += BATCH_INCREMENT
+
+            # TODO do a batch update
+            sess.run(optimizer, feed_dict = {rnn_x: sequence_x, rnn_y: forecast_move[index], rnn_learning_rate: LEARNING_RATE})
+
+            train_loss += sess.run(cost, feed_dict = {rnn_x: sequence_x, rnn_y: forecast_move[index]})
+
+            print "Iteration %d: train loss %f, test loss %f" % (iteration, train_loss, test_loss)
+
+            LEARNING_RATE *= 0.99
+            print "Learning Rate: %f" % LEARNING_RATE
+
+
