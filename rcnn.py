@@ -31,33 +31,33 @@ RNN_IN_DIMENS = OBSERVATION_DIMENS + 1 + NUM_STOCKS + 1 + RL_OUT_DIMENS
 # RNN Output dimensionality:
 ### 3 economic factor (2 dimens)
 ### 4 securities with 18 dimens
-### equity
-### current loss/gain on stocks
-### boolean if trade happened
-RNN_OUT_DIMENS = OBSERVATION_DIMENS + 1 + NUM_STOCKS + 1
+RNN_OUT_DIMENS = OBSERVATION_DIMENS
 
 # RL is taking in RNN's internal state for now
 # RL_IN_DIMENS = (3 * 2) + (NUM_STOCKS * 18) # input dimensionality: 3 economic factor (2 dimens), 4 securities with 18 dimens
 
+RNN_LOOK_FORWARD = 5
 
 # hyperparameters
 SEQUENCE_LENGTH = 10
-RNN_NEURONS = 100 # number of hidden layer neurons in the RNN
+RNN_NEURONS = RNN_IN_DIMENS #100 # number of hidden layer neurons in the RNN
 RNN_LAYERS = 2 # number of layers of neurons in the RNN
 RL_LAYER_1_NEURONS = RNN_NEURONS             # Neurons in the RL-NN's first layer
-RL_LAYER_2_NEURONS = RNN_NEURONS - 50        # Neurons in the RL-NN's second layer
+RL_LAYER_2_NEURONS = RNN_NEURONS - 25        # Neurons in the RL-NN's second layer
 
 BATCH_SIZE = 10 # number of episodes before gradient descent 
 BATCH_INCREMENT = 2 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
 LEARNING_RATE = 0.01 # feel free to play with this to train faster or more stably.
-GAMMA = 0.96 # discount factor for reward
+GAMMA = 0.95 # discount factor for reward
 EXPLORATION_RATE = 0.05
-TRADE_EXPLORATION_RATE = 0.05
+TRADE_EXPLORATION_RATE = 0.03
 
-TRADE_THRESHOLD = 0.5 # 0.2
+TRADE_THRESHOLD = 0.25 # 0.2
 TRADE_THRESHOLD_MULTIPLIER = 1.0 # NN outputs 0->1, but full range should be 0->2 because (sum(abs(port[i]-prev_port[i])))
-TRADE_FEE = 0.0002
-TRADE_REWARD_PENALTY = 0.00
+TRADE_FEE = 0 #.0002
+TRADE_REWARD_PENALTY = 0 #-0.005
+
+RNN_FORECAST = 7
 
 NO_DISCOUNT = 0
 
@@ -65,7 +65,7 @@ AVG_REWARD_INCREMENT = 0
 EQUITY_BONUS_MULT = 10.0
 USE_Q_TABLE = 0
 Q_TABLE_MULT = 0.05
-LOW_TRADING_PENALTY = -0.3
+LOW_TRADING_PENALTY = -0.01
 LOW_TRADING_THRESH = 0
 
 DROPOUT_KEEP_PROB = 0.90
@@ -73,7 +73,7 @@ DROPOUT_KEEP_PROB = 0.90
 USE_DONE_REWARD = 0
 
 INDEX_START = 427 # October 8, 2009
-INDEX_END = 2207
+INDEX_END = 2207 - RNN_FORECAST
 TOTAL_STEPS = INDEX_END - INDEX_START
 
 TRAIN_START = INDEX_START
@@ -140,7 +140,8 @@ def get_initial_sequence(index):
 # Returns a [1 x RNN_IN_DIMENS] vector to input into the RNN
 def get_observation(index, other_state):
     step = input_data[index][1:-1] # Don't use first column (timestamp), or last column (is "\0")
-    step += other_state
+    if other_state is not None:
+        step += other_state
     step = np.array(map(float, step))
     return step
 
@@ -150,8 +151,27 @@ def get_next_sequence(index):
         sequence.append(get_observation(i))
     return sequence 
 
+# Return weighted averages of values over next RNN_FORECAST days
+def get_rnn_target(index):
+    target = get_observation(index, None)
+    denominator = 1.0
+    factor = 1.0
+    
+    for i in range(1, RNN_FORECAST):
+        denominator += factor
+        observation = get_observation(i, None)
+        for j in range(0, len(target)):
+            target[j] += observation[j] * factor
+        factor *= 0.5
+
+    for i in range(1, len(target)):
+        target[i] /= denominator
+
+    return target
+
+
 def get_next_profit(index):
-    observation = get_observation(index + 1)
+    observation = get_observation(index + 1, None)
     next_spy_change = float(observation[6])
     next_slv_change = float(observation[6+18])
     next_gld_change = float(observation[6+36])
@@ -243,14 +263,14 @@ def RL_NN():
     score = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
     # score_eval = tf.nn.bias_add(tf.matmul(layer2_eval, W3), B3)
 
-    train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
+    train_network = tf.nn.sigmoid(score) # Has DROPOUT_KEEP_PROB for neurons
     # eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
 
     input_y = tf.placeholder(tf.float32, [None,RL_OUT_DIMENS], name="input_y") # Prior output
     reward_signal = tf.placeholder(tf.float32, [None, RL_OUT_DIMENS], name="reward_signal")
 
-    # loss = -tf.reduce_sum(train_network * reward_signal) # add constant to avoid NaN
-    loss = -tf.reduce_sum((train_network - input_y) * reward_signal) # add constant to avoid NaN
+    loss = -tf.reduce_sum(train_network * reward_signal) # add constant to avoid NaN
+    #loss = -tf.reduce_sum(tf.square(train_network - input_y) * reward_signal) # add constant to avoid NaN
 
     learning_rate = tf.placeholder(tf.float32, shape=[])
 
@@ -270,6 +290,10 @@ init = tf.initialize_all_variables()
 
 input_data = list(csv.reader(open("data/market.csv")))
 
+rnn_targets = []
+for i in range(TRAIN_START, TRAIN_END):
+    rnn_targets.append(get_rnn_target(i))
+
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
@@ -282,14 +306,14 @@ with tf.Session() as sess:
     batch_rl_y      = []
     batch_rl_reward = []
     batch_rnn_x     = []
-    batch_rnn_y     = []
+    # batch_rnn_y     = []
 
     # Data for one episode
     episode_rl_x      = []
     episode_rl_y      = []
     episode_rl_reward = []
     episode_rnn_x     = []
-    episode_rnn_y     = []
+    # episode_rnn_y     = []
 
     equity = 1.0  # 1 unit of money, to start
     equities = [1.0]  # Array of equity at each time step
@@ -337,6 +361,11 @@ with tf.Session() as sess:
                 last_trade = INDEX_START
                 last_trade_equity = 1.0
                 sequence = get_initial_sequence(INDEX_START)
+                episode_rl_x      = []
+                episode_rl_y      = []
+                episode_rl_reward = []
+                episode_rnn_x     = []
+                # episode_rnn_y     = []
 
             # Run input sequence through RNN...
             # sequence_array = np.reshape(sequence, [SEQUENCE_LENGTH, RNN_IN_DIMENS])
@@ -365,7 +394,8 @@ with tf.Session() as sess:
             for i in range(0, len(portfolio)):
                 portfolio_diff += abs(portfolio[i] - last_portfolio[i])
 
-            make_trade = 1.0 if portfolio_diff > trade_threshold else 0.0
+            # make_trade = 1.0 if portfolio_diff > trade_threshold or np.random.uniform() > TRADE_EXPLORATION_RATE else 0.0
+            make_trade = 1.0
 
             if make_trade > 0:
                 # Portfolio changed somewhat significantly
@@ -395,7 +425,6 @@ with tf.Session() as sess:
             # Keep track of RNN and RL inputs and RL's Y value
             episode_rnn_x.append(np.array(sequence))
             episode_rl_x.append(rl_input_x)
-            episode_rl_y.append([0, 0, 0, 0, 0, 0.0 if make_trade == 1 else 1.0]) # portfolio output
 
             # Update statistics
             average_portfolio[0] += last_portfolio[0]
@@ -435,6 +464,24 @@ with tf.Session() as sess:
 
             equities.append(equity)
 
+            # RL's Y value is mostly about ensuring that trade_threshold is something reasonable,
+            # and also assigning a higher weight to best stock
+
+            #max_stock = max(next_spy_change, next_gld_change, next_slv_change, next_uso_change, 0)
+            #episode_rl_y.append([1 if next_spy_change == max_stock else 0,
+            #                     1 if next_slv_change == max_stock else 0,
+            #                     1 if next_gld_change == max_stock else 0,
+            #                     1 if next_uso_change == max_stock else 0,
+            #                     1 if 0 == max_stock else 0,
+            #                     0.5]) # portfolio output
+
+            episode_rl_y.append([0,
+                                 0,
+                                 0,
+                                 0,
+                                 0,
+                                 0.5]) # portfolio output
+
             # The various positions in the portfolio are growing and shrinking due to growth
             # Note that for dividends this assumes automatic-reinvestment into the underlying security
             last_portfolio[0] *= (1 + next_spy_change)
@@ -444,21 +491,28 @@ with tf.Session() as sess:
             last_portfolio = normalize(last_portfolio)
 
             # Generate a reward signal for the RL neural net
-            if make_trade:
-                reward = trade_stocks_profit + [TRADE_FEE] + [trade_profit - TRADE_REWARD_PENALTY]
-            else:
-                reward = [0, 0, 0, 0, 0, 0]
+            # if make_trade:
+            #     reward = trade_stocks_profit + [0, trade_profit - TRADE_REWARD_PENALTY]
+            # else:
+            #      if index - last_trade < 100:
+            #         # reward = [0, 0, 0, 0, 0, 0]
+            #         reward = [next_spy_change, next_slv_change, next_gld_change, next_uso_change, 0, 0]
+            #      else:
+            #         # reward = [0, 0, 0, 0, 0, LOW_TRADING_PENALTY * ((index - last_trade) / 100.0)]
+            #         reward = [next_spy_change, next_slv_change, next_gld_change, next_uso_change, 0, LOW_TRADING_PENALTY * ((index - last_trade) / 100.0)]
+            # reward = [next_spy_change, next_slv_change, next_gld_change, next_uso_change, 0, 0]
+            reward = [spy_reward, slv_reward, gld_reward, uso_reward, 0, 0]
 
             episode_rl_reward.append(reward)
 
             # Add to RNN's expected output
+            next_observation = map(float, next_observation)
+            # episode_rnn_y.append(np.array(next_observation))
+
+            # Set up sequence for next run of RNN
             next_observation.append(equity)
             next_observation.extend(gain_loss_averages)
             next_observation.append(make_trade)
-            next_observation = map(float, next_observation)
-            episode_rnn_y.append(np.array(next_observation))
-
-            # Set up sequence for next run of RNN
             next_observation.extend(last_portfolio)
             next_observation.append(trade_threshold)
             sequence.pop(0)
@@ -494,7 +548,7 @@ with tf.Session() as sess:
         batch_rl_y.append(episode_y)
         batch_rl_reward.append(discounted_r)
         batch_rnn_x.append(episode_rnn_x)
-        batch_rnn_y.append(episode_rnn_y)
+        # batch_rnn_y.append(episode_rnn_y)
 
         if iteration == next_update:
             next_update += BATCH_SIZE
@@ -507,12 +561,13 @@ with tf.Session() as sess:
                                                   rl_y: batch_rl_y[i],
                                                   rl_reward: batch_rl_reward[i],
                                                   rl_learning_rate: LEARNING_RATE})
-
                 # Updates on RNN for each time step in this episode in the batch
-                for j in range(0, len(batch_rl_x[i])):
-                    sess.run(rnn_optimizer, feed_dict = {rnn_x: batch_rnn_x[i][j],
-                                                         rnn_y: batch_rnn_y[i][j],
-                                                         rnn_learning_rate: LEARNING_RATE})
+                for j in range(0, len(batch_rnn_x[i])):
+                    if np.random.uniform() > 0.8:
+                        sess.run(rnn_optimizer, feed_dict = {rnn_x: batch_rnn_x[i][j],
+                                                             # rnn_y: batch_rnn_y[i][j],
+                                                             rnn_y: rnn_targets[j],
+                                                             rnn_learning_rate: LEARNING_RATE})
 
 
             LEARNING_RATE *= 0.99
@@ -525,7 +580,7 @@ with tf.Session() as sess:
             batch_rl_y = []
             batch_rl_reward = []
             batch_rnn_x = []
-            batch_rnn_y = []
+            # batch_rnn_y = []
 
 
 

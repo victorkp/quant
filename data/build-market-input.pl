@@ -140,9 +140,9 @@ for my $file (@ARGV) {
                 $average_loss_14_day = ((12 * $average_loss_14_day) - $price_change) / 14.0;
             }
 
-            my $rsi_3_day  = ($average_loss_3_day == 0) ? (100) : (100 - 100.0/(1 + $average_gain_3_day/$average_loss_3_day));
-            my $rsi_10_day  = ($average_loss_10_day == 0) ? (100) : (100 - 100.0/(1 + $average_gain_10_day/$average_loss_10_day));
-            my $rsi_14_day  = ($average_loss_14_day == 0) ? (100) : (100 - 100.0/(1 + $average_gain_14_day/$average_loss_14_day));
+            my $rsi_3_day  = ($average_loss_3_day == 0) ? (1) : (1 - 1.0/(1 + $average_gain_3_day/$average_loss_3_day));
+            my $rsi_10_day  = ($average_loss_10_day == 0) ? (1) : (1 - 1.0/(1 + $average_gain_10_day/$average_loss_10_day));
+            my $rsi_14_day  = ($average_loss_14_day == 0) ? (1) : (1 - 1.0/(1 + $average_gain_14_day/$average_loss_14_day));
 
             # Using RSI in range -1.0 to 1.0, instead of range 0 to 100, just for some normalization of the data
             $rsi_3_day  = ($rsi_3_day  - 50) / 100;
