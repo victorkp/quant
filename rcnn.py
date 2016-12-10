@@ -33,17 +33,14 @@ RNN_IN_DIMENS = OBSERVATION_DIMENS + 1 + NUM_STOCKS + 1 + RL_OUT_DIMENS
 ### 4 securities with 18 dimens
 RNN_OUT_DIMENS = OBSERVATION_DIMENS
 
-# RL is taking in RNN's internal state for now
-# RL_IN_DIMENS = (3 * 2) + (NUM_STOCKS * 18) # input dimensionality: 3 economic factor (2 dimens), 4 securities with 18 dimens
-
-RNN_LOOK_FORWARD = 5
-
 # hyperparameters
 SEQUENCE_LENGTH = 10
-RNN_NEURONS = RNN_IN_DIMENS #100 # number of hidden layer neurons in the RNN
-RNN_LAYERS = 2 # number of layers of neurons in the RNN
-RL_LAYER_1_NEURONS = RNN_NEURONS             # Neurons in the RL-NN's first layer
-RL_LAYER_2_NEURONS = RNN_NEURONS - 25        # Neurons in the RL-NN's second layer
+RNN_NEURONS = 3 * RNN_IN_DIMENS / 2 # number of hidden layer neurons in the RNN
+RNN_LAYERS = 3                      # number of layers of neurons in the RNN
+
+RL_LAYER_1_NEURONS = RNN_NEURONS        # Neurons in the RL-NN's first layer
+RL_LAYER_2_NEURONS = RNN_NEURONS        # Neurons in the RL-NN's second layer
+RL_LAYER_3_NEURONS = RNN_NEURONS        # Neurons in the RL-NN's third layer
 
 BATCH_SIZE = 10 # number of episodes before gradient descent 
 BATCH_INCREMENT = 2 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
@@ -87,6 +84,7 @@ print "RNN_NEURONS: %d" % RNN_NEURONS
 print "RNN_LAYERS: %d" % RNN_LAYERS
 print "RL_LAYER_1_NEURONS: %d" % RL_LAYER_1_NEURONS
 print "RL_LAYER_2_NEURONS: %d" % RL_LAYER_2_NEURONS
+print "RL_LAYER_3_NEURONS: %d" % RL_LAYER_3_NEURONS
 print "BATCH_SIZE: %d" % BATCH_SIZE
 print "LEARNING_RATE: %f" % LEARNING_RATE
 print "GAMMA: %f" % GAMMA
@@ -235,8 +233,8 @@ rnn_biases =  {
 def RNN(x, weights, biases):
     x = tf.reshape(x, [-1, RNN_IN_DIMENS])
     x = tf.split(0, SEQUENCE_LENGTH, x)
-    lstm_cell = rnn_cell.BasicLSTMCell(RNN_NEURONS, forget_bias = 1.0)
-    stacked_lstm = rnn_cell.MultiRNNCell([lstm_cell] * RNN_LAYERS)
+    lstm_cell = rnn_cell.BasicLSTMCell(RNN_NEURONS, forget_bias = 1.0, state_is_tuple=False)
+    stacked_lstm = rnn_cell.MultiRNNCell([lstm_cell] * RNN_LAYERS, state_is_tuple=False)
     outputs, states = rnn.rnn(stacked_lstm, x, dtype=tf.float32)
     return (outputs, states, tf.matmul(outputs[-1], weights['out']) + biases['out'])
 
@@ -249,22 +247,23 @@ def RL_NN():
                initializer=tf.contrib.layers.xavier_initializer())
     B1 = tf.Variable(tf.zeros([RL_LAYER_1_NEURONS]), name="B1")
     layer1 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(rnn_state_input, W1), B1), DROPOUT_KEEP_PROB)
-    # layer1_eval = tf.nn.bias_add(tf.matmul(rnn_state_input, W1), B1)
 
     W2 = tf.get_variable("W2", shape=[RL_LAYER_1_NEURONS, RL_LAYER_2_NEURONS],
                initializer=tf.contrib.layers.xavier_initializer())
     B2 = tf.Variable(tf.zeros([RL_LAYER_2_NEURONS]), name="B2")
     layer2 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer1,W2), B2), DROPOUT_KEEP_PROB)
-    # layer2_eval = tf.nn.bias_add(tf.matmul(layer1_eval, W2), B2)
 
-    W3 = tf.get_variable("W3", shape=[RL_LAYER_2_NEURONS, RL_OUT_DIMENS], # 4 dimen output for each security
+    W3 = tf.get_variable("W3", shape=[RL_LAYER_2_NEURONS, RL_LAYER_3_NEURONS],
                initializer=tf.contrib.layers.xavier_initializer())
-    B3 = tf.Variable(tf.zeros([RL_OUT_DIMENS]), name="B3")
-    score = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
-    # score_eval = tf.nn.bias_add(tf.matmul(layer2_eval, W3), B3)
+    B3 = tf.Variable(tf.zeros([RL_LAYER_3_NEURONS]), name="B3")
+    layer3 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer2,W3), B3), DROPOUT_KEEP_PROB)
+
+    W4 = tf.get_variable("W4", shape=[RL_LAYER_3_NEURONS, RL_OUT_DIMENS], # Output for each security, cash, trade 
+               initializer=tf.contrib.layers.xavier_initializer())
+    B4 = tf.Variable(tf.zeros([RL_OUT_DIMENS]), name="B4")
+    score = tf.nn.bias_add(tf.matmul(layer3,W4), B4)
 
     train_network = tf.nn.sigmoid(score) # Has DROPOUT_KEEP_PROB for neurons
-    # eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
 
     input_y = tf.placeholder(tf.float32, [None,RL_OUT_DIMENS], name="input_y") # Prior output
     reward_signal = tf.placeholder(tf.float32, [None, RL_OUT_DIMENS], name="reward_signal")
@@ -273,7 +272,6 @@ def RL_NN():
     #loss = -tf.reduce_sum(tf.square(train_network - input_y) * reward_signal) # add constant to avoid NaN
 
     learning_rate = tf.placeholder(tf.float32, shape=[])
-
     optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss) # Our optimizer
 
     return (rnn_state_input, input_y, reward_signal, train_network, learning_rate, optimizer)
