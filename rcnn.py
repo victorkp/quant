@@ -35,35 +35,35 @@ RNN_OUT_DIMENS = OBSERVATION_DIMENS
 
 # hyperparameters
 SEQUENCE_LENGTH = 10
-RNN_NEURONS = 3 * RNN_IN_DIMENS / 2 # number of hidden layer neurons in the RNN
+RNN_NEURONS = RNN_IN_DIMENS / 2 # number of hidden layer neurons in the RNN
 RNN_LAYERS = 3                      # number of layers of neurons in the RNN
 
-RL_LAYER_1_NEURONS = RNN_NEURONS        # Neurons in the RL-NN's first layer
-RL_LAYER_2_NEURONS = RNN_NEURONS        # Neurons in the RL-NN's second layer
-RL_LAYER_3_NEURONS = RNN_NEURONS        # Neurons in the RL-NN's third layer
+RL_LAYER_1_NEURONS = RNN_NEURONS / 2       # Neurons in the RL-NN's first layer
+RL_LAYER_2_NEURONS = RNN_NEURONS / 2       # Neurons in the RL-NN's second layer
+RL_LAYER_3_NEURONS = RNN_NEURONS / 2       # Neurons in the RL-NN's third layer
 
-BATCH_SIZE = 10 # number of episodes before gradient descent 
-BATCH_INCREMENT = 2 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
+BATCH_SIZE = 3 # number of episodes before gradient descent 
+BATCH_INCREMENT = 1 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
 LEARNING_RATE = 0.01 # feel free to play with this to train faster or more stably.
 GAMMA = 0.95 # discount factor for reward
 EXPLORATION_RATE = 0.05
 TRADE_EXPLORATION_RATE = 0.03
 
 TRADE_THRESHOLD = 0.25 # 0.2
-TRADE_THRESHOLD_MULTIPLIER = 1.0 # NN outputs 0->1, but full range should be 0->2 because (sum(abs(port[i]-prev_port[i])))
+TRADE_THRESHOLD_MULTIPLIER = 0.66 # NN outputs 0->1, but full range should be 0->2 because (sum(abs(port[i]-prev_port[i])))
 TRADE_FEE = 0 #.0002
-TRADE_REWARD_PENALTY = 0 #-0.005
+TRADE_REWARD_PENALTY = -0.0025
 
 RNN_FORECAST = 7
 
 NO_DISCOUNT = 0
 
 AVG_REWARD_INCREMENT = 0
-EQUITY_BONUS_MULT = 10.0
+EQUITY_BONUS_MULT = 0.0025
 USE_Q_TABLE = 0
 Q_TABLE_MULT = 0.05
 LOW_TRADING_PENALTY = -0.01
-LOW_TRADING_THRESH = 0
+LOW_TRADING_THRESH = 50
 
 DROPOUT_KEEP_PROB = 0.90
 
@@ -209,6 +209,11 @@ def discount_rewards(r, equity, equities, trades):
     if trades < LOW_TRADING_THRESH:
         for t in xrange(0, r.shape[0]):
             discounted_r[t][5] += ((LOW_TRADING_THRESH - trades) / LOW_TRADING_THRESH) * LOW_TRADING_PENALTY
+
+    if EQUITY_BONUS_MULT != 0:
+        for t in reversed(xrange(0, r.shape[0])):
+            for i in range(0, RL_OUT_DIMENS - 1):
+                discounted_r[t][i] += EQUITY_BONUS_MULT * equities[t]
 
     return discounted_r
 

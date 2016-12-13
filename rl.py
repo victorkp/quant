@@ -13,8 +13,9 @@ IN_DIMENS = (3 * 2) + (NUM_STOCKS * 18) + (OUT_DIMENS - 1) + 1 + 1 + NUM_STOCKS 
 
 # hyperparameters
 LAYER_1_NEURONS = 2 * IN_DIMENS # number of hidden layer neurons
-LAYER_2_NEURONS = IN_DIMENS # number of hidden layer neurons
-BATCH_SIZE = 10 # number of episodes before gradient descent 
+LAYER_2_NEURONS = IN_DIMENS     # number of hidden layer neurons
+LAYER_3_NEURONS = IN_DIMENS     # number of hidden layer neurons
+BATCH_SIZE = 10 # number of episodes before batch update
 BATCH_INCREMENT = 0 # after every batch, increase BATCH_SIZE by this amount (converge fast, then stabily)
 LEARNING_RATE = 0.05 # feel free to play with this to train faster or more stably.
 GAMMA = 0.95 # discount factor for reward
@@ -24,12 +25,12 @@ TRADE_EXPLORATION_RATE = 0.00
 TRADE_THRESHOLD = 0.3 # 0.2
 TRADE_THRESHOLD_MULTIPLIER = 0.5 # NN outputs 0->1, but full range should be 0->2 because (sum(abs(port[i]-prev_port[i])))
 TRADE_FEE = 0.0005
-TRADE_REWARD_PENALTY = 0.01
+TRADE_REWARD_PENALTY = 0.002
 
 NO_DISCOUNT = 0
 
 AVG_REWARD_INCREMENT = 0
-EQUITY_BONUS_MULT = 10.0
+EQUITY_BONUS_MULT = 0.01
 USE_Q_TABLE = 0
 Q_TABLE_MULT = 0.05
 LOW_TRADING_PENALTY = -0.01
@@ -130,11 +131,12 @@ def discount_rewards(r, equity, equities, trades, q_table):
         for t in xrange(0, r.shape[0]):
             discounted_r[t][5] += ((LOW_TRADING_THRESH - trades) / LOW_TRADING_THRESH) * LOW_TRADING_PENALTY
 
-#
-#    for t in xrange(0, r.size):
-#        discounted_r[t] += equities[t]
-#        # discounted_r[t] += r[t] * equities[t]
-#        # discounted_r[t] += r[t]
+    if EQUITY_BONUS_MULT != 0:
+        for t in reversed(xrange(0, r.shape[0])):
+            for i in range(0, OUT_DIMENS - 1):
+                # discounted_r[t][i] += equity * EQUITY_BONUS_MULT
+                discounted_r[t][i] += equities[t] * EQUITY_BONUS_MULT
+
 #
 #    if USE_Q_TABLE != 0:
 #        for t in xrange(1, r.size):
@@ -146,23 +148,6 @@ def discount_rewards(r, equity, equities, trades, q_table):
 #            # q_add = equities[t] * float(q_table[t + INDEX_START][3]) * Q_TABLE_MULT
 #            # discounted_r[t] += q_add
 #            # print "Q_TABLE: %f + %f (from %f) -> %f" % (old, q_add, float(q_table[t+INDEX_START][3]), discounted_r[t])
-#
-#    if NO_DISCOUNT == 0:
-#        running_add = 0
-#        for t in reversed(xrange(0, r.size)):
-#            running_add = running_add * GAMMA + discounted_r[t]
-#            discounted_r[t] += running_add
-#
-#    if AVG_REWARD_INCREMENT != 0:
-#        for t in xrange(0, r.size):
-#            discounted_r[t] += (EQUITY_BONUS_MULT * (equity - 1) / TOTAL_STEPS)
-#
-#    if trades < LOW_TRADING_THRESH:
-#        for t in xrange(0, r.size):
-#            discounted_r[t] += (LOW_TRADING_THRESH - trades / LOW_TRADING_THRESH) * LOW_TRADING_PENALTY
-#
-    # for t in xrange(0, r.size):
-    #     print (equities[t], discounted_r[t])
 
     return discounted_r
 
@@ -181,21 +166,24 @@ B2 = tf.Variable(tf.zeros([LAYER_2_NEURONS]), name="B2")
 layer2 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer1,W2), B2), DROPOUT_KEEP_PROB)
 layer2_eval = tf.nn.bias_add(tf.matmul(layer1_eval, W2), B2)
 
-W3 = tf.get_variable("W3", shape=[LAYER_2_NEURONS, OUT_DIMENS], # 4 dimen output for each security
+W3 = tf.get_variable("W3", shape=[LAYER_2_NEURONS, LAYER_3_NEURONS],
            initializer=tf.contrib.layers.xavier_initializer())
-B3 = tf.Variable(tf.zeros([OUT_DIMENS]), name="B3")
-score = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
-score_eval = tf.nn.bias_add(tf.matmul(layer2_eval, W3), B3)
+B3 = tf.Variable(tf.zeros([LAYER_3_NEURONS]), name="B3")
+layer3 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer2, W3), B3), DROPOUT_KEEP_PROB)
+layer3_eval = tf.nn.bias_add(tf.matmul(layer2_eval, W3), B3)
 
-train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
-eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
+W4 = tf.get_variable("W4", shape=[LAYER_3_NEURONS, OUT_DIMENS],
+           initializer=tf.contrib.layers.xavier_initializer())
+B4 = tf.Variable(tf.zeros([OUT_DIMENS]), name="B4")
+score = tf.nn.bias_add(tf.matmul(layer3, W4), B4)
+score_eval = tf.nn.bias_add(tf.matmul(layer3_eval, W4), B4)
+
+
+train_network = tf.nn.sigmoid(score) # Has DROPOUT_KEEP_PROB for neurons
+eval_network  = tf.nn.sigmoid(score_eval)  # Disables neuron dropout
 
 # train_network = tf.nn.log_softmax(score) # Has DROPOUT_KEEP_PROB for neurons
 # eval_network  = tf.nn.log_softmax(score_eval)  # Disables neuron dropout
-
-# Seems to get stuck at lower equity values than sigmoid
-# train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
-# eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
 
 #From here we define the parts of the network needed for learning a good policy.
 tvars = tf.trainable_variables()
@@ -209,14 +197,11 @@ reward_signal = tf.placeholder(tf.float32, [None, OUT_DIMENS], name="reward_sign
 # loss = -tf.reduce_sum(tf.log(tf.clip_by_value(train_network,1e-6,1.0)) * advantages) # add constant to avoid NaN
 # loss = -tf.reduce_sum((train_network - input_y) * reward_signal) # add constant to avoid NaN
 # loss = -tf.reduce_sum(train_network * reward_signal) # add constant to avoid NaN
-loss = -tf.reduce_sum((train_network - input_y) * reward_signal) # add constant to avoid NaN
-
-newGrads = tf.gradients(loss,tvars)
-
-learning_rate = tf.placeholder(tf.float32, shape=[])
+loss = -tf.reduce_sum(tf.clip_by_value(train_network,1e-5,1.0) * reward_signal) # add constant to avoid NaN
 
 # Once we have collected a series of gradients from multiple episodes, we apply them.
 # We don't just apply gradeients after every episode in order to account for noise in the reward signal.
+learning_rate = tf.placeholder(tf.float32, shape=[])
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss) # Our optimizer
 
 
@@ -527,20 +512,6 @@ with tf.Session() as sess:
 
             # If we have completed enough episodes, then update the policy network with our gradients.
             if episode_number == next_update:
-
-                total_loss = 0
-                for i in range(0, len(batch_x)):
-                    x = batch_x[i]
-                    y = batch_y[i]
-                    r = batch_reward[i]
-                    total_loss += sess.run(loss, feed_dict={observations: x, input_y: y, reward_signal: r, learning_rate: LEARNING_RATE})
-                print
-                print "Average loss: %f in %d episodes" % (total_loss / len(batch_x), len(batch_x))
-                print
-
-                if total_loss == 0:
-                    print batch_reward
-
                 for i in range(0, len(batch_x)):
                     x = batch_x[i]
                     y = batch_y[i]
