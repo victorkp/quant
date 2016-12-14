@@ -494,7 +494,6 @@ with tf.Session() as sess:
             # if episode_number % BATCH_SIZE == 0:
             #     print "===== EVAL ====="
             print "Equity: %s at time step %d" % (equity, input_index - INDEX_START)
-            print "Commission fees: %d = %f in fees" % (commission_fees, commission_fees * TRADE_FEE)
             print "Average trade threshold: %f (%f -> %f)" % (trade_thresh_average, trade_thresh_min, trade_thresh_max)
             # print "Done Reward: %s" % reward
             if episode_number % BATCH_SIZE == 0:  # Don't flood output so often
