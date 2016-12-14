@@ -1,0 +1,4607 @@
+SEQUENCE_LENGTH: 10
+RNN_NEURONS: 45
+RNN_LAYERS: 3
+RL_LAYER_1_NEURONS: 22
+RL_LAYER_2_NEURONS: 22
+RL_LAYER_3_NEURONS: 22
+BATCH_SIZE: 8
+LEARNING_RATE: 0.010000
+GAMMA: 0.950000
+RNN_IN_DIMENS: 90
+RL_OUT_DIMENS: 6
+EXPLORATION_RATE: 0.050000
+TRADE_EXPLORATION_RATE: 0.030000
+TRADE_THRESHOLD: 0.250000
+TRADE_FEE: 0.000000
+TRADE_REWARD_PENALTY: 0.002500
+DROPOUT_KEEP_PROB: 0.900000
+NO_DISCOUNT: 0
+AVG_REWARD_INCREMENT: 0
+USE_Q_TABLE: 0
+Q_TABLE_MULT: 0
+EQUITY_BONUS_MULT: 1.000000
+USE_DONE_REWARD: 0
+LOW_TRADING_PENALTY: -1.000000
+LOW_TRADING_THRESH: 50
+
+
+
+Equity: 0.481186042135
+Commission fees: 1329 = 0.000000 in fees
+Average trade threshold: 0.306402 (0.113982 -> 0.473732)
+Iteration: 1
+
+Equity: 0.482136184866
+Commission fees: 1327 = 0.000000 in fees
+Average trade threshold: 0.305380 (0.116285 -> 0.469877)
+Iteration: 2
+
+Equity: 0.632063773482
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.306842 (0.076745 -> 0.474849)
+Iteration: 3
+
+Equity: 0.599239356985
+Commission fees: 1361 = 0.000000 in fees
+Average trade threshold: 0.302213 (0.128250 -> 0.498295)
+Iteration: 4
+
+Equity: 0.495542014147
+Commission fees: 1328 = 0.000000 in fees
+Average trade threshold: 0.304920 (0.107503 -> 0.521515)
+Iteration: 5
+
+Equity: 0.585305062032
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.305083 (0.092078 -> 0.494233)
+Iteration: 6
+
+Equity: 0.465203535885
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.300940 (0.119526 -> 0.474682)
+Iteration: 7
+
+Equity: 0.55042894311
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.309101 (0.110728 -> 0.505250)
+Learning Rate: 0.01, Exploration Rate: 0.05
+Avg Portfolio: [0.047588437511125979, 0.35247399272001828, 0.25995296791883543, 0.23114197641397621, 0.10940695952182364]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.76276710255298497, 0.89094471063352254, 0.89319749877755417, 0.88996583081671177, 0.79756794210966797]
+Min Gain or Loss: [0.85666831421990031, 0.77777701247907249, 0.88026297845540147, 0.80666504617118306]
+Max Gain or Loss: [1.1192245931369103, 1.1917523174034623, 1.116863304567032, 1.251822183983341]
+Iteration: 8
+
+
+Learning Rate: 0.009900
+
+Equity: 0.653390527594
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.659912 (0.556331 -> 0.660000)
+Iteration: 9
+
+Equity: 0.844644094157
+Commission fees: 1420 = 0.000000 in fees
+Average trade threshold: 0.659996 (0.406479 -> 0.660000)
+Learning Rate: 0.0099, Exploration Rate: 0.05
+Avg Portfolio: [0.20003213739220627, 0.19951283296822769, 0.19969610903368462, 0.20180055930865781, 0.19952269538300285]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.77135286969078454, 0.89094471063352254, 0.89319749877755417, 0.88996583081671177, 0.79756794210966797]
+Min Gain or Loss: [0.85666831421990031, 0.77777701247907249, 0.88026297845540147, 0.80666504617118306]
+Max Gain or Loss: [1.1192245931369103, 1.1917523174034623, 1.116863304567032, 1.251822183983341]
+Iteration: 10
+
+Equity: 0.600033647839
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.656654 (0.322840 -> 0.660000)
+Iteration: 11
+
+Equity: 0.817439789182
+Commission fees: 1422 = 0.000000 in fees
+Average trade threshold: 0.659910 (0.016332 -> 0.660000)
+Iteration: 12
+
+Equity: 0.76518560169
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.659996 (0.605915 -> 0.660000)
+Iteration: 13
+
+Equity: 0.753193103161
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.659574 (0.059644 -> 0.660000)
+Iteration: 14
+
+Equity: 0.494662464761
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.659858 (0.612721 -> 0.660000)
+Iteration: 15
+
+Equity: 0.661187594096
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.655119 (0.020619 -> 0.660000)
+Iteration: 16
+
+
+Learning Rate: 0.009801
+
+Equity: 0.766003249233
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659820 -> 0.660000)
+Iteration: 17
+
+Equity: 0.808818476797
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659993 -> 0.660000)
+Iteration: 18
+
+Equity: 0.568169353279
+Commission fees: 1356 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659980 -> 0.660000)
+Iteration: 19
+
+Equity: 0.623791122399
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659999 -> 0.660000)
+Iteration: 20
+
+Equity: 0.706131627352
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 21
+
+Equity: 0.993763242291
+Commission fees: 1413 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659986 -> 0.660000)
+Iteration: 22
+
+Equity: 0.698918688217
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659999 -> 0.660000)
+Iteration: 23
+
+Equity: 0.622399526697
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659992 -> 0.660000)
+Learning Rate: 0.009801, Exploration Rate: 0.05
+Avg Portfolio: [0.20061176262471339, 0.20101643822425669, 0.20090298616574559, 0.19540341719770757, 0.20262972987335515]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.96946520045427431, 0.90811351797943052, 0.89864242383774784]
+Min Gain or Loss: [0.85666831421990031, 0.76744123988644863, 0.86502101336721982, 0.80666504617118306]
+Max Gain or Loss: [1.1192245931369103, 1.1917523174034623, 1.116863304567032, 1.251822183983341]
+Iteration: 24
+
+Equity: 0.738407352865
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 25
+
+Equity: 0.501151268919
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659938 -> 0.660000)
+Iteration: 26
+
+
+Learning Rate: 0.009703
+
+Equity: 0.673583826691
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 27
+
+Equity: 0.84838120966
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659998 -> 0.660000)
+Learning Rate: 0.00970299, Exploration Rate: 0.05
+Avg Portfolio: [0.20067903053776776, 0.20028408943560655, 0.19790292705198903, 0.19924620050808081, 0.20245208655233435]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.96946520045427431, 0.90811351797943052, 0.89864242383774784]
+Min Gain or Loss: [0.85666831421990031, 0.7479739382985288, 0.86502101336721982, 0.80666504617118306]
+Max Gain or Loss: [1.1192245931369103, 1.1917523174034623, 1.116863304567032, 1.251822183983341]
+Iteration: 28
+
+Equity: 0.710778725688
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 29
+
+Equity: 0.695181432084
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659998 -> 0.660000)
+Iteration: 30
+
+Equity: 0.613932118104
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 31
+
+Equity: 0.693221170962
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659989 -> 0.660000)
+Iteration: 32
+
+Equity: 0.651836326234
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659999 -> 0.660000)
+Iteration: 33
+
+Equity: 0.876056242083
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 34
+
+Equity: 0.696380818164
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 35
+
+Equity: 0.633396963583
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 36
+
+Equity: 0.673385266442
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 37
+
+Equity: 0.534269090386
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 38
+
+
+Learning Rate: 0.009606
+
+Equity: 0.692942619332
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659870 -> 0.660000)
+Iteration: 39
+
+Equity: 0.49216234817
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 40
+
+Equity: 0.680305440545
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 41
+
+Equity: 0.448202564788
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 42
+
+Equity: 0.644454273289
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 43
+
+Equity: 0.976494208598
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.653188 -> 0.660000)
+Iteration: 44
+
+Equity: 0.44600344632
+Commission fees: 1416 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 45
+
+Equity: 0.555919147428
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 46
+
+Equity: 0.618689865745
+Commission fees: 1416 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 47
+
+Equity: 0.677119476257
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.0096059601, Exploration Rate: 0.05
+Avg Portfolio: [0.20005914115591047, 0.20704176880285818, 0.19615299358344784, 0.1981808750424959, 0.19912955550106617]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.96946520045427431, 0.90811351797943052, 0.99204509526575912]
+Min Gain or Loss: [0.80688177775725589, 0.71770409356099685, 0.86502101336721982, 0.80666504617118306]
+Max Gain or Loss: [1.1192245931369103, 1.1917523174034623, 1.116863304567032, 1.251822183983341]
+Iteration: 48
+
+Equity: 0.509658734398
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 49
+
+Equity: 0.671831819225
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 50
+
+Equity: 0.926725514207
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 51
+
+Equity: 0.886805027092
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 52
+
+
+Learning Rate: 0.009510
+
+Equity: 0.798096143274
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 53
+
+Equity: 0.625140209727
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.009509900499, Exploration Rate: 0.05
+Avg Portfolio: [0.2037984860985125, 0.19517673914851796, 0.20293746596797721, 0.20131820234540163, 0.19733344052536977]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.96946520045427431, 0.93639916725570937, 0.99204509526575912]
+Min Gain or Loss: [0.80688177775725589, 0.71770409356099685, 0.86502101336721982, 0.80666504617118306]
+Max Gain or Loss: [1.1192245931369103, 1.1917523174034623, 1.116863304567032, 1.251822183983341]
+Iteration: 54
+
+Equity: 0.494606448147
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 55
+
+Equity: 0.613206865737
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 56
+
+Equity: 0.698069866366
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 57
+
+Equity: 0.702012245957
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 58
+
+Equity: 0.621225931343
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 59
+
+Equity: 0.495987969308
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 60
+
+Equity: 0.597779379279
+Commission fees: 1343 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 61
+
+Equity: 0.593477718623
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 62
+
+Equity: 0.671598534605
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 63
+
+Equity: 0.832482959332
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 64
+
+Equity: 0.715515130602
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659541 -> 0.660000)
+Iteration: 65
+
+Equity: 0.69648937412
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 66
+
+Equity: 0.662758407912
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 67
+
+Equity: 0.672897193568
+Commission fees: 1411 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 68
+
+
+Learning Rate: 0.009415
+
+Equity: 0.485944317466
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 69
+
+Equity: 0.716713225949
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 70
+
+Equity: 0.43437846091
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 71
+
+Equity: 0.709337220703
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 72
+
+Equity: 0.551402314017
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.000019 -> 0.660000)
+Iteration: 73
+
+Equity: 0.532853572348
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 74
+
+Equity: 0.808369183353
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 75
+
+Equity: 0.664323260691
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 76
+
+Equity: 0.710460349535
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 77
+
+Equity: 0.784082297293
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 78
+
+Equity: 0.752028529438
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 79
+
+Equity: 0.960128517353
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00941480149401, Exploration Rate: 0.05
+Avg Portfolio: [0.20268085520917464, 0.19821609920893232, 0.20537746298578283, 0.19545797431748621, 0.19883194236440241]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.96946520045427431, 0.93639916725570937, 0.99204509526575912]
+Min Gain or Loss: [0.80688177775725589, 0.71770409356099685, 0.8537242913340285, 0.80666504617118306]
+Max Gain or Loss: [1.1221608366914972, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 80
+
+Equity: 0.546635921065
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 81
+
+Equity: 0.444497310654
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 82
+
+Equity: 0.702169217257
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 83
+
+Equity: 0.643106015054
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 84
+
+Equity: 0.817862037124
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 85
+
+Equity: 0.659137224315
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 86
+
+
+Learning Rate: 0.009321
+
+Equity: 0.670847454701
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 87
+
+Equity: 0.81721542658
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00932065347907, Exploration Rate: 0.05
+Avg Portfolio: [0.20824789807638541, 0.20340302340444993, 0.19105177794861683, 0.19412407124166253, 0.20373756341466404]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.96946520045427431, 0.93639916725570937, 0.99204509526575912]
+Min Gain or Loss: [0.80688177775725589, 0.71770409356099685, 0.8537242913340285, 0.80666504617118306]
+Max Gain or Loss: [1.1221608366914972, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 88
+
+Equity: 0.692918697837
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 89
+
+Equity: 0.521299481556
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 90
+
+Equity: 0.638606935988
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 91
+
+Equity: 0.582894046435
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 92
+
+Equity: 0.662126290117
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 93
+
+Equity: 0.907638699006
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659177 -> 0.660000)
+Iteration: 94
+
+Equity: 0.461028074509
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 95
+
+Equity: 0.720163155374
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 96
+
+Equity: 0.449423834492
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 97
+
+Equity: 0.665684271075
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 98
+
+Equity: 0.610516526081
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 99
+
+Equity: 0.688727685683
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 100
+
+Equity: 0.54877806416
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 101
+
+Equity: 0.632420654818
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 102
+
+Equity: 0.726073472103
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 103
+
+Equity: 0.655946410476
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 104
+
+Equity: 0.659173468361
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 105
+
+Equity: 0.6814120735
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 106
+
+
+Learning Rate: 0.009227
+
+Equity: 0.716400124126
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 107
+
+Equity: 0.597445849435
+Commission fees: 1427 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 108
+
+Equity: 0.605788270462
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 109
+
+Equity: 0.727912787395
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 110
+
+Equity: 0.675073928682
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 111
+
+Equity: 0.655888377733
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 112
+
+Equity: 0.805669297873
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 113
+
+Equity: 0.676770912825
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 114
+
+Equity: 0.697920545558
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 115
+
+Equity: 0.466761087241
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 116
+
+Equity: 0.623513636607
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 117
+
+Equity: 0.784046310086
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 118
+
+Equity: 0.68375539592
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 119
+
+Equity: 0.864136446338
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00922744694428, Exploration Rate: 0.05
+Avg Portfolio: [0.20864537769783317, 0.19952670108288237, 0.20090041968768876, 0.20126680228319438, 0.19022503333417948]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.98340239570427335, 0.9470987654564198, 0.99204509526575912]
+Min Gain or Loss: [0.80688177775725589, 0.71770409356099685, 0.8537242913340285, 0.80666504617118306]
+Max Gain or Loss: [1.1221608366914972, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 120
+
+Equity: 0.527608955495
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 121
+
+Equity: 0.774996441342
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 122
+
+Equity: 0.599402312282
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 123
+
+Equity: 0.625163567395
+Commission fees: 1328 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 124
+
+Equity: 0.694932850527
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 125
+
+Equity: 0.665545262872
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 126
+
+Equity: 0.948268696824
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 127
+
+Equity: 0.634786301542
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 128
+
+
+Learning Rate: 0.009135
+
+Equity: 0.819275453364
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 129
+
+Equity: 0.545350328165
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00913517247484, Exploration Rate: 0.05
+Avg Portfolio: [0.20936779198118696, 0.20137598146566624, 0.1978543394112563, 0.19068577175427251, 0.20128044947339574]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.98340239570427335, 0.9470987654564198, 0.99204509526575912]
+Min Gain or Loss: [0.80688177775725589, 0.71770409356099685, 0.8537242913340285, 0.80666504617118306]
+Max Gain or Loss: [1.1221608366914972, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 130
+
+Equity: 0.546211789934
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 131
+
+Equity: 0.767363012763
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 132
+
+Equity: 0.523113808064
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 133
+
+Equity: 0.703891582963
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 134
+
+Equity: 0.61733257024
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 135
+
+Equity: 0.699916075133
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 136
+
+Equity: 0.840529813085
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 137
+
+Equity: 0.62857110611
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 138
+
+Equity: 0.623439529576
+Commission fees: 1356 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 139
+
+Equity: 0.511782446107
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 140
+
+Equity: 0.633507238497
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 141
+
+Equity: 0.708148204267
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 142
+
+Equity: 0.649868679401
+Commission fees: 1356 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 143
+
+Equity: 0.408967100795
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 144
+
+Equity: 0.77535204691
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 145
+
+Equity: 0.864882165564
+Commission fees: 1421 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 146
+
+Equity: 0.670582699611
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 147
+
+Equity: 0.841072890259
+Commission fees: 1339 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 148
+
+Equity: 0.592516247402
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 149
+
+Equity: 0.695234497866
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 150
+
+Equity: 0.717151817301
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 151
+
+Equity: 0.557566689863
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 152
+
+
+Learning Rate: 0.009044
+
+Equity: 0.529844589885
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 153
+
+Equity: 0.543420537027
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 154
+
+Equity: 0.775649509089
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 155
+
+Equity: 0.658522107612
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 156
+
+Equity: 0.64672123359
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 157
+
+Equity: 0.637954559348
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 158
+
+Equity: 0.612071130099
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 159
+
+Equity: 0.803494758339
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 160
+
+Equity: 0.497204926599
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 161
+
+Equity: 0.626330862443
+Commission fees: 1440 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 162
+
+Equity: 0.921154962998
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 163
+
+Equity: 0.696102551491
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 164
+
+Equity: 0.735630659591
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 165
+
+Equity: 0.579532015082
+Commission fees: 1417 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 166
+
+Equity: 0.506695194187
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 167
+
+Equity: 0.596795893497
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00904382075009, Exploration Rate: 0.05
+Avg Portfolio: [0.18937311054726105, 0.20187355839678797, 0.21139411430136551, 0.2040584658486875, 0.19386508499167579]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.98340239570427335, 0.9470987654564198, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8537242913340285, 0.79600793990548457]
+Max Gain or Loss: [1.1221608366914972, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 168
+
+Equity: 0.553617913329
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 169
+
+Equity: 0.479241794033
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 170
+
+Equity: 0.581354957142
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 171
+
+Equity: 0.500113070545
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 172
+
+Equity: 0.640093707351
+Commission fees: 1424 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 173
+
+Equity: 0.485808839247
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 174
+
+Equity: 0.872293500098
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 175
+
+Equity: 0.673833257034
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 176
+
+Equity: 0.653142995687
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 177
+
+Equity: 0.66325043034
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 178
+
+
+Learning Rate: 0.008953
+
+Equity: 0.798501861588
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 179
+
+Equity: 0.625688760621
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00895338254259, Exploration Rate: 0.05
+Avg Portfolio: [0.19656623106362059, 0.2022017332898057, 0.19738583447125849, 0.20494604108186207, 0.19946449417923126]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.98340239570427335, 0.9470987654564198, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8537242913340285, 0.79600793990548457]
+Max Gain or Loss: [1.1221608366914972, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 180
+
+Equity: 0.598370356113
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 181
+
+Equity: 0.639496135389
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 182
+
+Equity: 0.689321984743
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 183
+
+Equity: 0.547340487573
+Commission fees: 1420 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 184
+
+Equity: 0.779021741988
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 185
+
+Equity: 0.603587960134
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 186
+
+Equity: 1.05349072184
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 187
+
+Equity: 0.733612966147
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 188
+
+Equity: 0.558410878841
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 189
+
+Equity: 0.76169023523
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 190
+
+Equity: 0.596286012547
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 191
+
+Equity: 0.930244563
+Commission fees: 1422 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 192
+
+Equity: 0.839476687434
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 193
+
+Equity: 0.786577399333
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 194
+
+Equity: 0.588298850162
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 195
+
+Equity: 0.630810211812
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 196
+
+Equity: 0.647904218761
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 197
+
+Equity: 0.685137315536
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 198
+
+Equity: 0.441203611985
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 199
+
+Equity: 0.548128948445
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 200
+
+Equity: 0.613145212484
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 201
+
+Equity: 0.699221344575
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 202
+
+Equity: 0.718181549607
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 203
+
+Equity: 0.878902196569
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 204
+
+Equity: 0.664470981782
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 205
+
+Equity: 0.462863034204
+Commission fees: 1417 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 206
+
+
+Learning Rate: 0.008864
+
+Equity: 0.471947496527
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 207
+
+Equity: 0.572409342812
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 208
+
+Equity: 0.508285459479
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 209
+
+Equity: 0.435865168723
+Commission fees: 1347 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 210
+
+Equity: 0.606747764392
+Commission fees: 1339 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.002404 -> 0.660000)
+Iteration: 211
+
+Equity: 0.810845029486
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 212
+
+Equity: 0.563681021011
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 213
+
+Equity: 0.735594837795
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 214
+
+Equity: 0.67908540743
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 215
+
+Equity: 0.666187184385
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 216
+
+Equity: 0.660088338611
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 217
+
+Equity: 0.589489589391
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.648054 -> 0.660000)
+Iteration: 218
+
+Equity: 0.707902744178
+Commission fees: 1358 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 219
+
+Equity: 0.689310890319
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 220
+
+Equity: 0.586446128553
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 221
+
+Equity: 0.841646481289
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 222
+
+Equity: 0.736122267236
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 223
+
+Equity: 0.851053137633
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00886384871716, Exploration Rate: 0.05
+Avg Portfolio: [0.20266471017370069, 0.20179619644982738, 0.19893674572202419, 0.20452354586699853, 0.19264313587322709]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.95749651503362898, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8537242913340285, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 224
+
+Equity: 0.482591492948
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 225
+
+Equity: 0.719009086105
+Commission fees: 1359 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 226
+
+Equity: 0.614651441134
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 227
+
+Equity: 0.566886849127
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 228
+
+Equity: 0.545486365428
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 229
+
+Equity: 0.506319463708
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 230
+
+Equity: 0.776678683403
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 231
+
+Equity: 0.693618025373
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 232
+
+Equity: 0.535009274244
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 233
+
+Equity: 1.11088292222
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 234
+
+Equity: 0.636377269014
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 235
+
+Equity: 0.856527820193
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 236
+
+
+Learning Rate: 0.008775
+
+Equity: 0.611974359814
+Commission fees: 1359 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 237
+
+Equity: 0.85926600272
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00877521022999, Exploration Rate: 0.05
+Avg Portfolio: [0.20141604445186759, 0.20079884204805923, 0.19861870358301259, 0.20380271636274633, 0.19592802764009262]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.96154125734620655, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8537242913340285, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 238
+
+Equity: 0.905638870758
+Commission fees: 1348 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 239
+
+Equity: 0.5373741553
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 240
+
+Equity: 0.848795724024
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 241
+
+Equity: 0.562678353214
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 242
+
+Equity: 0.863870160953
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 243
+
+Equity: 0.494541404031
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 244
+
+Equity: 0.708536577712
+Commission fees: 1421 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 245
+
+Equity: 0.576108871831
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 246
+
+Equity: 0.636435851611
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 247
+
+Equity: 0.479792627327
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 248
+
+Equity: 0.706464531881
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 249
+
+Equity: 0.567737933216
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 250
+
+Equity: 0.492394635456
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 251
+
+Equity: 0.582750354576
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 252
+
+Equity: 0.405193510392
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 253
+
+Equity: 0.873522999038
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 254
+
+Equity: 0.789984377394
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659958 -> 0.660000)
+Iteration: 255
+
+Equity: 0.81834186718
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 256
+
+Equity: 0.844945325583
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 257
+
+Equity: 0.735538816519
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 258
+
+Equity: 0.641964792693
+Commission fees: 1350 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 259
+
+Equity: 0.721375764794
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 260
+
+Equity: 0.641643321641
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 261
+
+Equity: 0.611272833782
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 262
+
+Equity: 0.707158477585
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659342 -> 0.660000)
+Iteration: 263
+
+Equity: 0.541638426181
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659999 -> 0.660000)
+Iteration: 264
+
+Equity: 0.603791050316
+Commission fees: 1420 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 265
+
+Equity: 0.567181639385
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 266
+
+Equity: 0.854922374642
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 267
+
+Equity: 0.698632309143
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 268
+
+
+Learning Rate: 0.008687
+
+Equity: 0.805632779297
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 269
+
+Equity: 0.478908211996
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 270
+
+Equity: 0.693781012106
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 271
+
+Equity: 0.530998519618
+Commission fees: 1334 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 272
+
+Equity: 0.65889325218
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 273
+
+Equity: 0.597085219602
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 274
+
+Equity: 0.630594226903
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 275
+
+Equity: 0.523833790341
+Commission fees: 1423 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 276
+
+Equity: 0.494963158301
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 277
+
+Equity: 0.671909051021
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 278
+
+Equity: 0.526823303958
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 279
+
+Equity: 0.547623935717
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 280
+
+Equity: 0.795063451971
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 281
+
+Equity: 1.10999294847
+Commission fees: 1343 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 282
+
+Equity: 0.750668563301
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 283
+
+Equity: 0.645702925386
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 284
+
+Equity: 0.57833277536
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 285
+
+Equity: 0.560676031077
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 286
+
+Equity: 0.474448484505
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 287
+
+Equity: 0.677148608528
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00868745812769, Exploration Rate: 0.05
+Avg Portfolio: [0.20425508587616101, 0.19870536229207952, 0.20389312483562433, 0.19873936929172817, 0.19497139179018605]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.96154125734620655, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8537242913340285, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 288
+
+Equity: 0.462596434205
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 289
+
+Equity: 0.601761289879
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 290
+
+Equity: 0.693670995694
+Commission fees: 1439 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 291
+
+Equity: 0.606868734871
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 292
+
+Equity: 0.68368173333
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 293
+
+Equity: 0.524712784498
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 294
+
+Equity: 0.734911471556
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 295
+
+Equity: 0.972408082047
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 296
+
+Equity: 0.602321240261
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 297
+
+Equity: 0.782245338326
+Commission fees: 1353 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 298
+
+Equity: 0.594801172905
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 299
+
+Equity: 0.698456171563
+Commission fees: 1417 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 300
+
+Equity: 0.763493473639
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 301
+
+Equity: 1.05360010302
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 302
+
+
+Learning Rate: 0.008601
+
+Equity: 0.631690923348
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 303
+
+Equity: 0.75753679488
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00860058354641, Exploration Rate: 0.05
+Avg Portfolio: [0.20368434249640033, 0.19297251939049376, 0.20951347859236902, 0.19957134571802243, 0.19482264788849313]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.96154125734620655, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8537242913340285, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 304
+
+Equity: 0.667642142252
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 305
+
+Equity: 0.491288527047
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 306
+
+Equity: 0.547051336787
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 307
+
+Equity: 0.61899814415
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 308
+
+Equity: 0.494368211927
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 309
+
+Equity: 0.716880249895
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 310
+
+Equity: 0.655595257437
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 311
+
+Equity: 0.826720064927
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 312
+
+Equity: 0.483382818998
+Commission fees: 1418 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 313
+
+Equity: 0.566726904655
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 314
+
+Equity: 0.612445679002
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 315
+
+Equity: 0.724398648267
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 316
+
+Equity: 0.671743879324
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 317
+
+Equity: 0.537895724502
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 318
+
+Equity: 0.545097489164
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659950 -> 0.660000)
+Iteration: 319
+
+Equity: 0.469865105606
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 320
+
+Equity: 0.580955264698
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 321
+
+Equity: 0.560068659578
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659945 -> 0.660000)
+Iteration: 322
+
+Equity: 0.602155086057
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 323
+
+Equity: 0.762881849396
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 324
+
+Equity: 0.692151422181
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 325
+
+Equity: 0.520313508701
+Commission fees: 1354 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 326
+
+Equity: 0.60597059643
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 327
+
+Equity: 0.678764712349
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 328
+
+Equity: 0.47013391354
+Commission fees: 1338 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 329
+
+Equity: 1.05825836462
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.000653 -> 0.660000)
+Iteration: 330
+
+Equity: 0.644057734564
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 331
+
+Equity: 0.662380824158
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 332
+
+Equity: 0.53695955152
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 333
+
+Equity: 0.571159478555
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 334
+
+Equity: 0.768438342485
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 335
+
+Equity: 0.705323098458
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 336
+
+Equity: 0.431481889045
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 337
+
+Equity: 0.6100750203
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 338
+
+
+Learning Rate: 0.008515
+
+Equity: 0.793595105141
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 339
+
+Equity: 0.765372199386
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 340
+
+Equity: 0.670374009206
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 341
+
+Equity: 0.633952039467
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 342
+
+Equity: 0.956234060037
+Commission fees: 1422 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 343
+
+Equity: 0.480457138292
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 344
+
+Equity: 0.747987697203
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 345
+
+Equity: 0.551502100536
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 346
+
+Equity: 0.692519945522
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 347
+
+Equity: 0.833306369365
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 348
+
+Equity: 0.609679066274
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 349
+
+Equity: 0.513670245655
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 350
+
+Equity: 0.684500269547
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 351
+
+Equity: 0.631628870107
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 352
+
+Equity: 0.593824862332
+Commission fees: 1422 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 353
+
+Equity: 0.516057725719
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 354
+
+Equity: 0.689818026144
+Commission fees: 1358 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 355
+
+Equity: 0.70464538938
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 356
+
+Equity: 0.622265125134
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 357
+
+Equity: 0.570387787055
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.656352 (0.000001 -> 0.660000)
+Iteration: 358
+
+Equity: 0.504592145837
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 359
+
+Equity: 0.671981224595
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00851457771095, Exploration Rate: 0.05
+Avg Portfolio: [0.1946367750789707, 0.2029740967058255, 0.20273243638653313, 0.20148097802848355, 0.19874004788596539]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.95481246744319526, 0.96154125734620655, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8417513188342796, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 360
+
+Equity: 0.557076442529
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 361
+
+Equity: 0.53125114392
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 362
+
+Equity: 0.736866211572
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 363
+
+Equity: 0.678750064928
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 364
+
+Equity: 0.615175647085
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 365
+
+Equity: 0.564755596285
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 366
+
+Equity: 0.595065165745
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 367
+
+Equity: 0.533150641066
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 368
+
+Equity: 0.560241749192
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 369
+
+Equity: 0.633301139223
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 370
+
+Equity: 0.597897737804
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 371
+
+Equity: 0.817171384483
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 372
+
+Equity: 0.589985409846
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 373
+
+Equity: 0.720206440201
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 374
+
+Equity: 0.607533236672
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 375
+
+Equity: 0.967433593847
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 376
+
+
+Learning Rate: 0.008429
+
+Equity: 0.526626734067
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 377
+
+Equity: 0.623825772117
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 378
+
+Equity: 0.720698229159
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 379
+
+Equity: 0.632783823756
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 380
+
+Equity: 0.872249946849
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 381
+
+Equity: 0.4541255715
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 382
+
+Equity: 0.648683305123
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 383
+
+Equity: 0.819248512262
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 384
+
+Equity: 0.674691444004
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 385
+
+Equity: 0.750555549126
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 386
+
+Equity: 0.654533096817
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 387
+
+Equity: 0.701810492832
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 388
+
+Equity: 0.716899785232
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 389
+
+Equity: 0.716660613094
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 390
+
+Equity: 0.564625370883
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 391
+
+Equity: 0.911623026165
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 392
+
+Equity: 0.592788490791
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 393
+
+Equity: 0.739074650532
+Commission fees: 1358 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 394
+
+Equity: 0.774892358537
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 395
+
+Equity: 0.547617796214
+Commission fees: 1353 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 396
+
+Equity: 0.632774926313
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 397
+
+Equity: 0.544747164656
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 398
+
+Equity: 0.692491079348
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 399
+
+Equity: 0.752601002022
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00842943193384, Exploration Rate: 0.05
+Avg Portfolio: [0.19707639083731118, 0.20117168077017414, 0.19519289305396975, 0.20436313135619039, 0.20276023806813376]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.96154125734620655, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8417513188342796, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 400
+
+Equity: 0.846652857767
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 401
+
+Equity: 0.608248768209
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 402
+
+Equity: 0.708537512856
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 403
+
+Equity: 0.47234640584
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 404
+
+Equity: 0.590169028466
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 405
+
+Equity: 0.76621863941
+Commission fees: 1411 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 406
+
+Equity: 0.610169633052
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 407
+
+Equity: 0.543191256483
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 408
+
+Equity: 0.735676769115
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 409
+
+Equity: 0.618098834243
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 410
+
+Equity: 0.700443168982
+Commission fees: 1411 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 411
+
+Equity: 0.708275273664
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 412
+
+Equity: 0.512370815043
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 413
+
+Equity: 0.544675007779
+Commission fees: 1414 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 414
+
+Equity: 0.623340318128
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 415
+
+Equity: 0.610854699977
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 416
+
+
+Learning Rate: 0.008345
+
+Equity: 0.603762240474
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 417
+
+Equity: 0.546341894797
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 418
+
+Equity: 0.989499611565
+Commission fees: 1411 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 419
+
+Equity: 0.546074409701
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 420
+
+Equity: 0.634086815536
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 421
+
+Equity: 0.763189498582
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 422
+
+Equity: 0.835142466543
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 423
+
+Equity: 0.634010584376
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 424
+
+Equity: 0.551932412195
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 425
+
+Equity: 0.708236278573
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 426
+
+Equity: 0.688247824657
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 427
+
+Equity: 0.539140533672
+Commission fees: 1411 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 428
+
+Equity: 0.738634179269
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 429
+
+Equity: 0.525576381148
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 430
+
+Equity: 0.762828318457
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 431
+
+Equity: 0.470291337434
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 432
+
+Equity: 0.725950280318
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 433
+
+Equity: 0.665962371533
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 434
+
+Equity: 0.60075487474
+Commission fees: 1413 = 0.000000 in fees
+Average trade threshold: 0.659627 (0.000057 -> 0.660000)
+Iteration: 435
+
+Equity: 0.858921929225
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 436
+
+Equity: 0.501041612335
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 437
+
+Equity: 0.850431334459
+Commission fees: 1416 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 438
+
+Equity: 0.48698207182
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 439
+
+Equity: 0.628500276427
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.0083451376145, Exploration Rate: 0.05
+Avg Portfolio: [0.20084592212538138, 0.19213984267314016, 0.20582459623057772, 0.19864605087492296, 0.20310792218175736]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.96154125734620655, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8417513188342796, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 440
+
+Equity: 0.572124038043
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 441
+
+Equity: 0.534317964604
+Commission fees: 1361 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 442
+
+Equity: 0.619129758288
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 443
+
+Equity: 0.543825171836
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 444
+
+Equity: 0.542053127085
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 445
+
+Equity: 0.452341401586
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 446
+
+Equity: 0.611422850676
+Commission fees: 1412 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 447
+
+Equity: 0.581642841317
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 448
+
+Equity: 0.778125394241
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 449
+
+Equity: 0.595822194226
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 450
+
+Equity: 0.649365789644
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 451
+
+Equity: 0.533680476613
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 452
+
+Equity: 0.713681751437
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 453
+
+Equity: 0.710265785499
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 454
+
+Equity: 0.78607374661
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 455
+
+Equity: 0.664915461734
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 456
+
+Equity: 0.639377261291
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 457
+
+Equity: 0.777345143209
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 458
+
+
+Learning Rate: 0.008262
+
+Equity: 0.575688584536
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 459
+
+Equity: 0.611435972973
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 460
+
+Equity: 0.475072975161
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 461
+
+Equity: 0.573038364156
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 462
+
+Equity: 0.962928937685
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 463
+
+Equity: 0.486260742564
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 464
+
+Equity: 0.913762888551
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 465
+
+Equity: 0.776161660217
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 466
+
+Equity: 0.575814102933
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 467
+
+Equity: 1.08623810204
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 468
+
+Equity: 1.06345872708
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 469
+
+Equity: 0.794413924341
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 470
+
+Equity: 0.651006514171
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 471
+
+Equity: 0.612515673609
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 472
+
+Equity: 0.688703250691
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 473
+
+Equity: 0.651058474854
+Commission fees: 1351 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 474
+
+Equity: 0.691666822214
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 475
+
+Equity: 0.540568399282
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 476
+
+Equity: 0.496907829039
+Commission fees: 1353 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 477
+
+Equity: 0.791671660024
+Commission fees: 1361 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 478
+
+Equity: 0.710894457197
+Commission fees: 1330 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 479
+
+Equity: 0.814381971933
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00826168623836, Exploration Rate: 0.05
+Avg Portfolio: [0.19965301547288039, 0.19947590810221275, 0.19981032064381857, 0.20057735716417582, 0.20104773270269122]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.96579074449201763, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71770409356099685, 0.8417513188342796, 0.79600793990548457]
+Max Gain or Loss: [1.1264861553484218, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 480
+
+Equity: 0.802738599567
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 481
+
+Equity: 0.480124572056
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 482
+
+Equity: 0.653022590814
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 483
+
+Equity: 0.570640040454
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 484
+
+Equity: 0.941226159748
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 485
+
+Equity: 0.523681733708
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 486
+
+Equity: 0.561992235964
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 487
+
+Equity: 0.683969450017
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 488
+
+Equity: 0.634060540171
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 489
+
+Equity: 0.752814683677
+Commission fees: 1425 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 490
+
+Equity: 0.413705901677
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 491
+
+Equity: 0.884032001313
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 492
+
+Equity: 0.541548795978
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 493
+
+Equity: 0.803789867158
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 494
+
+Equity: 0.724507630642
+Commission fees: 1412 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 495
+
+Equity: 0.580040210256
+Commission fees: 1349 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 496
+
+Equity: 0.819290420323
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 497
+
+Equity: 0.84316337865
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 498
+
+Equity: 0.654456384495
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 499
+
+Equity: 0.69324889776
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 500
+
+Equity: 0.6167312266
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.659999 (0.659757 -> 0.660000)
+Iteration: 501
+
+Equity: 0.852976686474
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 502
+
+
+Learning Rate: 0.008179
+
+Equity: 0.794769001545
+Commission fees: 1432 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 503
+
+Equity: 0.649756488324
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 504
+
+Equity: 0.600121909681
+Commission fees: 1358 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 505
+
+Equity: 0.906379023616
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 506
+
+Equity: 0.75520087595
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 507
+
+Equity: 0.500161940699
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 508
+
+Equity: 0.708600356404
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 509
+
+Equity: 0.741555351808
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 510
+
+Equity: 0.787066044691
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 511
+
+Equity: 0.634865975304
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 512
+
+Equity: 0.601189565375
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 513
+
+Equity: 0.602630979998
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 514
+
+Equity: 0.668227194466
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 515
+
+Equity: 0.61932127961
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 516
+
+Equity: 0.47108371747
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 517
+
+Equity: 0.800032471724
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 518
+
+Equity: 0.836832877462
+Commission fees: 1356 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 519
+
+Equity: 0.725513437779
+Commission fees: 1350 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00817906937597, Exploration Rate: 0.05
+Avg Portfolio: [0.19197368543145976, 0.20464063290050391, 0.19831451095464309, 0.19422078686794869, 0.21141471793122302]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.96579074449201763, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79600793990548457]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 520
+
+Equity: 0.495528785818
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 521
+
+Equity: 0.912955415519
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 522
+
+Equity: 0.677784442074
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 523
+
+Equity: 0.68456878931
+Commission fees: 1355 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 524
+
+Equity: 0.836731244546
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 525
+
+Equity: 0.515974183974
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 526
+
+Equity: 0.608102092053
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 527
+
+Equity: 0.574791187931
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 528
+
+Equity: 0.598074950206
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 529
+
+Equity: 0.896349109698
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 530
+
+Equity: 0.954713707573
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 531
+
+Equity: 0.648285885518
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 532
+
+Equity: 0.650654264616
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 533
+
+Equity: 0.483852890869
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 534
+
+Equity: 0.655885374162
+Commission fees: 1412 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 535
+
+Equity: 0.657795002697
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 536
+
+Equity: 0.809636101927
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 537
+
+Equity: 0.550917228184
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 538
+
+Equity: 0.587695806401
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 539
+
+Equity: 0.520615781158
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 540
+
+Equity: 0.557462889165
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 541
+
+Equity: 0.618579000299
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 542
+
+Equity: 0.611459919397
+Commission fees: 1345 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 543
+
+Equity: 0.727341386078
+Commission fees: 1354 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 544
+
+Equity: 0.560962338272
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 545
+
+Equity: 0.637815948105
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 546
+
+Equity: 0.341257449849
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 547
+
+Equity: 0.590423342593
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 548
+
+
+Learning Rate: 0.008097
+
+Equity: 0.734832547736
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 549
+
+Equity: 0.644788457014
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 550
+
+Equity: 0.720644415495
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 551
+
+Equity: 0.520675470641
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 552
+
+Equity: 0.732974034668
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 553
+
+Equity: 0.862166507154
+Commission fees: 1355 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 554
+
+Equity: 0.649185244065
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 555
+
+Equity: 0.641132087923
+Commission fees: 1354 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 556
+
+Equity: 0.72431377314
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 557
+
+Equity: 0.533446676788
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 558
+
+Equity: 0.714331464352
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 559
+
+Equity: 0.806112272905
+Commission fees: 1421 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00809727868221, Exploration Rate: 0.05
+Avg Portfolio: [0.19897128555636504, 0.2022878459176094, 0.19815056506267995, 0.19791210702337739, 0.20324253052574659]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.96579074449201763, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79600793990548457]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 560
+
+Equity: 0.655082053416
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 561
+
+Equity: 0.414240309607
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 562
+
+Equity: 0.633354539876
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 563
+
+Equity: 0.756095654091
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 564
+
+Equity: 0.64878280096
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 565
+
+Equity: 0.778912758446
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 566
+
+Equity: 0.881201110324
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 567
+
+Equity: 0.721987622362
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.657904 -> 0.660000)
+Iteration: 568
+
+Equity: 0.613638411504
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 569
+
+Equity: 0.534645970875
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 570
+
+Equity: 0.659460564635
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 571
+
+Equity: 0.705833200212
+Commission fees: 1346 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 572
+
+Equity: 0.559159608279
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 573
+
+Equity: 0.710594787388
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 574
+
+Equity: 0.656212348087
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 575
+
+Equity: 0.596769017134
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 576
+
+Equity: 0.867738663273
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 577
+
+Equity: 0.728675997431
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 578
+
+Equity: 0.528659339008
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 579
+
+Equity: 0.760620560206
+Commission fees: 1340 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 580
+
+Equity: 0.785835493247
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 581
+
+Equity: 0.791693654895
+Commission fees: 1421 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 582
+
+Equity: 0.665365773528
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 583
+
+Equity: 0.730884219576
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 584
+
+Equity: 0.686561694391
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 585
+
+Equity: 0.578582283197
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 586
+
+Equity: 0.673750119611
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 587
+
+Equity: 0.672109632062
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 588
+
+Equity: 0.726927156825
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659999 -> 0.660000)
+Iteration: 589
+
+Equity: 0.580041283042
+Commission fees: 1412 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 590
+
+Equity: 0.765653587854
+Commission fees: 1343 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 591
+
+Equity: 0.717859463358
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 592
+
+Equity: 0.557642453975
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 593
+
+Equity: 0.663180277886
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 594
+
+Equity: 0.900988776679
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 595
+
+Equity: 0.509422645734
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 596
+
+
+Learning Rate: 0.008016
+
+Equity: 0.629915795783
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 597
+
+Equity: 0.540564921334
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 598
+
+Equity: 0.740578231614
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 599
+
+Equity: 0.763876374733
+Commission fees: 1429 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00801630589539, Exploration Rate: 0.05
+Avg Portfolio: [0.1986766564361287, 0.1973533700164577, 0.20288328835680552, 0.20269602032373615, 0.19895499895265001]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.96579074449201763, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 600
+
+Equity: 0.638633462481
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 601
+
+Equity: 0.511430248439
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 602
+
+Equity: 0.775334094114
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 603
+
+Equity: 0.578350320381
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 604
+
+Equity: 0.617214097853
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659831 -> 0.660000)
+Iteration: 605
+
+Equity: 0.630341551802
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 606
+
+Equity: 0.704456084511
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 607
+
+Equity: 0.855805987087
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 608
+
+Equity: 0.641955028829
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 609
+
+Equity: 0.663071760492
+Commission fees: 1336 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 610
+
+Equity: 0.679395466074
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 611
+
+Equity: 0.597021053144
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 612
+
+Equity: 0.723141438784
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 613
+
+Equity: 0.699269257424
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 614
+
+Equity: 0.48297481455
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 615
+
+Equity: 0.764581208097
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 616
+
+Equity: 0.968079610701
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 617
+
+Equity: 0.731727620117
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 618
+
+Equity: 0.73360796208
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 619
+
+Equity: 0.566444392269
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 620
+
+Equity: 0.622982529238
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 621
+
+Equity: 0.537252830691
+Commission fees: 1422 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 622
+
+Equity: 0.490094527328
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 623
+
+Equity: 0.780798040283
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 624
+
+Equity: 0.79902955883
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 625
+
+Equity: 0.593004518088
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 626
+
+Equity: 0.641237022102
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 627
+
+Equity: 0.670526920859
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 628
+
+Equity: 0.562784369894
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 629
+
+Equity: 0.595664227769
+Commission fees: 1414 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 630
+
+Equity: 0.38655516981
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 631
+
+Equity: 0.723245043241
+Commission fees: 1385 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 632
+
+Equity: 0.475662513019
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 633
+
+Equity: 0.853594812251
+Commission fees: 1411 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 634
+
+Equity: 0.525358917991
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 635
+
+Equity: 0.677174569514
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659056 -> 0.660000)
+Iteration: 636
+
+Equity: 0.660619714013
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 637
+
+Equity: 0.616185587514
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 638
+
+Equity: 0.626391535998
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 639
+
+Equity: 0.45354540166
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00801630589539, Exploration Rate: 0.05
+Avg Portfolio: [0.20434884487802693, 0.19857537520587187, 0.20100490100373891, 0.19360743480327941, 0.20302777819486142]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.97398400543020702, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 640
+
+Equity: 0.591594761242
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 641
+
+Equity: 0.532095599281
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 642
+
+Equity: 0.47305821286
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 643
+
+Equity: 0.5072530666
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 644
+
+Equity: 0.503731745665
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 645
+
+Equity: 0.502923837666
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 646
+
+
+Learning Rate: 0.007936
+
+Equity: 0.653573367269
+Commission fees: 1349 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 647
+
+Equity: 0.580020905599
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 648
+
+Equity: 0.567037213065
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 649
+
+Equity: 0.667918653393
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 650
+
+Equity: 0.47731885623
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 651
+
+Equity: 0.709241819733
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 652
+
+Equity: 0.774031272396
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 653
+
+Equity: 0.672696098467
+Commission fees: 1414 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 654
+
+Equity: 0.800687310774
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 655
+
+Equity: 0.571880561845
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 656
+
+Equity: 0.989372464796
+Commission fees: 1416 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 657
+
+Equity: 0.724942368288
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659966 -> 0.660000)
+Iteration: 658
+
+Equity: 0.854709330692
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 659
+
+Equity: 0.661594854623
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 660
+
+Equity: 0.549912293475
+Commission fees: 1353 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 661
+
+Equity: 0.559998048865
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 662
+
+Equity: 0.732992949663
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 663
+
+Equity: 0.663717229059
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 664
+
+Equity: 0.63002605969
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.659991 -> 0.660000)
+Iteration: 665
+
+Equity: 0.773476791919
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 666
+
+Equity: 0.902169489341
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 667
+
+Equity: 0.517807614015
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 668
+
+Equity: 0.544131793384
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 669
+
+Equity: 0.754185648503
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 670
+
+Equity: 0.568352627676
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 671
+
+Equity: 0.556869516292
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 672
+
+Equity: 0.626890839437
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 673
+
+Equity: 0.815098510445
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 674
+
+Equity: 0.501972560612
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 675
+
+Equity: 0.575403614718
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 676
+
+Equity: 0.523215598897
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 677
+
+Equity: 0.805941143845
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 678
+
+Equity: 0.613522171631
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 679
+
+Equity: 0.739907280915
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00793614283644, Exploration Rate: 0.05
+Avg Portfolio: [0.20349448827111802, 0.20334152573838579, 0.19518388854606059, 0.19634248673643015, 0.20220194479378431]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.97398400543020702, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 680
+
+Equity: 0.595114965291
+Commission fees: 1435 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 681
+
+Equity: 0.880730126119
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 682
+
+Equity: 0.683896791697
+Commission fees: 1413 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 683
+
+Equity: 0.616489980415
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 684
+
+Equity: 0.444659901475
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 685
+
+Equity: 0.753529301272
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 686
+
+Equity: 0.570084935131
+Commission fees: 1348 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 687
+
+Equity: 0.509612004632
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 688
+
+Equity: 0.653321968483
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 689
+
+Equity: 0.58783140036
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 690
+
+Equity: 0.471642036304
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 691
+
+Equity: 0.870914372289
+Commission fees: 1427 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 692
+
+Equity: 0.811568796555
+Commission fees: 1409 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 693
+
+Equity: 0.487026227814
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 694
+
+Equity: 0.571352159267
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 695
+
+Equity: 0.46182462042
+Commission fees: 1344 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 696
+
+Equity: 0.505689000026
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 697
+
+Equity: 0.682858823343
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 698
+
+
+Learning Rate: 0.007857
+
+Equity: 0.588538474761
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 699
+
+Equity: 0.471066059826
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 700
+
+Equity: 0.583400815757
+Commission fees: 1349 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 701
+
+Equity: 0.558556120465
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 702
+
+Equity: 0.669016563136
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 703
+
+Equity: 0.518603795806
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 704
+
+Equity: 0.827537222712
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 705
+
+Equity: 0.547230300442
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 706
+
+Equity: 0.637258857741
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 707
+
+Equity: 0.672489196304
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 708
+
+Equity: 0.64611581193
+Commission fees: 1413 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 709
+
+Equity: 0.826383276173
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 710
+
+Equity: 0.821004034023
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 711
+
+Equity: 0.673746327811
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 712
+
+Equity: 1.07620463162
+Commission fees: 1412 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 713
+
+Equity: 0.765942737062
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 714
+
+Equity: 0.783375186117
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 715
+
+Equity: 0.52644927804
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 716
+
+Equity: 0.705710715891
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 717
+
+Equity: 0.644553331503
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 718
+
+Equity: 0.642946556601
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 719
+
+Equity: 0.659125547975
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00785678140807, Exploration Rate: 0.05
+Avg Portfolio: [0.2091548133305359, 0.19594770236834086, 0.1916636203308601, 0.19980420901952922, 0.20399398903651314]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.97398400543020702, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 720
+
+Equity: 0.805445084883
+Commission fees: 1350 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 721
+
+Equity: 0.579202054368
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 722
+
+Equity: 0.570477675502
+Commission fees: 1391 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 723
+
+Equity: 0.455473407459
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 724
+
+Equity: 0.72478569809
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 725
+
+Equity: 0.581266635397
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 726
+
+Equity: 0.717927260604
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 727
+
+Equity: 0.614831853572
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 728
+
+Equity: 0.54684983039
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 729
+
+Equity: 0.549676826321
+Commission fees: 1398 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 730
+
+Equity: 0.572328266079
+Commission fees: 1407 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 731
+
+Equity: 0.533969249953
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 732
+
+Equity: 0.57107002485
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 733
+
+Equity: 0.638650950311
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 734
+
+Equity: 0.7581402915
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 735
+
+Equity: 0.748008058398
+Commission fees: 1413 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 736
+
+Equity: 0.575546424153
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 737
+
+Equity: 0.499645929627
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 738
+
+Equity: 0.440600629698
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 739
+
+Equity: 0.509056682077
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 740
+
+Equity: 0.581292698444
+Commission fees: 1395 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 741
+
+Equity: 0.752160614261
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 742
+
+Equity: 0.623271738579
+Commission fees: 1363 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 743
+
+Equity: 0.650195919454
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 744
+
+Equity: 0.667790381092
+Commission fees: 1384 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 745
+
+Equity: 0.41777892998
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 746
+
+Equity: 0.570094804611
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 747
+
+Equity: 0.628350299399
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 748
+
+Equity: 0.563893091549
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 749
+
+Equity: 0.58093785726
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 750
+
+Equity: 0.666805809721
+Commission fees: 1406 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 751
+
+Equity: 0.643581335841
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 752
+
+
+Learning Rate: 0.007778
+
+Equity: 0.734166921693
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 753
+
+Equity: 0.582472667209
+Commission fees: 1412 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 754
+
+Equity: 0.633856356391
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 755
+
+Equity: 0.648281365738
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 756
+
+Equity: 0.51391759334
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 757
+
+Equity: 0.686012524519
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 758
+
+Equity: 0.543307585734
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 759
+
+Equity: 0.577870273866
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00777821359399, Exploration Rate: 0.05
+Avg Portfolio: [0.20750234881428359, 0.20126432150119722, 0.1962110945538281, 0.19235825749090626, 0.20322831172556419]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.97398400543020702, 0.98340239570427335, 0.95887539679966949, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1293734307079542, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 760
+
+Equity: 0.843880866634
+Commission fees: 1353 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 761
+
+Equity: 0.461296884621
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 762
+
+Equity: 0.797629773279
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 763
+
+Equity: 0.555329151844
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 764
+
+Equity: 0.581770198577
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 765
+
+Equity: 0.627203555542
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 766
+
+Equity: 0.762178209126
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 767
+
+Equity: 0.594261305679
+Commission fees: 1428 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 768
+
+Equity: 0.651344643678
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 769
+
+Equity: 0.614900777651
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 770
+
+Equity: 0.843659377646
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 771
+
+Equity: 0.744181155989
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 772
+
+Equity: 0.590927107812
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 773
+
+Equity: 0.640055199009
+Commission fees: 1360 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 774
+
+Equity: 0.982926753574
+Commission fees: 1373 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 775
+
+Equity: 0.566870791621
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 776
+
+Equity: 0.646355566473
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 777
+
+Equity: 0.594789005119
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 778
+
+Equity: 0.933601764553
+Commission fees: 1426 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 779
+
+Equity: 0.607576556391
+Commission fees: 1393 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 780
+
+Equity: 0.7034730998
+Commission fees: 1388 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 781
+
+Equity: 0.624258265603
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 782
+
+Equity: 0.632985828806
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 783
+
+Equity: 0.562380068886
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 784
+
+Equity: 0.615086353202
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 785
+
+Equity: 0.538079007248
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 786
+
+Equity: 0.954690119242
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 787
+
+Equity: 0.469947605707
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 788
+
+Equity: 0.766923473809
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 789
+
+Equity: 0.649293070953
+Commission fees: 1390 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 790
+
+Equity: 0.414270890564
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 791
+
+Equity: 0.620201023409
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 792
+
+Equity: 0.741662106552
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 793
+
+Equity: 0.802538978791
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 794
+
+Equity: 0.590842238988
+Commission fees: 1419 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 795
+
+Equity: 0.575804141365
+Commission fees: 1410 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 796
+
+Equity: 0.64448073066
+Commission fees: 1376 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 797
+
+Equity: 0.630732158074
+Commission fees: 1366 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 798
+
+Equity: 0.669217063434
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 799
+
+Equity: 0.616815886018
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00777821359399, Exploration Rate: 0.05
+Avg Portfolio: [0.19692456312306256, 0.20283995675605893, 0.20094689490998421, 0.19897840126745953, 0.20087451802921313]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.97398400543020702, 0.98340239570427335, 0.95951635780458455, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1375181420480611, 1.2500837837178467, 1.1619109157584944, 1.2642193739765335]
+Iteration: 800
+
+Equity: 0.685770639546
+Commission fees: 1365 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 801
+
+Equity: 0.687418561712
+Commission fees: 1371 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 802
+
+Equity: 0.709457534253
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 803
+
+Equity: 0.573168229671
+Commission fees: 1356 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 804
+
+Equity: 0.962006297413
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 805
+
+Equity: 0.679867728654
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 806
+
+Equity: 0.662968068839
+Commission fees: 1370 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 807
+
+Equity: 0.69805954174
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 808
+
+
+Learning Rate: 0.007700
+
+Equity: 0.689550154916
+Commission fees: 1369 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 809
+
+Equity: 0.869046462277
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 810
+
+Equity: 0.454113848178
+Commission fees: 1405 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 811
+
+Equity: 0.449952768883
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 812
+
+Equity: 0.702970335953
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 813
+
+Equity: 0.689881821598
+Commission fees: 1389 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 814
+
+Equity: 0.598012431971
+Commission fees: 1380 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.658395 -> 0.660000)
+Iteration: 815
+
+Equity: 0.65357228908
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 816
+
+Equity: 0.77656387684
+Commission fees: 1352 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 817
+
+Equity: 0.490014220637
+Commission fees: 1378 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 818
+
+Equity: 0.689339527667
+Commission fees: 1420 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 819
+
+Equity: 0.428895837045
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 820
+
+Equity: 0.653309922792
+Commission fees: 1354 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 821
+
+Equity: 0.439019968891
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 822
+
+Equity: 0.59597585066
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 823
+
+Equity: 0.541570396173
+Commission fees: 1367 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 824
+
+Equity: 0.580822261387
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 825
+
+Equity: 0.604056838087
+Commission fees: 1379 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 826
+
+Equity: 0.86468290093
+Commission fees: 1375 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 827
+
+Equity: 0.742607910791
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 828
+
+Equity: 0.657038752767
+Commission fees: 1397 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 829
+
+Equity: 1.00232269206
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 830
+
+Equity: 0.776422914432
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 831
+
+Equity: 0.459839179975
+Commission fees: 1423 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 832
+
+Equity: 0.56952392816
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 833
+
+Equity: 0.652640103231
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 834
+
+Equity: 0.79608952594
+Commission fees: 1372 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 835
+
+Equity: 0.624763701196
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 836
+
+Equity: 0.771941952989
+Commission fees: 1383 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 837
+
+Equity: 0.713939679053
+Commission fees: 1386 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 838
+
+Equity: 0.605965068403
+Commission fees: 1364 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 839
+
+Equity: 0.5703169109
+Commission fees: 1377 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Learning Rate: 0.00770043145805, Exploration Rate: 0.05
+Avg Portfolio: [0.19363058313256115, 0.19795411428563317, 0.20996167880733657, 0.19702394153718858, 0.20199401632305961]
+Min Portfolio: [0.0, 0.0, 0.0, 0.0, 0.0]
+Max Portfolio: [0.97175281840208816, 0.97398400543020702, 0.98340239570427335, 0.99528780149251306, 0.99204509526575912]
+Min Gain or Loss: [0.75278108258515153, 0.71655845387613382, 0.8417513188342796, 0.79102985684640015]
+Max Gain or Loss: [1.1375181420480611, 1.2500837837178467, 1.1619109157584944, 1.2683034120102088]
+Iteration: 840
+
+Equity: 0.793804522961
+Commission fees: 1392 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 841
+
+Equity: 0.408321413942
+Commission fees: 1396 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 842
+
+Equity: 0.6473543746
+Commission fees: 1399 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 843
+
+Equity: 0.861523174583
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 844
+
+Equity: 0.903346201728
+Commission fees: 1408 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 845
+
+Equity: 0.60858136317
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 846
+
+Equity: 0.754527693432
+Commission fees: 1402 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 847
+
+Equity: 0.580994269194
+Commission fees: 1400 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 848
+
+Equity: 0.64825516677
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 849
+
+Equity: 0.529214674913
+Commission fees: 1357 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 850
+
+Equity: 0.784277744914
+Commission fees: 1374 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 851
+
+Equity: 0.562053860124
+Commission fees: 1401 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 852
+
+Equity: 0.520131730373
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 853
+
+Equity: 0.689250189946
+Commission fees: 1387 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 854
+
+Equity: 0.522579874609
+Commission fees: 1381 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 855
+
+Equity: 0.668057911241
+Commission fees: 1422 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 856
+
+Equity: 0.705503141702
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 857
+
+Equity: 0.665695307738
+Commission fees: 1362 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 858
+
+Equity: 0.934402154296
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 859
+
+Equity: 0.499562186197
+Commission fees: 1368 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 860
+
+Equity: 0.663028831424
+Commission fees: 1394 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 861
+
+Equity: 0.581163944341
+Commission fees: 1382 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 862
+
+Equity: 0.792797984641
+Commission fees: 1403 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 863
+
+Equity: 0.605083812106
+Commission fees: 1404 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 864
+
+Equity: 0.571859942114
+Commission fees: 1415 = 0.000000 in fees
+Average trade threshold: 0.660000 (0.660000 -> 0.660000)
+Iteration: 865
+
+Equity: 0.684721055188
+Commission fees: 1384 = 0.000000 
