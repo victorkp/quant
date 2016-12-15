@@ -55,7 +55,7 @@ TRADE_EXPLORATION_RATE = 0.03
 TRADE_THRESHOLD = 0.25 # 0.2
 TRADE_THRESHOLD_MULTIPLIER = 1.0 # NN outputs 0->1, but full range should be 0->2 because (sum(abs(port[i]-prev_port[i])))
 TRADE_FEE = 0 #.0002
-TRADE_REWARD_PENALTY = 0.02
+TRADE_REWARD_PENALTY = 0 #-0.005
 
 RNN_FORECAST = 7
 
@@ -394,8 +394,8 @@ with tf.Session() as sess:
             for i in range(0, len(portfolio)):
                 portfolio_diff += abs(portfolio[i] - last_portfolio[i])
 
-            make_trade = 1.0 if portfolio_diff > trade_threshold or np.random.uniform() > TRADE_EXPLORATION_RATE else 0.0
-            #make_trade = 1.0
+            # make_trade = 1.0 if portfolio_diff > trade_threshold or np.random.uniform() > TRADE_EXPLORATION_RATE else 0.0
+            make_trade = 1.0
 
             if make_trade > 0:
                 # Portfolio changed somewhat significantly
@@ -525,7 +525,6 @@ with tf.Session() as sess:
         average_portfolio = [p / (INDEX_END - INDEX_START) for p in average_portfolio]
 
         print "Equity: %s" % equity
-        print "Commission fees: %d = %f in fees" % (commission_fees, commission_fees * TRADE_FEE)
         print "Average trade threshold: %f (%f -> %f)" % (trade_thresh_average, trade_thresh_min, trade_thresh_max)
         # print "Done Reward: %s" % reward
         if iteration % min(40, BATCH_SIZE) == 0:  # Don't flood output so often
@@ -558,13 +557,12 @@ with tf.Session() as sess:
             # Do our batch update
             for i in range(0, len(batch_rl_x)):
                 # Run batch update on RL optimizer
-                sess.run(rl_optimizer, feed_dict={rl_input: batch_rl_x[i][0:min(1100, len(batch_rl_x[i]))],
-                                                  rl_y: batch_rl_y[i][0:min(1100, len(batch_rl_y[i]))],
-                                                  rl_reward: batch_rl_reward[i][0:min(1100, len(batch_rl_reward[i]))],
+                sess.run(rl_optimizer, feed_dict={rl_input: batch_rl_x[i][0:min(1100,len(batch_rl_x[i]))],
+                                                  rl_y: batch_rl_y[i][0:min(1100,len(batch_rl_x[i]))],
+                                                  rl_reward: batch_rl_reward[i][0:min(1100,len(batch_rl_x[i]))],
                                                   rl_learning_rate: LEARNING_RATE})
-
                 # Updates on RNN for each time step in this episode in the batch
-                for j in range(0, min(1100, len(batch_rnn_x[i]))):
+                for j in range(0, min(len(batch_rnn_x[i]), 1100)):
                     if np.random.uniform() > 0.8:
                         sess.run(rnn_optimizer, feed_dict = {rnn_x: batch_rnn_x[i][j],
                                                              # rnn_y: batch_rnn_y[i][j],
