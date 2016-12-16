@@ -1,7 +1,6 @@
 import numpy as np 
 import cPickle as pickle
 import tensorflow as tf
-import matplotlib.pyplot as plt
 from operator import sub, add
 import math
 import csv
@@ -174,39 +173,28 @@ W1 = tf.get_variable("W1", shape=[IN_DIMENS, LAYER_1_NEURONS],
            initializer=tf.contrib.layers.xavier_initializer())
 B1 = tf.Variable(tf.zeros([LAYER_1_NEURONS]), name="B1")
 layer1 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(observations, W1), B1), DROPOUT_KEEP_PROB)
-layer1_eval = tf.nn.bias_add(tf.matmul(observations, W1), B1)
 
 W2 = tf.get_variable("W2", shape=[LAYER_1_NEURONS, LAYER_2_NEURONS],
            initializer=tf.contrib.layers.xavier_initializer())
 B2 = tf.Variable(tf.zeros([LAYER_2_NEURONS]), name="B2")
 layer2 = tf.nn.dropout(tf.nn.bias_add(tf.matmul(layer1,W2), B2), DROPOUT_KEEP_PROB)
-layer2_eval = tf.nn.bias_add(tf.matmul(layer1_eval, W2), B2)
 
 W3 = tf.get_variable("W3", shape=[LAYER_2_NEURONS, OUT_DIMENS], # 4 dimen output for each security
            initializer=tf.contrib.layers.xavier_initializer())
 B3 = tf.Variable(tf.zeros([OUT_DIMENS]), name="B3")
 score = tf.nn.bias_add(tf.matmul(layer2,W3), B3)
-score_eval = tf.nn.bias_add(tf.matmul(layer2_eval, W3), B3)
 
 train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
-eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
-
-# train_network = tf.nn.log_softmax(score) # Has DROPOUT_KEEP_PROB for neurons
-# eval_network  = tf.nn.log_softmax(score_eval)  # Disables neuron dropout
-
-# Seems to get stuck at lower equity values than sigmoid
-# train_network = tf.nn.relu(score) # Has DROPOUT_KEEP_PROB for neurons
-# eval_network  = tf.nn.relu(score_eval)  # Disables neuron dropout
 
 #From here we define the parts of the network needed for learning a good policy.
 tvars = tf.trainable_variables()
 input_y = tf.placeholder(tf.float32, [None,OUT_DIMENS], name="input_y") # Prior output
 reward_signal = tf.placeholder(tf.float32, [None, OUT_DIMENS], name="reward_signal")
 
+### Tons of Loss Function Experiments
 # loss = -tf.reduce_mean((tf.log(input_y - train_network)) * advantages) # add constant to avoid NaN
 # loss = -tf.reduce_sum((tf.log(input_y - train_network) + 1e-7) * advantages) # add constant to avoid NaN
 # loss = -tf.reduce_sum(tf.log((input_y - tf.clip_by_value(train_network,1e-5,1.0)) * advantages)) # add constant to avoid NaN
-
 # loss = -tf.reduce_sum(tf.log(tf.clip_by_value(train_network,1e-6,1.0)) * advantages) # add constant to avoid NaN
 # loss = -tf.reduce_sum((train_network - input_y) * reward_signal) # add constant to avoid NaN
 # loss = -tf.reduce_sum(train_network * reward_signal) # add constant to avoid NaN
@@ -290,18 +278,11 @@ with tf.Session() as sess:
             last_trade = INDEX_START
             last_trade_equity = 1.0
 
-        # print gain_loss_averages
-
         # Make sure the observation is in a shape the network can handle.
         x = np.reshape(observation,[1,IN_DIMENS])
         
         # Run neural network to get a portfolio, which then normalizes to 100%
-        #if episode_number % BATCH_SIZE == BATCH_SIZE - 1 and input_index == INDEX_START:
-        #    print "======== EVALUATION RUN ========="
-        #neural_network = (eval_network) if (episode_number % BATCH_SIZE == BATCH_SIZE - 1) else (train_network)
-
-        neural_network = train_network
-        portfolio_raw = list(np.reshape(sess.run(neural_network, feed_dict={observations: x}), [NUM_STOCKS + 2]))
+        portfolio_raw = list(np.reshape(sess.run(train_network, feed_dict={observations: x}), [NUM_STOCKS + 2]))
         trade_threshold = portfolio_raw.pop() * TRADE_THRESHOLD_MULTIPLIER
         portfolio = normalize(portfolio_raw)
 
@@ -310,14 +291,10 @@ with tf.Session() as sess:
         trade_thresh_max = max(trade_thresh_max, trade_threshold)
 
         # Add random noise to portfolio for exploration
-        # print
-        # print "Before Explore: %s" % portfolio
         portfolio = [p + (EXPLORATION_RATE * np.random.uniform()) for p in portfolio_raw]
 
         # Normalize portfolio again after random noise
         portfolio = normalize(portfolio)
-        # print "After  Explore: %s" % portfolio
-        # print
 
         if math.isnan(portfolio[0]):
             print
@@ -329,17 +306,10 @@ with tf.Session() as sess:
         for i in range(0, len(portfolio)):
             portfolio_diff += abs(portfolio[i] - last_portfolio[i])
 
-        # print "Last Portfolio: %s" % last_portfolio
-        # print "Diff:           %f" % portfolio_diff
-
+        # Determine if trade was made
         trade_threshold = 1 - trade_threshold
-
-        # Add some random exploration for making trades
-        # make_trade = 1.0 if (portfolio_diff >= trade_threshold) or (np.random.uniform() < TRADE_EXPLORATION_RATE) else 0.0
-        # make_trade = 1.0 if trade_threshold > TRADE_THRESHOLD else 0
         make_trade = 1.0 if portfolio_diff > TRADE_THRESHOLD else 0
 
-        # print "Port Diff %s" % portfolio_diff
         if make_trade != 0:
             # Portfolio changed somewhat significantly
             # So a trade fee is incurred, and the portfolio is updated
@@ -348,11 +318,6 @@ with tf.Session() as sess:
             last_trade = input_index
             trade_profit = (equity - last_trade_equity) / last_trade_equity
             last_trade_equity = equity
-
-            # print
-            # print "Last Portfolio: %s" % last_portfolio
-            # print "    %s" % gain_loss_averages
-            # print "New  Portfolio: %s" % portfolio
 
             # If we are increasing our position, the average purchase price drifts towards 1,
             # otherwise the average price remains unchanged
@@ -367,9 +332,6 @@ with tf.Session() as sess:
                         gain_loss_averages[i] = ((last_portfolio[i] - portfolio[i]) + portfolio[i] * gain_loss_averages[i]) / last_portfolio[i]
             
             trade_stocks_profit = map(sub, trade_stocks_profit, gain_loss_averages)
-
-            # print "    %s" % gain_loss_averages
-            # print
 
             last_portfolio = portfolio
         else:
@@ -394,10 +356,6 @@ with tf.Session() as sess:
             min_gain_loss[i] = min(gain_loss_averages[i], min_gain_loss[i])
             max_gain_loss[i] = max(gain_loss_averages[i], max_gain_loss[i])
 
-        # print
-        # print "======================="
-        # print "Time Step: %d" % input_index
-
         # Reward is this day's gains or losses compared to tomorrow, with some penalty for changes in portfolio
         input_index += 1
         observation = input_data[input_index][1:IN_DIMENS-OUT_DIMENS-NUM_STOCKS] # Ignore timestamp, don't want that in weights
@@ -413,20 +371,10 @@ with tf.Session() as sess:
         gain_loss_averages[2] *= 1 + next_gld_change
         gain_loss_averages[3] *= 1 + next_uso_change
 
-        # print "SPY: %s" % next_spy_change
-        # print "SLV: %s" % next_slv_change
-        # print "GLD: %s" % next_gld_change
-        # print "USO: %s" % next_uso_change
-        # print
-
         spy_reward = next_spy_change * last_portfolio[0]
         slv_reward = next_slv_change * last_portfolio[1]
         gld_reward = next_gld_change * last_portfolio[2]
         uso_reward = next_uso_change * last_portfolio[3]
-        # print "SPY Reward: %s" % spy_reward
-        # print "SLV Reward: %s" % slv_reward
-        # print "GLD Reward: %s" % gld_reward
-        # print "USO Reward: %s" % uso_reward
 
         profit = spy_reward + slv_reward + gld_reward + uso_reward
         equity += equity * profit
@@ -437,8 +385,6 @@ with tf.Session() as sess:
             reward = [0, 0, 0, 0, 0, 0]
         # reward = map(add, reward, [next_spy_change, next_slv_change, next_gld_change, next_uso_change, 0, 0])
         reward = map(add, reward, [spy_reward, slv_reward, gld_reward, uso_reward, 0, 0])
-
-        # reward = [spy_reward, slv_reward, gld_reward, uso_reward, 0, trade_profit - TRADE_REWARD_PENALTY * make_trade]
 
         equities.append(equity)
 
@@ -459,25 +405,6 @@ with tf.Session() as sess:
             observation.append(g)
         observation = np.array(map(float, observation))
 
-        #if make_trade:
-        #    reward -= TRADE_REWARD_PENALTY
-
-        # if profit < -0.20:
-        #     print "Bad Day: %s" % profit
-        #     print "Last Portfolio: %s" % last_portfolio
-        #     print "SPY Change: %s" % next_spy_change
-        #     print "SLV Change: %s" % next_slv_change
-        #     print "GLD Change: %s" % next_gld_change
-        #     print "USO Change: %s" % next_uso_change
-        #     print "SPY Reward: %s" % spy_reward
-        #     print "SLV Reward: %s" % slv_reward
-        #     print "GLD Reward: %s" % gld_reward
-        #     print "USO Reward: %s" % uso_reward
-
-        # print "Reward: %s" % reward
-        # print "Equity : %s" % equity 
-        # print
-
         done = (input_index == INDEX_END) or (equity <= 0.01)
 
         # Final reward is portfolio's liquid value, plus 1.0 bonus for finishing
@@ -491,8 +418,6 @@ with tf.Session() as sess:
 
             average_portfolio = [p / input_index for p in average_portfolio]
 
-            # if episode_number % BATCH_SIZE == 0:
-            #     print "===== EVAL ====="
             print "Equity: %s at time step %d" % (equity, input_index - INDEX_START)
             print "Average trade threshold: %f (%f -> %f)" % (trade_thresh_average, trade_thresh_min, trade_thresh_max)
             # print "Done Reward: %s" % reward
@@ -511,9 +436,7 @@ with tf.Session() as sess:
         if done:
             episode_number += 1
 
-            # Don't record anything from evaluation runs
-            # if episode_number % BATCH_SIZE != 1:
-            # stack together all inputs, hidden states, action gradients, and rewards for this episode
+            # Gather episode X, Y, Reward
             epx = np.vstack(xs)
             epy = np.vstack(ys)
             epr = np.vstack(rewards)
@@ -534,6 +457,7 @@ with tf.Session() as sess:
                     y = batch_y[i]
                     r = batch_reward[i]
                     total_loss += sess.run(loss, feed_dict={observations: x, input_y: y, reward_signal: r, learning_rate: LEARNING_RATE})
+
                 print
                 print "Average loss: %f in %d episodes" % (total_loss / len(batch_x), len(batch_x))
                 print
