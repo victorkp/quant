@@ -2,7 +2,6 @@ import numpy as np
 import cPickle as pickle
 import tensorflow as tf
 from tensorflow.python.ops import rnn, rnn_cell
-import matplotlib.pyplot as plt
 from operator import add
 from operator import sub
 import math

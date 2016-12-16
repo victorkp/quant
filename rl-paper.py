@@ -8,7 +8,7 @@ import sys
 
 NUM_STOCKS = 4
 OUT_DIMENS = NUM_STOCKS + 1 + 1 # SPY, SLV, GLD, USO, Cash, trade threshold
-IN_DIMENS = (3 * 2) + (NUM_STOCKS * 18) + (OUT_DIMENS - 1) + 1 + 1 + NUM_STOCKS # input dimensionality: 3 economic factor (2 dimens), 4 securities with 18 dimens, 5 dimen prior output, equity, boolean if trade happened, loss/gain on stocks
+IN_DIMENS = (3 * 2) + ((1+NUM_STOCKS) * 18) + (OUT_DIMENS - 1) + 1 + 1 + NUM_STOCKS # input dimensionality: 3 economic factor (2 dimens), 4 securities plus CNY with 18 dimens, 5 dimen prior output, equity, boolean if trade happened, loss/gain on stocks
 
 # hyperparameters
 LAYER_1_NEURONS = 2 * IN_DIMENS # number of hidden layer neurons

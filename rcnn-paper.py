@@ -297,6 +297,21 @@ for i in range(TRAIN_START, TRAIN_END):
 with tf.Session() as sess:
     sess.run(init)
 
+    # RNN bootstrap
+    rnn_bootstrap_iters = 5
+    bootstrap_learn_rate = LEARNING_RATE
+    for iter in range(0,rnn_bootstrap_iters):
+        print "Bootstrapping RNN %d/%d" % (iter, rnn_bootstrap_iters)
+        sequence_x = get_initial_sequence(INDEX_START)
+        for i in range(INDEX_START, INDEX_END):
+            sess.run(rnn_optimizer, feed_dict = {rnn_x: sequence_x,
+                                                 rnn_y: rnn_targets[i - INDEX_START],
+                                                 rnn_learning_rate: bootstrap_learn_rate})
+            sequence_x.pop(0)
+            sequence_x.append(input_data[i][1:-1] + initial_observation_state())
+        bootstrap_learn_rate *= 0.95
+
+
     RNN_TRAINING_ITERATIONS = 10000
     iteration = 0
 

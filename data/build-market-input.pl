@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Data::Dumper;
-use DateTime;
+# use DateTime;
 use File::Slurp;
 use File::Basename;
 use Statistics::Basic qw(variance stddev);
@@ -35,16 +35,18 @@ while($ARGV[0] ne "break") {
         # Date (year-month-day), Open, High, Low, Close, Volume, Adj. Close
         if($line =~ /^(\d\d\d\d)-(\d\d)-(\d\d),([\d\.]+)$/) {
             # Combine year into time since epoch
-            my $dt = DateTime->new(year   => $1,
-                                   month  => $2,
-                                   day    => $3,
-                                   time_zone => 'America/New_York' );
+            # my $dt = DateTime->new(year   => $1,
+            #                        month  => $2,
+            #                        day    => $3,
+            #                        time_zone => 'America/New_York' );
+
+            my $dt = $1 * 500 + $2 * 32 + $3;
 
             my $price = $4;
 
             # Output: date, price, change since last data point
             my @datapoint;
-            push @datapoint, $dt->epoch();
+            push @datapoint, $dt;
 
             if($highest < $price) {
                 $highest = $price;
@@ -108,10 +110,12 @@ for my $file (@ARGV) {
         # Date (year-month-day), Open, High, Low, Close, Volume, Adj. Close
         if($line =~ /^(\d\d\d\d)-(\d\d)-(\d\d),([\d\.]+),([\d\.]+),([\d\.]+),([\d\.]+),([\d\.]+),([\d\.]+)$/) {
             # Combine year into time since epoch
-            my $dt = DateTime->new(year   => $1,
-                                   month  => $2,
-                                   day    => $3,
-                                   time_zone => 'America/New_York' );
+            # my $dt = DateTime->new(year   => $1,
+            #                        month  => $2,
+            #                        day    => $3,
+            #                        time_zone => 'America/New_York' );
+
+            my $dt = $1 * 500 + $2 * 32 + $3;
 
             # Output: average of (low, high, close) prices
             my $price = ($6 + $5 + $7) / 3.0;
@@ -202,7 +206,9 @@ for my $file (@ARGV) {
                 my $change_40_day = (($price - $average_40_day) / $average_40_day);
                 my $change_80_day = (($price - $average_80_day) / $average_80_day);
 
-                $data{$dt->epoch} = (exists($data{$dt->epoch}) ? $data{$dt->epoch} : "") . "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_3_day, $change_4_day, $change_5_day, $change_6_day, $change_7_day, $change_8_day, $change_9_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day, $deviation_3_day, $deviation_5_day, $deviation_10_day,";
+                # $data{$dt->epoch} = (exists($data{$dt->epoch}) ? $data{$dt->epoch} : "") . "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_3_day, $change_4_day, $change_5_day, $change_6_day, $change_7_day, $change_8_day, $change_9_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day, $deviation_3_day, $deviation_5_day, $deviation_10_day,";
+                
+                $data{$dt} = (exists($data{$dt}) ? $data{$dt} : "") . "$price_change, $rsi_3_day, $rsi_10_day, $rsi_14_day, $change_3_day, $change_4_day, $change_5_day, $change_6_day, $change_7_day, $change_8_day, $change_9_day, $change_10_day, $change_20_day, $change_40_day, $change_80_day, $deviation_3_day, $deviation_5_day, $deviation_10_day,";
             }
 
             $sample_count++;
